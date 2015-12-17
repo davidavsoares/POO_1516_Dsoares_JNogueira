@@ -1,0 +1,22 @@
+#include <Windows.h>
+#include <thread>
+
+void loopmusic(HSTREAM streamHandle){
+
+	streamHandle = BASS_StreamCreateFile(FALSE, "C:\\Users\\tixo\\Documents\\Visual Studio 2015\\Projects\\POO\\TP1\\FTL\\FTL\\test.mp3", 0, 0, 0);
+
+	while (BASS_ChannelPlay(streamHandle, false));
+
+}
+void main() {
+//inicio
+HSTREAM streamHandle;
+
+
+	BASS_Init(-1, 44100, 0, 0, NULL);
+	BASS_SetVolume(3);
+
+	thread plmusic(loopmusic, streamHandle);
+//fim do main
+BASS_Free();
+}
