@@ -12,6 +12,9 @@
 #include "consola.h"
 
 
+#define tamanho 6
+
+
 
 
 using namespace std;

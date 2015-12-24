@@ -5,7 +5,7 @@ void main()
 	Consola c;
 	//som_fundo();
 
-	Nave();
+	Nave(8, 7);
 
 	//BASS_Free  //-> È suposto ser uma função criada?
 }
