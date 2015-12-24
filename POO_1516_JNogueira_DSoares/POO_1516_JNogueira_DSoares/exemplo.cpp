@@ -1,7 +1,4 @@
-#include <Windows.h>
-
-
-
+#include "Funcoes_main.h"
 /* Funcoes da consola. Dez 2010 */
 
 /* Pequenas correcoes + função main nova. Nov. 2013 */
@@ -12,9 +9,6 @@
 
 /* -----> Ler os comentários todos antes de fazer perguntas */
 
-#include <iostream>
-
-#include "consola.h"
 // Isto é uma biblioteca desenvolvida para POO
 // Não é standard e não pretende ser
 //
@@ -47,19 +41,13 @@
 //   . Declarar um objecto Consola e usar as suas funções
 //   . Basta ter um objecto Consola. Não são precisos mais
 
-using namespace std;
 
-//void loopmusic(HSTREAM streamHandle) {
-//
-//	streamHandle = BASS_StreamCreateFile(FALSE, "C:\\Users\\David Soares\\Google Drive\\ISEc\\ISEC 1516\\1º Semestre\\POO\\Trabalho Prático\\Git\\David\\POO_1516_JNogueira_DSoares\\POO_1516_JNogueira_DSoares\\space-alien-ambience.flac", 0, 0, 0);
-//
-//	while (BASS_ChannelPlay(streamHandle, false));
-//
-//}
-// exemplo. serve de explicacao
-int main() {
+void main() {
 	
-	
+	////////////////////////////inicio/////////////////MUSICA///////////////////////7
+	//som_fundo();
+	////////////////////fim MUSICA////////////////////////////////////////////////////////////
+
 	////////////////////////////////////////////////CONSOLA///////////////////////////////////////////////////////////////////////////////////////
 	
 	
@@ -81,7 +69,7 @@ int main() {
 	c.getch();
 
 	c.setTextSize(20, 20);
-	c.setScreenSize(200, 200);  // linhas colunas. valores grandes pode nao dar
+	c.setScreenSize(45, 80);  // linhas colunas. valores grandes pode nao dar
 	c.setBackgroundColor(c.AZUL);  // favor consultar o .h para ver as constantes
 	c.setTextColor(c.AMARELO_CLARO);
 	c.clrscr();  // reparar no c.xx - trata-se de funções da biblioteca de Consolda (para POO)
@@ -178,6 +166,8 @@ int main() {
 	c.setBackgroundColor(c.BRANCO_CLARO);
 	c.clrscr();
 
+	//DESENHA OS PADROES
+
 	c.gotoxy(20, 20);
 	cout << (char)218 << (char)196 << (char)196 << (char)196 << (char)191 << '\n';
 	c.gotoxy(20, 21);
@@ -229,9 +219,12 @@ int main() {
 	c.setTextColor(c.PRETO);
 	cout << "\n\n\t\tCarrega numa tecla qualquer";
 	c.getch();
-	return 0;
 	
+		
 
 	////////////////////////////////////////////////////////FIM CONSOLA//////////////////////////////////////////////////////////////////////////
+
+	//BASS_Free();
+
 }
 

@@ -18,6 +18,12 @@
     <ClCompile Include="consola.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Nave.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="exemplo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -27,6 +33,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="bass.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Nave.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="bibliotecas.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Funcoes_main.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

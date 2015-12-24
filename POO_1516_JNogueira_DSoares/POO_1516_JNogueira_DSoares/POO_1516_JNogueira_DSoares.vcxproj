@@ -20,11 +20,22 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="consola.cpp" />
-    <ClCompile Include="exemplo.cpp" />
+    <ClCompile Include="exemplo.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Nave.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="bass.h" />
+    <ClInclude Include="bibliotecas.h" />
     <ClInclude Include="consola.h" />
+    <ClInclude Include="Funcoes_main.h" />
+    <ClInclude Include="Nave.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="bass.dll" />
