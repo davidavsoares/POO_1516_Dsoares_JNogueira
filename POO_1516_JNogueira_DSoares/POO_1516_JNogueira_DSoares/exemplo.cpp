@@ -1,6 +1,5 @@
 #include <Windows.h>
-#include <thread>
-#include "bass.h"
+
 
 
 /* Funcoes da consola. Dez 2010 */
@@ -50,24 +49,20 @@
 
 using namespace std;
 
-void loopmusic(HSTREAM streamHandle) {
-
-	streamHandle = BASS_StreamCreateFile(FALSE, "C:\\Users\\David Soares\\Google Drive\\ISEc\\ISEC 1516\\1º Semestre\\POO\\Trabalho Prático\\Git\\David\\POO_1516_JNogueira_DSoares\\POO_1516_JNogueira_DSoares\\space-alien-ambience.flac", 0, 0, 0);
-
-	while (BASS_ChannelPlay(streamHandle, false));
-
-}
+//void loopmusic(HSTREAM streamHandle) {
+//
+//	streamHandle = BASS_StreamCreateFile(FALSE, "C:\\Users\\David Soares\\Google Drive\\ISEc\\ISEC 1516\\1º Semestre\\POO\\Trabalho Prático\\Git\\David\\POO_1516_JNogueira_DSoares\\POO_1516_JNogueira_DSoares\\space-alien-ambience.flac", 0, 0, 0);
+//
+//	while (BASS_ChannelPlay(streamHandle, false));
+//
+//}
 // exemplo. serve de explicacao
 int main() {
-	//inicio
-	HSTREAM streamHandle;
-
-
-	BASS_Init(-1, 44100, 0, 0, NULL);
-	BASS_SetVolume(3);
-
-	thread plmusic(loopmusic, streamHandle);
-	//fim do main
+	
+	
+	////////////////////////////////////////////////CONSOLA///////////////////////////////////////////////////////////////////////////////////////
+	
+	
 	
 	Consola c;  // Este objecto dá acesso à funcionalidade da consola. Basta um por programa
 
@@ -85,8 +80,8 @@ int main() {
 
 	c.getch();
 
-	c.setTextSize(8, 8);
-	c.setScreenSize(50, 80);  // linhas colunas. valores grandes pode nao dar
+	c.setTextSize(20, 20);
+	c.setScreenSize(200, 200);  // linhas colunas. valores grandes pode nao dar
 	c.setBackgroundColor(c.AZUL);  // favor consultar o .h para ver as constantes
 	c.setTextColor(c.AMARELO_CLARO);
 	c.clrscr();  // reparar no c.xx - trata-se de funções da biblioteca de Consolda (para POO)
@@ -236,6 +231,7 @@ int main() {
 	c.getch();
 	return 0;
 	
-	BASS_Free(); //MUSICA
+
+	////////////////////////////////////////////////////////FIM CONSOLA//////////////////////////////////////////////////////////////////////////
 }
 
