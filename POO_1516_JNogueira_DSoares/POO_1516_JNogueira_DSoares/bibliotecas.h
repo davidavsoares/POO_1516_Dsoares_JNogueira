@@ -12,7 +12,7 @@
 #include "consola.h"
 
 
-#define tamanho 6
+#define tamanho 10
 
 
 
