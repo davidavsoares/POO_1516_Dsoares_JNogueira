@@ -19,11 +19,13 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="comandos.cpp" />
     <ClCompile Include="consola.cpp" />
     <ClCompile Include="exemplo.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="Interface.cpp" />
     <ClCompile Include="main.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
@@ -33,8 +35,10 @@
   <ItemGroup>
     <ClInclude Include="bass.h" />
     <ClInclude Include="bibliotecas.h" />
+    <ClInclude Include="comandos.h" />
     <ClInclude Include="consola.h" />
     <ClInclude Include="Funcoes_main.h" />
+    <ClInclude Include="Interface.h" />
     <ClInclude Include="Nave.h" />
   </ItemGroup>
   <ItemGroup>

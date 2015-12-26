@@ -9,10 +9,11 @@ Nave::Nave(int x, int y, int tamanho)
 	
 
 	c.setTextSize(20,20);
-	c.setScreenSize(45, 45);  // linhas colunas. valores grandes pode nao dar
-	c.setBackgroundColor(c.CYAN_CLARO);  // favor consultar o .h para ver as constantes
-	c.setTextColor(c.PRETO);
+	c.setScreenSize(55, 85);  // linhas colunas. valores grandes pode nao dar
+	c.setBackgroundColor(c.PRETO);  // favor consultar o .h para ver as constantes
+	c.setTextColor(c.BRANCO_CLARO);
 	c.clrscr();
+
 
 	/*for (k = 0; k < 3; k++)
 	{
