@@ -2,16 +2,17 @@
 
 
 
-Nave::Nave(int x, int y)
+Nave::Nave(int x, int y, int tamanho)
 {
 	int i, sala = 1, k;
 	Consola c;
 	
 
-	c.setTextSize(20, 20);
+	c.setTextSize(20,20);
 	c.setScreenSize(45, 45);  // linhas colunas. valores grandes pode nao dar
-	c.setBackgroundColor(c.AZUL);  // favor consultar o .h para ver as constantes
-	c.setTextColor(c.AMARELO_CLARO);
+	c.setBackgroundColor(c.CYAN_CLARO);  // favor consultar o .h para ver as constantes
+	c.setTextColor(c.PRETO);
+	c.clrscr();
 
 	/*for (k = 0; k < 3; k++)
 	{
@@ -62,10 +63,10 @@ Nave::Nave(int x, int y)
 		{
 			if (k != 1)
 			{
-				Quadrado(x + i * tamanho, y + k * tamanho/2, c, sala);
+				Quadrado(x + i * tamanho, y + k * tamanho/2, c, sala, tamanho);
 			}
 			else 
-				Quadrado(x + (i + 1) * tamanho, y + k * tamanho/2, c, sala);
+				Quadrado(x + (i + 1) * tamanho, y + k * tamanho/2, c, sala, tamanho);
 			sala++;
 		}
 	}
@@ -77,7 +78,7 @@ Nave::~Nave()
 }
 
 
-void Nave::Quadrado(int x,int y, Consola c, int sala)
+void Nave::Quadrado(int x,int y, Consola c, int sala,int tamanho) // CASO SEJA NECESSÀRIO: pode se criar a classe Sala que cria um quadrado, havendo um vector de salas na NAVE!
 {
 	//Consola c;  //passar por referencia, o prof so quer um por programa
 

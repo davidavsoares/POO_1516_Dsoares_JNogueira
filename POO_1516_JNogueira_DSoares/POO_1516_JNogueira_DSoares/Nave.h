@@ -4,11 +4,11 @@
 class Nave
 {
 public:
-	Nave(int x, int y);
+	Nave(int x, int y, int tamanho);
 	~Nave();
 
 
-	void Quadrado(int x, int y, Consola c, int sala);
+	void Quadrado(int x, int y, Consola c, int sala, int tamanho);
 };
 
 
