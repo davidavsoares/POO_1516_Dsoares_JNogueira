@@ -1,3 +1,4 @@
+#pragma once
 #include "bibliotecas.h"
 #include "Nave.h"
 

@@ -5,6 +5,7 @@
 Interface::Interface()
 {
 
+
 	c.setTextSize(20, 20);
 	c.setScreenSize(55, 85);
 	fundo = c.PRETO;
