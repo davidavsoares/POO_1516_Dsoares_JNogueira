@@ -1,5 +1,8 @@
 #pragma once
 #include "bibliotecas.h"
+#include "consola.h"
+#include "comandos.h"
+#include "Nave.h"
 
 class Interface
 {

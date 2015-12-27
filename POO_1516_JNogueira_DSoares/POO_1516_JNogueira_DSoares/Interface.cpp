@@ -1,9 +1,9 @@
 #include "Interface.h"
-#include "comandos.h"
-#include "Nave.h"
+
 
 Interface::Interface()
 {
+	Consola c;
 
 
 	c.setTextSize(20, 20);
@@ -30,7 +30,7 @@ void Interface::desenha_menu()
 {
 	comandos cmd;
 	Consola c;
-	int x = 15, y = 5, coord_x = 55, coord_y = 6, i, j;
+	int x = 15, y = 5, coord_x = 60, coord_y = 6, i, j;
 	int contador = 0, tecla = 0, menu_x = 50, menu_y = 15, opcao = 1;
 	bool flag = false;
 
@@ -50,6 +50,9 @@ void Interface::desenha_menu()
 	{
 		if (opcao == 1)
 		{
+			c.clrscr();
+			c.gotoxy(45, 8);
+			cout << "Fallout Shelter Ft FTL";
 			c.gotoxy(menu_x, menu_y);
 			c.setBackgroundColor(fundo);
 			cout << ">Iniciar";
@@ -60,6 +63,9 @@ void Interface::desenha_menu()
 		}
 		if (opcao==2)
 		{
+			c.clrscr();
+			c.gotoxy(45, 8);
+			cout << "Fallout Shelter Ft FTL";
 			c.gotoxy(menu_x, menu_y);
 			cout << "Iniciar";
 			c.gotoxy(menu_x, menu_y + 3);
@@ -69,6 +75,9 @@ void Interface::desenha_menu()
 		}
 		if (opcao == 3)
 		{
+			c.clrscr();
+			c.gotoxy(45, 8);
+			cout << "Fallout Shelter ft FTL";
 			c.gotoxy(menu_x, menu_y);
 			cout << "Iniciar";
 			c.gotoxy(menu_x, menu_y + 3);
@@ -118,15 +127,13 @@ void Interface::creditos()
 	
 	c.clrscr();
 	c.gotoxy(45,8);
-	cout << "Have you made it to the end? "<<endl;
+	cout << "Have you made it untill the end? "<<endl;
 	c.gotoxy(53, 10);
 	cout << "At least TRY!" << endl;
-	c.gotoxy(32,15);
-	cout << "Fallout Shelter Ft FTL"<<endl<<endl<<endl;
-	c.gotoxy(35, 17);
-	cout << "David Soares" << endl;
-	c.gotoxy(35, 18);
-	cout << "Jorge Nogueira"<<endl;
+	c.gotoxy(50,15);
+	cout << "Fallout Shelter ft FTL"<<endl<<endl<<endl;
+	c.gotoxy(60, 35);
+	cout << "Copyright 2015, David Soares && Jorge Nogueira" << endl << endl;
 
 	Sleep(6000);
 	c.clrscr();
@@ -147,7 +154,7 @@ void Interface::sair()
 	c.gotoxy(60, 35);
 	cout << "Copyright 2015, David Soares && Jorge Nogueira" << endl << endl;
 
-	Sleep(4000);
+	Sleep(3000);
 	exit(0);
 }
 

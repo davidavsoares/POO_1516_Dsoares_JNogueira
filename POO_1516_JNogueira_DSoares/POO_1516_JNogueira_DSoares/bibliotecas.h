@@ -11,9 +11,6 @@
 #include <time.h>
 #include <fstream>
 
-#include "consola.h"
-
-Consola c;
 
 
 

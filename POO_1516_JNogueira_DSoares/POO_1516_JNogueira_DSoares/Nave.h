@@ -1,6 +1,7 @@
 #pragma once
 #include "bibliotecas.h"
 #include "Sala.h"
+#include "consola.h"
 
 class Nave
 {

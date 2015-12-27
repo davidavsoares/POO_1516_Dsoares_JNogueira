@@ -1,30 +1,20 @@
-﻿Build started 27/12/2015 00:15:12.
-     1>Project "C:\Users\David Soares\Desktop\POO_1516_JNogueira_DSoares\POO_1516_JNogueira_DSoares\POO_1516_JNogueira_DSoares.vcxproj" on node 2 (Build target(s)).
+﻿Build started 27/12/2015 00:37:00.
+     1>Project "C:\Users\David Soares\Documents\GitHub\POO_1516_Dsoares_JNogueira\POO_1516_JNogueira_DSoares\POO_1516_JNogueira_DSoares\POO_1516_JNogueira_DSoares.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"x64\Debug\\" /Fd"x64\Debug\vc140.pdb" /Gd /TP /errorReport:prompt Interface.cpp Nave.cpp Sala.cpp comandos.cpp consola.cpp main.cpp
-         main.cpp
-     1>c:\users\david soares\desktop\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\nave.h(7): error C2065: 'Sala': undeclared identifier
-     1>c:\users\david soares\desktop\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\nave.h(7): error C2059: syntax error: '>'
-     1>c:\users\david soares\desktop\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\nave.h(7): error C2976: 'std::vector': too few template arguments
-         c:\program files (x86)\microsoft visual studio 14.0\vc\include\vector(678): note: see declaration of 'std::vector'
-     1>c:\users\david soares\desktop\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\nave.h(11): error C2061: syntax error: identifier 'Sala'
-         Sala.cpp
-     1>c:\users\david soares\desktop\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\nave.h(7): error C2065: 'Sala': undeclared identifier
-     1>c:\users\david soares\desktop\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\nave.h(7): error C2059: syntax error: '>'
-     1>c:\users\david soares\desktop\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\nave.h(7): error C2976: 'std::vector': too few template arguments
-         c:\program files (x86)\microsoft visual studio 14.0\vc\include\vector(678): note: see declaration of 'std::vector'
-     1>c:\users\david soares\desktop\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\nave.h(11): error C2061: syntax error: identifier 'Sala'
-         Generating Code...
-         Compiling...
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"x64\Debug\\" /Fd"x64\Debug\vc140.pdb" /Gd /TP /errorReport:prompt Interface.cpp
          Interface.cpp
-         Generating Code...
-         Compiling...
-         consola.cpp
-         comandos.cpp
-         Nave.cpp
-         Generating Code...
-     1>Done Building Project "C:\Users\David Soares\Desktop\POO_1516_JNogueira_DSoares\POO_1516_JNogueira_DSoares\POO_1516_JNogueira_DSoares.vcxproj" (Build target(s)) -- FAILED.
+     1>cl : Command line warning D9028: minimal rebuild failure, reverting to normal build
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\David Soares\Documents\GitHub\POO_1516_Dsoares_JNogueira\POO_1516_JNogueira_DSoares\x64\Debug\POO_1516_JNogueira_DSoares.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"C:\Users\David Soares\Documents\GitHub\POO_1516_Dsoares_JNogueira\POO_1516_JNogueira_DSoares\x64\Debug\POO_1516_JNogueira_DSoares.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\David Soares\Documents\GitHub\POO_1516_Dsoares_JNogueira\POO_1516_JNogueira_DSoares\x64\Debug\POO_1516_JNogueira_DSoares.lib" /MACHINE:X64 x64\Debug\comandos.obj
+         x64\Debug\consola.obj
+         x64\Debug\Interface.obj
+         x64\Debug\main.obj
+         x64\Debug\Nave.obj
+         x64\Debug\Sala.obj
+         bass.lib
+         POO_1516_JNogueira_DSoares.vcxproj -> C:\Users\David Soares\Documents\GitHub\POO_1516_Dsoares_JNogueira\POO_1516_JNogueira_DSoares\x64\Debug\POO_1516_JNogueira_DSoares.exe
+     1>Done Building Project "C:\Users\David Soares\Documents\GitHub\POO_1516_Dsoares_JNogueira\POO_1516_JNogueira_DSoares\POO_1516_JNogueira_DSoares\POO_1516_JNogueira_DSoares.vcxproj" (Build target(s)).
 
-Build FAILED.
+Build succeeded.
 
-Time Elapsed 00:00:05.12
+Time Elapsed 00:00:01.44
