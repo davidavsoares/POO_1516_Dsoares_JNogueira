@@ -1,6 +1,6 @@
 #pragma once
 
-/////////////////////Header onde se encontram as bibliotecas e includes do main////////////////////////
+/////////////////////Header onde se encontram as bibliotecas////////////////////////
 
 #include <Windows.h>
 #include <thread>
@@ -11,12 +11,13 @@
 #include <time.h>
 #include <fstream>
 
-
-
-#include "bass.h"
 #include "consola.h"
-#include "comandos.h"
-#include "Interface.h"
+Consola c;
+
+
+
+
+
 
 
 

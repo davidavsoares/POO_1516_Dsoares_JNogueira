@@ -33,6 +33,9 @@
     <ClCompile Include="comandos.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Sala.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="consola.h">
@@ -54,6 +57,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="comandos.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Sala.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

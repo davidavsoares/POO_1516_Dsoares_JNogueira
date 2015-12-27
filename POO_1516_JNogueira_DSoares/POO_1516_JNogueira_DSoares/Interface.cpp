@@ -1,8 +1,9 @@
 #include "Interface.h"
+#include "comandos.h"
+#include "Nave.h"
 
 Interface::Interface()
 {
-	Consola c;
 
 	c.setTextSize(20, 20);
 	c.setScreenSize(55, 85);
@@ -155,7 +156,7 @@ void Interface::goodbye()
 	c.clrscr();
 	c.setTextSize(20, 20);
 	/////////////////////PRINT G/////////////////
-	int i, xx = 35, yy = 8, x, y, tempx, tempy;
+	int i, xx = 35, yy = 8, x, y;
 	x = xx;
 	y = yy;
 

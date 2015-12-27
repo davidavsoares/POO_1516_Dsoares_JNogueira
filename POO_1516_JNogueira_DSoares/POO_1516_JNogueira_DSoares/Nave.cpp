@@ -76,6 +76,7 @@ Nave::Nave(int x, int y, int tamanho)
 
 Nave::~Nave()
 {
+	salas.clear();
 }
 
 
@@ -319,3 +320,17 @@ void Nave::Quadrado(int x,int y, Consola c, int sala,int tamanho) // CASO SEJA N
 //
 //	cout << endl << endl;
 //}
+
+void Nave::adiciona(Sala *p)
+{
+	this->salas.push_back(p);
+}
+
+string Nave::toString() const
+{
+	ostringstream oss;
+	
+	for (unsigned int i = 0; i < salas.size(); i++)
+	oss << " Integridade: " << salas[i] -> getIntegridade() << endl << " Saude : " << salas[i] -> getSaude() << endl << " Oxigenio : " << salas[i] -> getOxigenio() << endl;
+	return oss.str();
+}

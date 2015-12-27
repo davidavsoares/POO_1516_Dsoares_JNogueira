@@ -1,21 +1,89 @@
-﻿Build started 17/12/2015 20:31:25.
-     1>Project "C:\Users\David Soares\Google Drive\ISEc\ISEC 1516\1º Semestre\POO\Trabalho Prático\Git\David\POO_1516_JNogueira_DSoares\POO_1516_JNogueira_DSoares\POO_1516_JNogueira_DSoares.vcxproj" on node 2 (Build target(s)).
+﻿Build started 27/12/2015 00:01:36.
+     1>Project "C:\Users\David Soares\Documents\GitHub\POO_1516_Dsoares_JNogueira\POO_1516_JNogueira_DSoares\POO_1516_JNogueira_DSoares\POO_1516_JNogueira_DSoares.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"x64\Debug\\" /Fd"x64\Debug\vc140.pdb" /Gd /TP /errorReport:prompt exemplo.cpp
-         exemplo.cpp
-       Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\David Soares\Google Drive\ISEc\ISEC 1516\1º Semestre\POO\Trabalho Prático\Git\David\POO_1516_JNogueira_DSoares\x64\Debug\POO_1516_JNogueira_DSoares.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"C:\Users\David Soares\Google Drive\ISEc\ISEC 1516\1º Semestre\POO\Trabalho Prático\Git\David\POO_1516_JNogueira_DSoares\x64\Debug\POO_1516_JNogueira_DSoares.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\David Soares\Google Drive\ISEc\ISEC 1516\1º Semestre\POO\Trabalho Prático\Git\David\POO_1516_JNogueira_DSoares\x64\Debug\POO_1516_JNogueira_DSoares.lib" /MACHINE:X64 x64\Debug\consola.obj
-         x64\Debug\exemplo.obj
-         bass.lib
-     1>exemplo.obj : error LNK2019: unresolved external symbol BASS_Init referenced in function main
-     1>exemplo.obj : error LNK2019: unresolved external symbol BASS_Free referenced in function main
-     1>exemplo.obj : error LNK2019: unresolved external symbol BASS_SetVolume referenced in function main
-     1>exemplo.obj : error LNK2019: unresolved external symbol BASS_StreamCreateFile referenced in function "void __cdecl loopmusic(unsigned long)" (?loopmusic@@YAXK@Z)
-     1>exemplo.obj : error LNK2019: unresolved external symbol BASS_ChannelPlay referenced in function "void __cdecl loopmusic(unsigned long)" (?loopmusic@@YAXK@Z)
-     1>bass.lib : warning LNK4272: library machine type 'X86' conflicts with target machine type 'x64'
-     1>C:\Users\David Soares\Google Drive\ISEc\ISEC 1516\1║ Semestre\POO\Trabalho Prßtico\Git\David\POO_1516_JNogueira_DSoares\x64\Debug\POO_1516_JNogueira_DSoares.exe : fatal error LNK1120: 5 unresolved externals
-     1>Done Building Project "C:\Users\David Soares\Google Drive\ISEc\ISEC 1516\1º Semestre\POO\Trabalho Prático\Git\David\POO_1516_JNogueira_DSoares\POO_1516_JNogueira_DSoares\POO_1516_JNogueira_DSoares.vcxproj" (Build target(s)) -- FAILED.
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"x64\Debug\\" /Fd"x64\Debug\vc140.pdb" /Gd /TP /errorReport:prompt Interface.cpp Nave.cpp Sala.cpp comandos.cpp main.cpp
+         main.cpp
+     1>c:\users\david soares\documents\github\poo_1516_dsoares_jnogueira\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\interface.h(4): error C2011: 'Interface': 'class' type redefinition
+         c:\users\david soares\documents\github\poo_1516_dsoares_jnogueira\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\interface.h(4): note: see declaration of 'Interface'
+     1>c:\users\david soares\documents\github\poo_1516_dsoares_jnogueira\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\sala.h(6): error C2011: 'Sala': 'class' type redefinition
+         c:\users\david soares\documents\github\poo_1516_dsoares_jnogueira\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\sala.h(6): note: see declaration of 'Sala'
+     1>c:\users\david soares\documents\github\poo_1516_dsoares_jnogueira\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\main.cpp(13): error C2079: 'ui' uses undefined class 'Interface'
+     1>c:\users\david soares\documents\github\poo_1516_dsoares_jnogueira\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\main.cpp(15): error C2228: left of '.inicia' must have class/struct/union
+         c:\users\david soares\documents\github\poo_1516_dsoares_jnogueira\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\main.cpp(15): note: type is 'int'
+     1>c:\users\david soares\documents\github\poo_1516_dsoares_jnogueira\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\main.cpp(17): error C2079: 'a' uses undefined class 'Sala'
+         Sala.cpp
+     1>c:\users\david soares\documents\github\poo_1516_dsoares_jnogueira\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\sala.h(6): error C2011: 'Sala': 'class' type redefinition
+         c:\users\david soares\documents\github\poo_1516_dsoares_jnogueira\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\sala.h(6): note: see declaration of 'Sala'
+     1>c:\users\david soares\documents\github\poo_1516_dsoares_jnogueira\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\sala.cpp(5): error C2027: use of undefined type 'Sala'
+         c:\users\david soares\documents\github\poo_1516_dsoares_jnogueira\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\sala.h(6): note: see declaration of 'Sala'
+     1>c:\users\david soares\documents\github\poo_1516_dsoares_jnogueira\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\sala.cpp(5): error C2062: type 'int' unexpected
+     1>c:\users\david soares\documents\github\poo_1516_dsoares_jnogueira\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\sala.cpp(6): error C2143: syntax error: missing ';' before '{'
+     1>c:\users\david soares\documents\github\poo_1516_dsoares_jnogueira\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\sala.cpp(6): error C2447: '{': missing function header (old-style formal list?)
+     1>c:\users\david soares\documents\github\poo_1516_dsoares_jnogueira\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\sala.cpp(15): error C2027: use of undefined type 'Sala'
+         c:\users\david soares\documents\github\poo_1516_dsoares_jnogueira\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\sala.h(6): note: see declaration of 'Sala'
+     1>c:\users\david soares\documents\github\poo_1516_dsoares_jnogueira\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\sala.cpp(15): error C2059: syntax error: ')'
+     1>c:\users\david soares\documents\github\poo_1516_dsoares_jnogueira\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\sala.cpp(16): error C2143: syntax error: missing ';' before '{'
+     1>c:\users\david soares\documents\github\poo_1516_dsoares_jnogueira\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\sala.cpp(16): error C2447: '{': missing function header (old-style formal list?)
+     1>c:\users\david soares\documents\github\poo_1516_dsoares_jnogueira\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\sala.cpp(20): error C2027: use of undefined type 'Sala'
+         c:\users\david soares\documents\github\poo_1516_dsoares_jnogueira\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\sala.h(6): note: see declaration of 'Sala'
+     1>c:\users\david soares\documents\github\poo_1516_dsoares_jnogueira\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\sala.cpp(21): error C2270: 'toString': modifiers not allowed on nonmember functions
+     1>c:\users\david soares\documents\github\poo_1516_dsoares_jnogueira\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\sala.cpp(24): error C2065: 'integridade': undeclared identifier
+     1>c:\users\david soares\documents\github\poo_1516_dsoares_jnogueira\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\sala.cpp(24): error C2065: 'saude': undeclared identifier
+     1>c:\users\david soares\documents\github\poo_1516_dsoares_jnogueira\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\sala.cpp(24): error C2065: 'oxigenio': undeclared identifier
+     1>c:\users\david soares\documents\github\poo_1516_dsoares_jnogueira\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\sala.cpp(29): error C2027: use of undefined type 'Sala'
+         c:\users\david soares\documents\github\poo_1516_dsoares_jnogueira\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\sala.h(6): note: see declaration of 'Sala'
+     1>c:\users\david soares\documents\github\poo_1516_dsoares_jnogueira\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\sala.cpp(31): error C2355: 'this': can only be referenced inside non-static member functions or non-static data member initializers
+     1>c:\users\david soares\documents\github\poo_1516_dsoares_jnogueira\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\sala.cpp(31): error C2227: left of '->saude' must point to class/struct/union/generic type
+     1>c:\users\david soares\documents\github\poo_1516_dsoares_jnogueira\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\sala.cpp(34): error C2027: use of undefined type 'Sala'
+         c:\users\david soares\documents\github\poo_1516_dsoares_jnogueira\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\sala.h(6): note: see declaration of 'Sala'
+     1>c:\users\david soares\documents\github\poo_1516_dsoares_jnogueira\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\sala.cpp(36): error C2355: 'this': can only be referenced inside non-static member functions or non-static data member initializers
+     1>c:\users\david soares\documents\github\poo_1516_dsoares_jnogueira\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\sala.cpp(36): error C2227: left of '->oxigenio' must point to class/struct/union/generic type
+     1>c:\users\david soares\documents\github\poo_1516_dsoares_jnogueira\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\sala.cpp(39): error C2027: use of undefined type 'Sala'
+         c:\users\david soares\documents\github\poo_1516_dsoares_jnogueira\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\sala.h(6): note: see declaration of 'Sala'
+     1>c:\users\david soares\documents\github\poo_1516_dsoares_jnogueira\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\sala.cpp(41): error C2355: 'this': can only be referenced inside non-static member functions or non-static data member initializers
+     1>c:\users\david soares\documents\github\poo_1516_dsoares_jnogueira\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\sala.cpp(41): error C2227: left of '->integridade' must point to class/struct/union/generic type
+     1>c:\users\david soares\documents\github\poo_1516_dsoares_jnogueira\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\sala.cpp(44): error C2027: use of undefined type 'Sala'
+         c:\users\david soares\documents\github\poo_1516_dsoares_jnogueira\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\sala.h(6): note: see declaration of 'Sala'
+     1>c:\users\david soares\documents\github\poo_1516_dsoares_jnogueira\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\sala.cpp(46): error C2355: 'this': can only be referenced inside non-static member functions or non-static data member initializers
+     1>c:\users\david soares\documents\github\poo_1516_dsoares_jnogueira\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\sala.cpp(46): error C2227: left of '->id' must point to class/struct/union/generic type
+         Interface.cpp
+     1>c:\users\david soares\documents\github\poo_1516_dsoares_jnogueira\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\interface.h(4): error C2011: 'Interface': 'class' type redefinition
+         c:\users\david soares\documents\github\poo_1516_dsoares_jnogueira\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\interface.h(4): note: see declaration of 'Interface'
+     1>c:\users\david soares\documents\github\poo_1516_dsoares_jnogueira\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\interface.cpp(5): error C2027: use of undefined type 'Interface'
+         c:\users\david soares\documents\github\poo_1516_dsoares_jnogueira\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\interface.h(4): note: see declaration of 'Interface'
+     1>c:\users\david soares\documents\github\poo_1516_dsoares_jnogueira\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\interface.cpp(5): error C2059: syntax error: ')'
+     1>c:\users\david soares\documents\github\poo_1516_dsoares_jnogueira\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\interface.cpp(6): error C2143: syntax error: missing ';' before '{'
+     1>c:\users\david soares\documents\github\poo_1516_dsoares_jnogueira\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\interface.cpp(6): error C2447: '{': missing function header (old-style formal list?)
+     1>c:\users\david soares\documents\github\poo_1516_dsoares_jnogueira\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\interface.cpp(19): error C2027: use of undefined type 'Interface'
+         c:\users\david soares\documents\github\poo_1516_dsoares_jnogueira\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\interface.h(4): note: see declaration of 'Interface'
+     1>c:\users\david soares\documents\github\poo_1516_dsoares_jnogueira\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\interface.cpp(19): error C2059: syntax error: ')'
+     1>c:\users\david soares\documents\github\poo_1516_dsoares_jnogueira\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\interface.cpp(20): error C2143: syntax error: missing ';' before '{'
+     1>c:\users\david soares\documents\github\poo_1516_dsoares_jnogueira\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\interface.cpp(20): error C2447: '{': missing function header (old-style formal list?)
+     1>c:\users\david soares\documents\github\poo_1516_dsoares_jnogueira\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\interface.cpp(23): error C2027: use of undefined type 'Interface'
+         c:\users\david soares\documents\github\poo_1516_dsoares_jnogueira\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\interface.h(4): note: see declaration of 'Interface'
+     1>c:\users\david soares\documents\github\poo_1516_dsoares_jnogueira\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\interface.cpp(25): error C3861: 'desenha_menu': identifier not found
+     1>c:\users\david soares\documents\github\poo_1516_dsoares_jnogueira\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\interface.cpp(28): error C2027: use of undefined type 'Interface'
+         c:\users\david soares\documents\github\poo_1516_dsoares_jnogueira\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\interface.h(4): note: see declaration of 'Interface'
+     1>c:\users\david soares\documents\github\poo_1516_dsoares_jnogueira\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\interface.cpp(41): error C2065: 'header': undeclared identifier
+     1>c:\users\david soares\documents\github\poo_1516_dsoares_jnogueira\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\interface.cpp(53): error C2065: 'fundo': undeclared identifier
+     1>c:\users\david soares\documents\github\poo_1516_dsoares_jnogueira\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\interface.cpp(105): error C3861: 'creditos': identifier not found
+     1>c:\users\david soares\documents\github\poo_1516_dsoares_jnogueira\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\interface.cpp(107): error C3861: 'sair': identifier not found
+     1>c:\users\david soares\documents\github\poo_1516_dsoares_jnogueira\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\interface.cpp(114): error C2027: use of undefined type 'Interface'
+         c:\users\david soares\documents\github\poo_1516_dsoares_jnogueira\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\interface.h(4): note: see declaration of 'Interface'
+     1>c:\users\david soares\documents\github\poo_1516_dsoares_jnogueira\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\interface.cpp(135): error C2027: use of undefined type 'Interface'
+         c:\users\david soares\documents\github\poo_1516_dsoares_jnogueira\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\interface.h(4): note: see declaration of 'Interface'
+     1>c:\users\david soares\documents\github\poo_1516_dsoares_jnogueira\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\interface.cpp(142): error C3861: 'goodbye': identifier not found
+     1>c:\users\david soares\documents\github\poo_1516_dsoares_jnogueira\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\interface.cpp(153): error C2027: use of undefined type 'Interface'
+         c:\users\david soares\documents\github\poo_1516_dsoares_jnogueira\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\interface.h(4): note: see declaration of 'Interface'
+         Generating Code...
+         Compiling...
+         comandos.cpp
+         Generating Code...
+     1>cl : Command line warning D9028: minimal rebuild failure, reverting to normal build
+         Skipping... (no relevant changes detected)
+         Nave.cpp
+     1>Done Building Project "C:\Users\David Soares\Documents\GitHub\POO_1516_Dsoares_JNogueira\POO_1516_JNogueira_DSoares\POO_1516_JNogueira_DSoares\POO_1516_JNogueira_DSoares.vcxproj" (Build target(s)) -- FAILED.
 
 Build FAILED.
 
-Time Elapsed 00:00:01.45
+Time Elapsed 00:00:03.67

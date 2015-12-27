@@ -1,9 +1,4 @@
-#pragma once
-
-#include "Funcoes_main.h"
-
-
-using namespace std;
+#include "bibliotecas.h"
 
 class Interface
 {

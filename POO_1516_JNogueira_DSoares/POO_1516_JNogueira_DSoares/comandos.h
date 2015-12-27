@@ -3,7 +3,6 @@
 #include "Interface.h"
 
 
-using namespace std;
 
 class comandos
 {
