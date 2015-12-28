@@ -7,7 +7,8 @@ class Nave
 {
 	vector<Sala *> salas;
 public:
-	Nave(int x, int y, int tamanho);
+	Nave();
+	void DesenhaNave(int x, int y, int tamanho);
 	~Nave();
 	void adiciona(Sala *p);
 	string toString()const;

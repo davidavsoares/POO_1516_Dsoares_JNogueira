@@ -34,6 +34,7 @@
     </ClCompile>
     <ClCompile Include="Nave.cpp" />
     <ClCompile Include="Sala.cpp" />
+    <ClCompile Include="Unidade.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="bass.h" />
@@ -44,6 +45,7 @@
     <ClInclude Include="Interface.h" />
     <ClInclude Include="Nave.h" />
     <ClInclude Include="Sala.h" />
+    <ClInclude Include="Unidade.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="bass.dll" />

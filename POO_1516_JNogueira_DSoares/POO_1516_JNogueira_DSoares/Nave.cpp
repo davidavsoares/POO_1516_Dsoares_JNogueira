@@ -1,8 +1,11 @@
 #include "Nave.h"
 
 
+Nave::Nave()
+{
 
-Nave::Nave(int x, int y, int tamanho)
+}
+void Nave::DesenhaNave(int x, int y, int tamanho)
 {
 	int i, sala = 1, k;
 	Consola c;
@@ -13,7 +16,6 @@ Nave::Nave(int x, int y, int tamanho)
 	c.setBackgroundColor(c.PRETO);  // favor consultar o .h para ver as constantes
 	c.setTextColor(c.BRANCO_CLARO);
 	c.clrscr();
-
 
 	/*for (k = 0; k < 3; k++)
 	{
@@ -79,6 +81,7 @@ Nave::~Nave()
 	salas.clear();
 }
 
+void Nave::DesenhaNave()
 
 void Nave::Quadrado(int x,int y, Consola c, int sala,int tamanho) // CASO SEJA NECESSÀRIO: pode se criar a classe Sala que cria um quadrado, havendo um vector de salas na NAVE!
 {

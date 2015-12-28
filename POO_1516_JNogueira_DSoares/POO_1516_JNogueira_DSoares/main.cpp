@@ -12,9 +12,9 @@ void main()
 
 	Interface ui;
 
-	ui.inicia();
+	ui.desenha_menu();
 
-	Sala a(1);
+	//Sala a(1);
 
 	//BASS_Free  //-> È suposto ser uma função criada?
 }

@@ -10,13 +10,29 @@ class Interface
 	int cor_texto;
 	int fundo;
 	int header;
+	int contador = 0;
+	bool flag = false;
 public:
 	Interface();
 	~Interface();
 
-	void inicia();
 	void desenha_menu();
 	void creditos();
 	void sair();
 	void goodbye();
+
+	int move(int opcao, int n_opcoes);
+
+	void inicial(Consola *c);
+
+	void Salas(Consola *c);
+
+	//////////////FUNCAO PROVISORIA/////////////////////77
+	void NI(Consola *c)
+	{
+		c->clrscr();
+		c->gotoxy(45, 8);
+		cout << "Funcionalidade ainda nao implementada!";
+		Sleep(1000);
+	};
 };
