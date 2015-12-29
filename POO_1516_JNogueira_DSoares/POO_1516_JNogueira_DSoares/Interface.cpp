@@ -66,7 +66,7 @@ void Interface::creditos()
 
 	Sleep(6000);
 	c.clrscr();
-	inicia();
+	inicial(&c);
 }
 
 void Interface::sair()

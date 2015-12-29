@@ -2,6 +2,7 @@
 #include "bibliotecas.h"
 #include "Sala.h"
 #include "consola.h"
+#include "Propulsor.h"
 
 class Nave
 {

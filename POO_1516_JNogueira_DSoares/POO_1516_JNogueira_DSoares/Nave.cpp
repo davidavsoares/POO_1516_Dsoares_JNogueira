@@ -81,7 +81,6 @@ Nave::~Nave()
 	salas.clear();
 }
 
-void Nave::DesenhaNave()
 
 void Nave::Quadrado(int x,int y, Consola c, int sala,int tamanho) // CASO SEJA NECESSÀRIO: pode se criar a classe Sala que cria um quadrado, havendo um vector de salas na NAVE!
 {
@@ -334,6 +333,6 @@ string Nave::toString() const
 	ostringstream oss;
 	
 	for (unsigned int i = 0; i < salas.size(); i++)
-	oss << " Integridade: " << salas[i] -> getIntegridade() << endl << " Saude : " << salas[i] -> getSaude() << endl << " Oxigenio : " << salas[i] -> getOxigenio() << endl;
+	oss << " Integridade: " << salas[i] -> getIntegridade() << endl << " Saude : "/* << salas[i] -> getSaude() */<< endl << " Oxigenio : " << salas[i] -> getOxigenio() << endl;
 	return oss.str();
 }

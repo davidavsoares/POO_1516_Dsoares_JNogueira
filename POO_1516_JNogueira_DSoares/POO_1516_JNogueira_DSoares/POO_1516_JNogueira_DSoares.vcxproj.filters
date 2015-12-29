@@ -39,6 +39,78 @@
     <ClCompile Include="Unidade.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Ponte.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Sala_Maquinas.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Propulsor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Suporte_Vida.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Controlo_Escudo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Beliche.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Oficina_Robotica.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Tripulacao.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Memb_Trip.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Alojam_Capitao.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Auto_Reparador.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Blob.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Capitao.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Casulo_de_Geigermorfo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Enfermaria.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Geigermorfo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Inimigos.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Mxyzypykwi.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Pirata.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Raio_Laser.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Robot.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Sala_Armas.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Segur_Interna.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Xenomorfos.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="consola.h">
@@ -68,6 +140,39 @@
     <ClInclude Include="Unidade.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Ponte.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Sala_Maquinas.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Propulsor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Suporte_Vida.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Controlo_Escudo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Beliche.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Segur_Interna.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Tripulacao.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Memb_Trip.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Capitao.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Library Include="bass.lib">
@@ -78,5 +183,10 @@
     <None Include="bass.dll">
       <Filter>Source Files</Filter>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="POO_1516_JNogueira_DSoares.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
   </ItemGroup>
 </Project>

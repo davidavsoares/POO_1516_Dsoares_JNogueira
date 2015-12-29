@@ -9,69 +9,69 @@ comandos::~comandos()
 {
 }
 
-//void comandos::cmd()
-//{
-//	Consola c;
-//	int tecla;
-//	char buffer[512];
-//
-//	c.clrscr();
-//	c.gotoxy(5, 25);
-//	cout << "Primir C para digitar os comandos";
-//	do
-//	{
-//		tecla = c.getch();
-//	} while (tecla != 99 );
-//
-//	c.clrscr();
-//	c.gotoxy(5, 25);
-//	cout << ">comando: ";
-//	cin.getline(buffer, 512);
-//	analisa_comandos(buffer);
-//}
-//
-//void comandos::analisa_comandos(string b)
-//{
-//	stringstream comandos(b);
-//	int j = 0;
-//	string buffer;
-//	string *palavras;
-//	
-//	while (comandos >> buffer)
-//		j++;
-//
-//	palavras = new string[j];
-//	j = 0;
-//	comandos.clear();
-//	comandos.seekg(0, ios::beg);
-//
-//	while (comandos >> buffer)
-//	{
-//		palavras[j] = buffer;
-//		j++;
-//	}
-//
-//	if (palavras[0] == "mkgame")
-//	{
-//		int l, c;
-//		l = stoi(palavras[1], nullptr, 10);
-//		c = stoi(palavras[2], nullptr, 10);
-//		territorio t(l, c);
-//		desenha_mapa(&t);
-//	}
-//	
-//	if (palavras[0] == "load")
-//	{
-//		string nome_ficheiro;
-//		nome_ficheiro = palavras[1];
-//		carrega_ficheiro(nome_ficheiro);
-//	}
-//	if (palavras[0] == "sair")
-//	{
-//		Interface ui;
-//		ui.sair();
-//	}
-//}
+void comandos::cmd()
+{
+	Consola c;
+	int tecla;
+	char buffer[512];
+
+	c.clrscr();
+	c.gotoxy(5, 25);
+	cout << "Primir C para digitar os comandos";
+	do
+	{
+		tecla = c.getch();
+	} while (tecla != 99 );
+
+	c.clrscr();
+	c.gotoxy(5, 25);
+	cout << ">comando: ";
+	cin.getline(buffer, 512);
+	analisa_comandos(buffer);
+}
+
+void comandos::analisa_comandos(string b)
+{
+	stringstream comandos(b);
+	int j = 0;
+	string buffer;
+	string *palavras;
+	
+	while (comandos >> buffer)
+		j++;
+
+	palavras = new string[j];
+	j = 0;
+	comandos.clear();
+	comandos.seekg(0, ios::beg);
+
+	while (comandos >> buffer)
+	{
+		palavras[j] = buffer;
+		j++;
+	}
+
+	//if (palavras[0] == "mkgame")
+	//{
+	//	int l, c;
+	//	l = stoi(palavras[1], nullptr, 10);
+	//	c = stoi(palavras[2], nullptr, 10);
+	////	territorio t(l, c);
+	////	desenha_mapa(&t);
+	//}
+	//
+	//if (palavras[0] == "load")
+	//{
+	//	string nome_ficheiro;
+	//	nome_ficheiro = palavras[1];
+	//	carrega_ficheiro(nome_ficheiro);
+	//}
+	if (palavras[0] == "sair")
+	{
+		Interface ui;
+		ui.sair();
+	}
+}
 //
 //void comandos::analisa_comandos1(string comando,territorio *a)
 //{
