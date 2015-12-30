@@ -4,7 +4,7 @@
 class Controlo_Escudo: public Sala
 {
 public:
-	Controlo_Escudo(int id) :Sala(id) {};
+	Controlo_Escudo(int id);
 	~Controlo_Escudo();
 };
 

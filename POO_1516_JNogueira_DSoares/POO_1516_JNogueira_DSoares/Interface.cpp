@@ -25,7 +25,6 @@ Interface::~Interface()
 
 void Interface::desenha_menu()
 {
-	comandos cmd;
 	Consola c;
 	int x = 15, y = 5, coord_x = 60, coord_y = 6, i, j;
 	int opcao = 1;
@@ -377,7 +376,7 @@ int Interface::move(int opcao, int n_opcoes)
 	{
 		opcao--;
 		if (opcao == 0)
-			opcao = 3;
+			opcao = n_opcoes;
 	}
 	if (tecla == c.BAIXO)
 	{
@@ -464,289 +463,362 @@ void Interface::Salas(Consola *c)
 	Nave Spaceship;	// Cria uma Nave com as caracteristicas (Posicao XX, Posicao YY, Tamanho)
 					//cmd.cmd();
 
-	for (int i = 0; i < 6; i++)
+	for (int i = 1; i <= 12; i++)
 	{
-		flag = false;
-		do
+		///////////////Adiciona as salas obrigatórias//////////////////
+		if (i == 1)
 		{
-			opcao = move(opcao, 9);
-
-			if (opcao == 1)
-			{
-				c->clrscr();
-				c->gotoxy(45, 8);
-				cout << "Escolha as suas salas:";
-				c->gotoxy(menu_x, menu_y);
-				c->setBackgroundColor(fundo);
-				cout << ">Alojamento do capitao";
-				c->gotoxy(menu_x, menu_y + 3);
-				cout << "Auto-reparador";
-				c->gotoxy(menu_x, menu_y + 6);
-				cout << "Beliches";
-				c->gotoxy(menu_x, menu_y + 9);
-				cout << "Enfermaria";
-				c->gotoxy(menu_x, menu_y + 12);
-				cout << "Oficina de robotica";
-				c->gotoxy(menu_x, menu_y + 15);
-				cout << "Propulsores adicionais";
-				c->gotoxy(menu_x, menu_y + 18);
-				cout << "Raio laser";
-				c->gotoxy(menu_x, menu_y + 21);
-				cout << "Sala de armas";
-				c->gotoxy(menu_x, menu_y + 24);
-				cout << "Sistema de seguranca interno";
-
-
-			}
-			if (opcao == 2)
-			{
-				c->clrscr();
-				c->gotoxy(45, 8);
-				cout << "Escolha as suas salas:";
-				c->gotoxy(menu_x, menu_y);
-				c->setBackgroundColor(fundo);
-				cout << "Alojamento do capitao";
-				c->gotoxy(menu_x, menu_y + 3);
-				cout << ">Auto-reparador";
-				c->gotoxy(menu_x, menu_y + 6);
-				cout << "Beliches";
-				c->gotoxy(menu_x, menu_y + 9);
-				cout << "Enfermaria";
-				c->gotoxy(menu_x, menu_y + 12);
-				cout << "Oficina de robotica";
-				c->gotoxy(menu_x, menu_y + 15);
-				cout << "Propulsores adicionais";
-				c->gotoxy(menu_x, menu_y + 18);
-				cout << "Raio laser";
-				c->gotoxy(menu_x, menu_y + 21);
-				cout << "Sala de armas";
-				c->gotoxy(menu_x, menu_y + 24);
-				cout << "Sistema de seguranca interno";
-			}
-			if (opcao == 3)
-			{
-				c->clrscr();
-				c->gotoxy(45, 8);
-				cout << "Escolha as suas salas:";
-				c->gotoxy(menu_x, menu_y);
-				c->setBackgroundColor(fundo);
-				cout << "Alojamento do capitao";
-				c->gotoxy(menu_x, menu_y + 3);
-				cout << "Auto-reparador";
-				c->gotoxy(menu_x, menu_y + 6);
-				cout << ">Beliches";
-				c->gotoxy(menu_x, menu_y + 9);
-				cout << "Enfermaria";
-				c->gotoxy(menu_x, menu_y + 12);
-				cout << "Oficina de robotica";
-				c->gotoxy(menu_x, menu_y + 15);
-				cout << "Propulsores adicionais";
-				c->gotoxy(menu_x, menu_y + 18);
-				cout << "Raio laser";
-				c->gotoxy(menu_x, menu_y + 21);
-				cout << "Sala de armas";
-				c->gotoxy(menu_x, menu_y + 24);
-				cout << "Sistema de seguranca interno";
-			}
-			if (opcao == 4)
-			{
-				c->clrscr();
-				c->gotoxy(45, 8);
-				cout << "Escolha as suas salas:";
-				c->gotoxy(menu_x, menu_y);
-				c->setBackgroundColor(fundo);
-				cout << "Alojamento do capitao";
-				c->gotoxy(menu_x, menu_y + 3);
-				cout << "Auto-reparador";
-				c->gotoxy(menu_x, menu_y + 6);
-				cout << "Beliches";
-				c->gotoxy(menu_x, menu_y + 9);
-				cout << ">Enfermaria";
-				c->gotoxy(menu_x, menu_y + 12);
-				cout << "Oficina de robotica";
-				c->gotoxy(menu_x, menu_y + 15);
-				cout << "Propulsores adicionais";
-				c->gotoxy(menu_x, menu_y + 18);
-				cout << "Raio laser";
-				c->gotoxy(menu_x, menu_y + 21);
-				cout << "Sala de armas";
-				c->gotoxy(menu_x, menu_y + 24);
-				cout << "Sistema de seguranca interno";
-			}
-			if (opcao == 5)
-			{
-				c->clrscr();
-				c->gotoxy(45, 8);
-				cout << "Escolha as suas salas:";
-				c->gotoxy(menu_x, menu_y);
-				c->setBackgroundColor(fundo);
-				cout << "Alojamento do capitao";
-				c->gotoxy(menu_x, menu_y + 3);
-				cout << "Auto-reparador";
-				c->gotoxy(menu_x, menu_y + 6);
-				cout << "Beliches";
-				c->gotoxy(menu_x, menu_y + 9);
-				cout << "Enfermaria";
-				c->gotoxy(menu_x, menu_y + 12);
-				cout << ">Oficina de robotica";
-				c->gotoxy(menu_x, menu_y + 15);
-				cout << "Propulsores adicionais";
-				c->gotoxy(menu_x, menu_y + 18);
-				cout << "Raio laser";
-				c->gotoxy(menu_x, menu_y + 21);
-				cout << "Sala de armas";
-				c->gotoxy(menu_x, menu_y + 24);
-				cout << "Sistema de seguranca interno";
-			}
-			if (opcao == 6)
-			{
-				c->clrscr();
-				c->gotoxy(45, 8);
-				cout << "Escolha as suas salas:";
-				c->gotoxy(menu_x, menu_y);
-				c->setBackgroundColor(fundo);
-				cout << "Alojamento do capitao";
-				c->gotoxy(menu_x, menu_y + 3);
-				cout << "Auto-reparador";
-				c->gotoxy(menu_x, menu_y + 6);
-				cout << "Beliches";
-				c->gotoxy(menu_x, menu_y + 9);
-				cout << "Enfermaria";
-				c->gotoxy(menu_x, menu_y + 12);
-				cout << "Oficina de robotica";
-				c->gotoxy(menu_x, menu_y + 15);
-				cout << ">Propulsores adicionais";
-				c->gotoxy(menu_x, menu_y + 18);
-				cout << "Raio laser";
-				c->gotoxy(menu_x, menu_y + 21);
-				cout << "Sala de armas";
-				c->gotoxy(menu_x, menu_y + 24);
-				cout << "Sistema de seguranca interno";
-			}
-			if (opcao == 7)
-			{
-				c->clrscr();
-				c->gotoxy(45, 8);
-				cout << "Escolha as suas salas:";
-				c->gotoxy(menu_x, menu_y);
-				c->setBackgroundColor(fundo);
-				cout << "Alojamento do capitao";
-				c->gotoxy(menu_x, menu_y + 3);
-				cout << "Auto-reparador";
-				c->gotoxy(menu_x, menu_y + 6);
-				cout << "Beliches";
-				c->gotoxy(menu_x, menu_y + 9);
-				cout << "Enfermaria";
-				c->gotoxy(menu_x, menu_y + 12);
-				cout << "Oficina de robotica";
-				c->gotoxy(menu_x, menu_y + 15);
-				cout << "Propulsores adicionais";
-				c->gotoxy(menu_x, menu_y + 18);
-				cout << ">Raio laser";
-				c->gotoxy(menu_x, menu_y + 21);
-				cout << "Sala de armas";
-				c->gotoxy(menu_x, menu_y + 24);
-				cout << "Sistema de seguranca interno";
-			}
-			if (opcao == 8)
-			{
-				c->clrscr();
-				c->gotoxy(45, 8);
-				cout << "Escolha as suas salas:";
-				c->gotoxy(menu_x, menu_y);
-				c->setBackgroundColor(fundo);
-				cout << "Alojamento do capitao";
-				c->gotoxy(menu_x, menu_y + 3);
-				cout << "Auto-reparador";
-				c->gotoxy(menu_x, menu_y + 6);
-				cout << "Beliches";
-				c->gotoxy(menu_x, menu_y + 9);
-				cout << "Enfermaria";
-				c->gotoxy(menu_x, menu_y + 12);
-				cout << "Oficina de robotica";
-				c->gotoxy(menu_x, menu_y + 15);
-				cout << "Propulsores adicionais";
-				c->gotoxy(menu_x, menu_y + 18);
-				cout << "Raio laser";
-				c->gotoxy(menu_x, menu_y + 21);
-				cout << ">Sala de armas";
-				c->gotoxy(menu_x, menu_y + 24);
-				cout << "Sistema de seguranca interno";
-			}
-			if (opcao == 9)
-			{
-				c->clrscr();
-				c->gotoxy(45, 8);
-				cout << "Escolha as suas salas:";
-				c->gotoxy(menu_x, menu_y);
-				c->setBackgroundColor(fundo);
-				cout << "Alojamento do capitao";
-				c->gotoxy(menu_x, menu_y + 3);
-				cout << "Auto-reparador";
-				c->gotoxy(menu_x, menu_y + 6);
-				cout << "Beliches";
-				c->gotoxy(menu_x, menu_y + 9);
-				cout << "Enfermaria";
-				c->gotoxy(menu_x, menu_y + 12);
-				cout << "Oficina de robotica";
-				c->gotoxy(menu_x, menu_y + 15);
-				cout << "Propulsores adicionais";
-				c->gotoxy(menu_x, menu_y + 18);
-				cout << "Raio laser";
-				c->gotoxy(menu_x, menu_y + 21);
-				cout << "Sala de armas";
-				c->gotoxy(menu_x, menu_y + 24);
-				cout << ">Sistema de seguranca interno";
-			}
-		} while (!flag);  //Faz um ciclo de 'if' para escolher o valor de opcao
-
-		//Em cada opcao do switch vai criar uma sala especifica na nave
-
-		switch (opcao)
+			Spaceship.adiciona(new Propulsor(i, &Spaceship));
+		}
+		else if(i == 5)
 		{
-		case 1: 
-			NI(c);
-			break;
-			opcao = 1;
-		case 2:
-			NI(c);
-			break;
-			opcao = 2;
-		case 3:
-			NI(c);
-			break;
-			opcao = 3;
-		case 4:
-			NI(c);
-			break;
-			opcao = 4;
-		case 5:
-			NI(c);
-			break;
-			opcao = 5;
-		case 6:
-			NI(c);
-			break;
-			opcao = 6;
-		case 7:
-			NI(c);
-			break;
-			opcao = 7;
-		case 8:
-			NI(c);
-			break;
-			opcao = 8;
-		case 9:
-			NI(c);
-			break;
-			opcao = 9;
+			Spaceship.adiciona(new Sala_Maquinas(i));
+		}
+		else if (i == 6)
+		{
+			Spaceship.adiciona(new Suporte_Vida(i));
+		}
+		else if (i == 7)
+		{
+			Spaceship.adiciona(new Controlo_Escudo(i));
+		}
+		else if (i == 8)
+		{
+			Spaceship.adiciona(new Ponte(i));
+		}
+		else if (i == 9)
+		{
+			Spaceship.adiciona(new Propulsor(i, &Spaceship));
+		}
+		else
+		{
+			flag = false;
+			do
+			{
+				opcao = move(opcao, 10);
 
-		default:
-			break;
+				if (opcao == 1)
+				{
+					c->clrscr();
+					c->gotoxy(45, 8);
+					cout << "Escolha as suas salas:";
+					c->gotoxy(menu_x, menu_y);
+					c->setBackgroundColor(fundo);
+					cout << ">Alojamento do capitao";
+					c->gotoxy(menu_x, menu_y + 3);
+					cout << "Auto-reparador";
+					c->gotoxy(menu_x, menu_y + 6);
+					cout << "Beliches";
+					c->gotoxy(menu_x, menu_y + 9);
+					cout << "Enfermaria";
+					c->gotoxy(menu_x, menu_y + 12);
+					cout << "Oficina de robotica";
+					c->gotoxy(menu_x, menu_y + 15);
+					cout << "Propulsores adicionais";
+					c->gotoxy(menu_x, menu_y + 18);
+					cout << "Raio laser";
+					c->gotoxy(menu_x, menu_y + 21);
+					cout << "Sala de armas";
+					c->gotoxy(menu_x, menu_y + 24);
+					cout << "Sistema de seguranca interno";
+					c->gotoxy(menu_x, menu_y + 27);
+					cout << "Sair";
+				}
+				if (opcao == 2)
+				{
+					c->clrscr();
+					c->gotoxy(45, 8);
+					cout << "Escolha as suas salas:";
+					c->gotoxy(menu_x, menu_y);
+					c->setBackgroundColor(fundo);
+					cout << "Alojamento do capitao";
+					c->gotoxy(menu_x, menu_y + 3);
+					cout << ">Auto-reparador";
+					c->gotoxy(menu_x, menu_y + 6);
+					cout << "Beliches";
+					c->gotoxy(menu_x, menu_y + 9);
+					cout << "Enfermaria";
+					c->gotoxy(menu_x, menu_y + 12);
+					cout << "Oficina de robotica";
+					c->gotoxy(menu_x, menu_y + 15);
+					cout << "Propulsores adicionais";
+					c->gotoxy(menu_x, menu_y + 18);
+					cout << "Raio laser";
+					c->gotoxy(menu_x, menu_y + 21);
+					cout << "Sala de armas";
+					c->gotoxy(menu_x, menu_y + 24);
+					cout << "Sistema de seguranca interno";
+					c->gotoxy(menu_x, menu_y + 27);
+					cout << "Sair";
+				}
+				if (opcao == 3)
+				{
+					c->clrscr();
+					c->gotoxy(45, 8);
+					cout << "Escolha as suas salas:";
+					c->gotoxy(menu_x, menu_y);
+					c->setBackgroundColor(fundo);
+					cout << "Alojamento do capitao";
+					c->gotoxy(menu_x, menu_y + 3);
+					cout << "Auto-reparador";
+					c->gotoxy(menu_x, menu_y + 6);
+					cout << ">Beliches";
+					c->gotoxy(menu_x, menu_y + 9);
+					cout << "Enfermaria";
+					c->gotoxy(menu_x, menu_y + 12);
+					cout << "Oficina de robotica";
+					c->gotoxy(menu_x, menu_y + 15);
+					cout << "Propulsores adicionais";
+					c->gotoxy(menu_x, menu_y + 18);
+					cout << "Raio laser";
+					c->gotoxy(menu_x, menu_y + 21);
+					cout << "Sala de armas";
+					c->gotoxy(menu_x, menu_y + 24);
+					cout << "Sistema de seguranca interno";
+					c->gotoxy(menu_x, menu_y + 27);
+					cout << "Sair";
+				}
+				if (opcao == 4)
+				{
+					c->clrscr();
+					c->gotoxy(45, 8);
+					cout << "Escolha as suas salas:";
+					c->gotoxy(menu_x, menu_y);
+					c->setBackgroundColor(fundo);
+					cout << "Alojamento do capitao";
+					c->gotoxy(menu_x, menu_y + 3);
+					cout << "Auto-reparador";
+					c->gotoxy(menu_x, menu_y + 6);
+					cout << "Beliches";
+					c->gotoxy(menu_x, menu_y + 9);
+					cout << ">Enfermaria";
+					c->gotoxy(menu_x, menu_y + 12);
+					cout << "Oficina de robotica";
+					c->gotoxy(menu_x, menu_y + 15);
+					cout << "Propulsores adicionais";
+					c->gotoxy(menu_x, menu_y + 18);
+					cout << "Raio laser";
+					c->gotoxy(menu_x, menu_y + 21);
+					cout << "Sala de armas";
+					c->gotoxy(menu_x, menu_y + 24);
+					cout << "Sistema de seguranca interno";
+					c->gotoxy(menu_x, menu_y + 27);
+					cout << "Sair";
+				}
+				if (opcao == 5)
+				{
+					c->clrscr();
+					c->gotoxy(45, 8);
+					cout << "Escolha as suas salas:";
+					c->gotoxy(menu_x, menu_y);
+					c->setBackgroundColor(fundo);
+					cout << "Alojamento do capitao";
+					c->gotoxy(menu_x, menu_y + 3);
+					cout << "Auto-reparador";
+					c->gotoxy(menu_x, menu_y + 6);
+					cout << "Beliches";
+					c->gotoxy(menu_x, menu_y + 9);
+					cout << "Enfermaria";
+					c->gotoxy(menu_x, menu_y + 12);
+					cout << ">Oficina de robotica";
+					c->gotoxy(menu_x, menu_y + 15);
+					cout << "Propulsores adicionais";
+					c->gotoxy(menu_x, menu_y + 18);
+					cout << "Raio laser";
+					c->gotoxy(menu_x, menu_y + 21);
+					cout << "Sala de armas";
+					c->gotoxy(menu_x, menu_y + 24);
+					cout << "Sistema de seguranca interno";
+					c->gotoxy(menu_x, menu_y + 27);
+					cout << "Sair";
+				}
+				if (opcao == 6)
+				{
+					c->clrscr();
+					c->gotoxy(45, 8);
+					cout << "Escolha as suas salas:";
+					c->gotoxy(menu_x, menu_y);
+					c->setBackgroundColor(fundo);
+					cout << "Alojamento do capitao";
+					c->gotoxy(menu_x, menu_y + 3);
+					cout << "Auto-reparador";
+					c->gotoxy(menu_x, menu_y + 6);
+					cout << "Beliches";
+					c->gotoxy(menu_x, menu_y + 9);
+					cout << "Enfermaria";
+					c->gotoxy(menu_x, menu_y + 12);
+					cout << "Oficina de robotica";
+					c->gotoxy(menu_x, menu_y + 15);
+					cout << ">Propulsores adicionais";
+					c->gotoxy(menu_x, menu_y + 18);
+					cout << "Raio laser";
+					c->gotoxy(menu_x, menu_y + 21);
+					cout << "Sala de armas";
+					c->gotoxy(menu_x, menu_y + 24);
+					cout << "Sistema de seguranca interno";
+					c->gotoxy(menu_x, menu_y + 27);
+					cout << "Sair";
+				}
+				if (opcao == 7)
+				{
+					c->clrscr();
+					c->gotoxy(45, 8);
+					cout << "Escolha as suas salas:";
+					c->gotoxy(menu_x, menu_y);
+					c->setBackgroundColor(fundo);
+					cout << "Alojamento do capitao";
+					c->gotoxy(menu_x, menu_y + 3);
+					cout << "Auto-reparador";
+					c->gotoxy(menu_x, menu_y + 6);
+					cout << "Beliches";
+					c->gotoxy(menu_x, menu_y + 9);
+					cout << "Enfermaria";
+					c->gotoxy(menu_x, menu_y + 12);
+					cout << "Oficina de robotica";
+					c->gotoxy(menu_x, menu_y + 15);
+					cout << "Propulsores adicionais";
+					c->gotoxy(menu_x, menu_y + 18);
+					cout << ">Raio laser";
+					c->gotoxy(menu_x, menu_y + 21);
+					cout << "Sala de armas";
+					c->gotoxy(menu_x, menu_y + 24);
+					cout << "Sistema de seguranca interno";
+					c->gotoxy(menu_x, menu_y + 27);
+					cout << "Sair";
+				}
+				if (opcao == 8)
+				{
+					c->clrscr();
+					c->gotoxy(45, 8);
+					cout << "Escolha as suas salas:";
+					c->gotoxy(menu_x, menu_y);
+					c->setBackgroundColor(fundo);
+					cout << "Alojamento do capitao";
+					c->gotoxy(menu_x, menu_y + 3);
+					cout << "Auto-reparador";
+					c->gotoxy(menu_x, menu_y + 6);
+					cout << "Beliches";
+					c->gotoxy(menu_x, menu_y + 9);
+					cout << "Enfermaria";
+					c->gotoxy(menu_x, menu_y + 12);
+					cout << "Oficina de robotica";
+					c->gotoxy(menu_x, menu_y + 15);
+					cout << "Propulsores adicionais";
+					c->gotoxy(menu_x, menu_y + 18);
+					cout << "Raio laser";
+					c->gotoxy(menu_x, menu_y + 21);
+					cout << ">Sala de armas";
+					c->gotoxy(menu_x, menu_y + 24);
+					cout << "Sistema de seguranca interno";
+					c->gotoxy(menu_x, menu_y + 27);
+					cout << "Sair";
+				}
+				if (opcao == 9)
+				{
+					c->clrscr();
+					c->gotoxy(45, 8);
+					cout << "Escolha as suas salas:";
+					c->gotoxy(menu_x, menu_y);
+					c->setBackgroundColor(fundo);
+					cout << "Alojamento do capitao";
+					c->gotoxy(menu_x, menu_y + 3);
+					cout << "Auto-reparador";
+					c->gotoxy(menu_x, menu_y + 6);
+					cout << "Beliches";
+					c->gotoxy(menu_x, menu_y + 9);
+					cout << "Enfermaria";
+					c->gotoxy(menu_x, menu_y + 12);
+					cout << "Oficina de robotica";
+					c->gotoxy(menu_x, menu_y + 15);
+					cout << "Propulsores adicionais";
+					c->gotoxy(menu_x, menu_y + 18);
+					cout << "Raio laser";
+					c->gotoxy(menu_x, menu_y + 21);
+					cout << "Sala de armas";
+					c->gotoxy(menu_x, menu_y + 24);
+					cout << ">Sistema de seguranca interno";
+					c->gotoxy(menu_x, menu_y + 27);
+					cout << "Sair";
+				}
+				if (opcao == 10)
+				{
+					c->clrscr();
+					c->gotoxy(45, 8);
+					cout << "Escolha as suas salas:";
+					c->gotoxy(menu_x, menu_y);
+					c->setBackgroundColor(fundo);
+					cout << "Alojamento do capitao";
+					c->gotoxy(menu_x, menu_y + 3);
+					cout << "Auto-reparador";
+					c->gotoxy(menu_x, menu_y + 6);
+					cout << "Beliches";
+					c->gotoxy(menu_x, menu_y + 9);
+					cout << "Enfermaria";
+					c->gotoxy(menu_x, menu_y + 12);
+					cout << "Oficina de robotica";
+					c->gotoxy(menu_x, menu_y + 15);
+					cout << "Propulsores adicionais";
+					c->gotoxy(menu_x, menu_y + 18);
+					cout << "Raio laser";
+					c->gotoxy(menu_x, menu_y + 21);
+					cout << "Sala de armas";
+					c->gotoxy(menu_x, menu_y + 24);
+					cout << "Sistema de seguranca interno";
+					c->gotoxy(menu_x, menu_y + 27);
+					cout << ">Sair";
+				}
+			} while (!flag);  //Faz um ciclo de 'if' para escolher o valor de opcao
+
+			//Em cada opcao do switch vai criar uma sala especifica na nave
+
+			switch (opcao)
+			{
+			case 1:
+				NI(c);
+				break;
+				opcao = 1;
+			case 2:
+				NI(c);
+				break;
+				opcao = 2;
+			case 3:
+				Spaceship.adiciona(new Beliche(i));
+				break;
+			case 4:
+				NI(c);
+				break;
+				opcao = 4;
+			case 5:
+				NI(c);
+				break;
+				opcao = 5;
+			case 6:
+				NI(c);
+				break;
+				opcao = 6;
+			case 7:
+				NI(c);
+				break;
+				opcao = 7;
+			case 8:
+				NI(c);
+				break;
+				opcao = 8;
+			case 9:
+				NI(c);
+				break;
+				opcao = 9;
+			case 10:
+				sair();
+				break;
+			default:
+				break;
+			}
 		}
 	}
 
 	Spaceship.DesenhaNave(8, 7, 14);
+
 	
 }
 

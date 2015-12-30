@@ -17,6 +17,7 @@ public:
 	int getId();					// Retorna o id
 	void adiciona(Unidade * p);		// Adiciona uma unidade á sala
 	void remove(int id);			// Remove uma unidade de uma determinada sala indicando o ID da unidade
-	int procura(int id) const;		// Procura um id 
+	int procura(char nome) const;		// Procura um id 
+	Unidade * RetornaLocal(char nome);
 };
 

@@ -7,10 +7,22 @@ Sala::Sala(int id)
 	this->id = id;
 
 	integridade = 100;
-	saude = 100;
+	//saude = 100;
 	oxigenio = 100;
 }
 
+//Construtor por copia para quando uma sala muda para outra
+//Sala::Sala(const Sala & outro)
+//{
+//	//->unidades = outro.unidades;
+//	Unidade *p;
+//	for (unsigned int i = 0; i < outro.unidades.size(); i++)
+//	{
+//		p = new Unidade(*outro.unidades[i]);
+//		p->setOndeEstou(this);
+//		this->unidades.push_back(p);
+//	}
+//}  
 
 Sala::~Sala()
 {
@@ -46,7 +58,7 @@ int Sala::getId()
 	return this->id;
 }
 
-void Sala::adiciona(Unidade * p)
+void Sala::adiciona(Unidade * p)		//Adiciona uma unidade ao vector de unidades
 {
 	if (p->getOndeEstou() == nullptr) {
 		this->unidades.push_back(p);
@@ -68,11 +80,20 @@ void Sala::remove(int id)
 	}
 }
 
-int Sala::procura(int id) const
+int Sala::procura(char nome) const
 {
-	for (unsigned int i = 0; i < unidades.size(); i++) {
-		if (unidades[i]->getId() == id)
+	for (unsigned int i = 0; i < unidades.size(); i++) 
+	{
+		if (unidades[i]->getNome() == nome)
 			return i;
 	}
 	return -1;
+}
+
+Unidade * Sala::RetornaLocal(char nome)
+{
+	int i;
+	i=procura(nome);
+
+	return unidades[i];
 }

@@ -4,7 +4,7 @@
 class Sala_Maquinas : public Sala
 {
 public:
-	Sala_Maquinas(int id) :Sala(id) {};
+	Sala_Maquinas(int id);
 	~Sala_Maquinas();
 };
 

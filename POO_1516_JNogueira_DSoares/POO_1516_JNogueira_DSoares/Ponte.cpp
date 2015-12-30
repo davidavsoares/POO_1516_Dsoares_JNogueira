@@ -2,9 +2,7 @@
 
 
 
-Ponte::Ponte(int id)
-{
-}
+Ponte::Ponte(int id) :Sala(id) {}
 
 
 Ponte::~Ponte()

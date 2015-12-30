@@ -2,9 +2,9 @@
 
 
 
-Unidade::Unidade()
+Unidade::Unidade(char nome)
 {
-
+	this->nome = nome;
 }
 
 
@@ -27,8 +27,14 @@ void Unidade::SofrerDano(int Dano)
 	this->saude = saude - Dano;
 }
 
-int Unidade::getId()
+int Unidade::getNome()
 {
-	return this->id;
+	return this->nome;
 }
+
+void ImprimeUni()
+{
+
+}
+
 

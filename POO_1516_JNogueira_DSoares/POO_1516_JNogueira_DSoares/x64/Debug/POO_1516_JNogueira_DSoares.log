@@ -1,36 +1,27 @@
-﻿Build started 29/12/2015 18:54:53.
+﻿Build started 29/12/2015 23:38:08.
      1>Project "C:\Users\David Soares\Documents\GitHub\POO_1516_Dsoares_JNogueira\POO_1516_JNogueira_DSoares\POO_1516_JNogueira_DSoares\POO_1516_JNogueira_DSoares.vcxproj" on node 2 (Build target(s)).
-     1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"x64\Debug\\" /Fd"x64\Debug\vc140.pdb" /Gd /TP /errorReport:prompt Beliche.cpp Controlo_Escudo.cpp Ponte.cpp Propulsor.cpp Sala_Maquinas.cpp Suporte_Vida.cpp
-         Suporte_Vida.cpp
-     1>c:\users\david soares\documents\github\poo_1516_dsoares_jnogueira\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\suporte_vida.cpp(6): error C2084: function 'Suporte_Vida::Suporte_Vida(int)' already has a body
-         c:\users\david soares\documents\github\poo_1516_dsoares_jnogueira\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\suporte_vida.h(7): note: see previous definition of '{ctor}'
-     1>c:\users\david soares\documents\github\poo_1516_dsoares_jnogueira\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\suporte_vida.cpp(6): error C2512: 'Sala': no appropriate default constructor available
-         c:\users\david soares\documents\github\poo_1516_dsoares_jnogueira\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\sala.h(7): note: see declaration of 'Sala'
-         Sala_Maquinas.cpp
-     1>c:\users\david soares\documents\github\poo_1516_dsoares_jnogueira\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\sala_maquinas.cpp(6): error C2084: function 'Sala_Maquinas::Sala_Maquinas(int)' already has a body
-         c:\users\david soares\documents\github\poo_1516_dsoares_jnogueira\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\sala_maquinas.h(7): note: see previous definition of '{ctor}'
-     1>c:\users\david soares\documents\github\poo_1516_dsoares_jnogueira\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\sala_maquinas.cpp(6): error C2512: 'Sala': no appropriate default constructor available
-         c:\users\david soares\documents\github\poo_1516_dsoares_jnogueira\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\sala.h(7): note: see declaration of 'Sala'
-         Propulsor.cpp
-     1>c:\users\david soares\documents\github\poo_1516_dsoares_jnogueira\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\propulsor.cpp(6): error C2084: function 'Propulsor::Propulsor(int)' already has a body
-         c:\users\david soares\documents\github\poo_1516_dsoares_jnogueira\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\propulsor.h(8): note: see previous definition of '{ctor}'
-     1>c:\users\david soares\documents\github\poo_1516_dsoares_jnogueira\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\propulsor.cpp(6): error C2512: 'Sala': no appropriate default constructor available
-         c:\users\david soares\documents\github\poo_1516_dsoares_jnogueira\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\sala.h(7): note: see declaration of 'Sala'
-         Ponte.cpp
-     1>c:\users\david soares\documents\github\poo_1516_dsoares_jnogueira\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\ponte.cpp(6): error C2084: function 'Ponte::Ponte(int)' already has a body
-         c:\users\david soares\documents\github\poo_1516_dsoares_jnogueira\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\ponte.h(7): note: see previous definition of '{ctor}'
-     1>c:\users\david soares\documents\github\poo_1516_dsoares_jnogueira\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\ponte.cpp(6): error C2512: 'Sala': no appropriate default constructor available
-         c:\users\david soares\documents\github\poo_1516_dsoares_jnogueira\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\sala.h(7): note: see declaration of 'Sala'
-         Controlo_Escudo.cpp
-     1>c:\users\david soares\documents\github\poo_1516_dsoares_jnogueira\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\controlo_escudo.cpp(6): error C2084: function 'Controlo_Escudo::Controlo_Escudo(int)' already has a body
-         c:\users\david soares\documents\github\poo_1516_dsoares_jnogueira\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\controlo_escudo.h(7): note: see previous definition of '{ctor}'
-     1>c:\users\david soares\documents\github\poo_1516_dsoares_jnogueira\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\controlo_escudo.cpp(6): error C2512: 'Sala': no appropriate default constructor available
-         c:\users\david soares\documents\github\poo_1516_dsoares_jnogueira\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\sala.h(7): note: see declaration of 'Sala'
-         Beliche.cpp
-         Generating Code...
-     1>Done Building Project "C:\Users\David Soares\Documents\GitHub\POO_1516_Dsoares_JNogueira\POO_1516_JNogueira_DSoares\POO_1516_JNogueira_DSoares\POO_1516_JNogueira_DSoares.vcxproj" (Build target(s)) -- FAILED.
+     1>Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\David Soares\Documents\GitHub\POO_1516_Dsoares_JNogueira\POO_1516_JNogueira_DSoares\x64\Debug\POO_1516_JNogueira_DSoares.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"C:\Users\David Soares\Documents\GitHub\POO_1516_Dsoares_JNogueira\POO_1516_JNogueira_DSoares\x64\Debug\POO_1516_JNogueira_DSoares.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\David Soares\Documents\GitHub\POO_1516_Dsoares_JNogueira\POO_1516_JNogueira_DSoares\x64\Debug\POO_1516_JNogueira_DSoares.lib" /MACHINE:X64 x64\Debug\POO_1516_JNogueira_DSoares.res
+         x64\Debug\Beliche.obj
+         x64\Debug\comandos.obj
+         x64\Debug\consola.obj
+         x64\Debug\Controlo_Escudo.obj
+         x64\Debug\Interface.obj
+         x64\Debug\main.obj
+         x64\Debug\Memb_Trip.obj
+         x64\Debug\Nave.obj
+         x64\Debug\Ponte.obj
+         x64\Debug\Propulsor.obj
+         x64\Debug\Sala.obj
+         x64\Debug\Sala_Maquinas.obj
+         x64\Debug\Suporte_Vida.obj
+         x64\Debug\Tripulacao.obj
+         x64\Debug\Unidade.obj
+         bass.lib
+         LINK : C:\Users\David Soares\Documents\GitHub\POO_1516_Dsoares_JNogueira\POO_1516_JNogueira_DSoares\x64\Debug\POO_1516_JNogueira_DSoares.exe not found or not built by the last incremental link; performing full link
+         POO_1516_JNogueira_DSoares.vcxproj -> C:\Users\David Soares\Documents\GitHub\POO_1516_Dsoares_JNogueira\POO_1516_JNogueira_DSoares\x64\Debug\POO_1516_JNogueira_DSoares.exe
+     1>Done Building Project "C:\Users\David Soares\Documents\GitHub\POO_1516_Dsoares_JNogueira\POO_1516_JNogueira_DSoares\POO_1516_JNogueira_DSoares\POO_1516_JNogueira_DSoares.vcxproj" (Build target(s)).
 
-Build FAILED.
+Build succeeded.
 
-Time Elapsed 00:00:05.10
+Time Elapsed 00:00:00.39

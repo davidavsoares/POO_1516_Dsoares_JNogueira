@@ -3,6 +3,16 @@
 
 Nave::Nave()
 {
+	///////////////ADICIONA A TRIPULACAO INICIAL///////////////
+	static int conta_tripulantes;
+	for (int i = 97; i < 3;i++)
+	{
+		Memb_Trip tripulantes( (char)i ); 
+	}
+
+	//tripulantes.  //(char)i  i=141
+
+	//cout << tripulante.getOndeEstou()
 
 }
 void Nave::DesenhaNave(int x, int y, int tamanho)
@@ -74,14 +84,12 @@ void Nave::DesenhaNave(int x, int y, int tamanho)
 		}
 	}
 }
-
-
 Nave::~Nave()
 {
+	for (int i = 0; i < salas.size(); i++)
+		free(salas[i]);
 	salas.clear();
 }
-
-
 void Nave::Quadrado(int x,int y, Consola c, int sala,int tamanho) // CASO SEJA NECESSÀRIO: pode se criar a classe Sala que cria um quadrado, havendo um vector de salas na NAVE!
 {
 	//Consola c;  //passar por referencia, o prof so quer um por programa
@@ -150,7 +158,6 @@ void Nave::Quadrado(int x,int y, Consola c, int sala,int tamanho) // CASO SEJA N
 
 	cout << endl << endl;
 }
-
 //void Nave::Quadrado(int x, int y, Consola c, int sala)
 //{
 //	//Consola c;  //passar por referencia, o prof so quer um por programa
@@ -335,4 +342,26 @@ string Nave::toString() const
 	for (unsigned int i = 0; i < salas.size(); i++)
 	oss << " Integridade: " << salas[i] -> getIntegridade() << endl << " Saude : "/* << salas[i] -> getSaude() */<< endl << " Oxigenio : " << salas[i] -> getOxigenio() << endl;
 	return oss.str();
+}
+
+void Nave::incrementa_propulsores()
+{
+	conta_propulsores++;
+}
+
+void Nave::MoveTripulante(char nome, int room)
+{
+	int salaDefi, actual, numUni;
+	for (unsigned int i = 0; i < salas.size(); i++)
+			{
+				if (salas[i]->getId == room)
+					salaDefi = i;
+				
+				if(salas[i]->procura(nome) != -1);
+				{
+					numUni = salas[i]->procura(nome);
+					actual = i;
+				}
+			}
+	salas[salaDefi]->adiciona(salas[actual]->RetornaLocal(nome)); //deve ter um ponteiro de unidades
 }

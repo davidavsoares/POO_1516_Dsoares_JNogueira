@@ -51,27 +51,23 @@ void comandos::analisa_comandos(string b)
 		j++;
 	}
 
-	//if (palavras[0] == "mkgame")
-	//{
-	//	int l, c;
-	//	l = stoi(palavras[1], nullptr, 10);
-	//	c = stoi(palavras[2], nullptr, 10);
-	////	territorio t(l, c);
-	////	desenha_mapa(&t);
-	//}
-	//
-	//if (palavras[0] == "load")
-	//{
-	//	string nome_ficheiro;
-	//	nome_ficheiro = palavras[1];
-	//	carrega_ficheiro(nome_ficheiro);
-	//}
+	if (palavras[0] == "mover")
+	{
+		int l, c;
+		
+		c = stoi(palavras[2], nullptr, 10);
+	//	Spaceship.MoveTripulante(palavras[1], c);		COMANDO FEITO FALTA PASSAR NAVE COMO ARGUMENTO
+		
+	}
+	
+
 	if (palavras[0] == "sair")
 	{
 		Interface ui;
 		ui.sair();
 	}
 }
+
 //
 //void comandos::analisa_comandos1(string comando,territorio *a)
 //{

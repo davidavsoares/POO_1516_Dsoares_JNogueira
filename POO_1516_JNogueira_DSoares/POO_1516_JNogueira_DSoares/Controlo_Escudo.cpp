@@ -2,9 +2,7 @@
 
 
 
-Controlo_Escudo::Controlo_Escudo(int id)
-{
-}
+Controlo_Escudo::Controlo_Escudo(int id) :Sala(id) {}
 
 
 Controlo_Escudo::~Controlo_Escudo()

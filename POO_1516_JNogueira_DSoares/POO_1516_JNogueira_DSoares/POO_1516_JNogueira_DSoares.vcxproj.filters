@@ -57,58 +57,10 @@
     <ClCompile Include="Beliche.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Oficina_Robotica.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Tripulacao.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Memb_Trip.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Alojam_Capitao.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Auto_Reparador.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Blob.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Capitao.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Casulo_de_Geigermorfo.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Enfermaria.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Geigermorfo.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Inimigos.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Mxyzypykwi.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Pirata.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Raio_Laser.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Robot.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Sala_Armas.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Segur_Interna.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Xenomorfos.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -158,16 +110,10 @@
     <ClInclude Include="Beliche.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Segur_Interna.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Tripulacao.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Memb_Trip.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Capitao.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="resource.h">

@@ -4,7 +4,7 @@
 class Ponte : public Sala
 {
 public:
-	Ponte(int id) :Sala(id) {};
+	Ponte(int id);
 	~Ponte();
 };
 
