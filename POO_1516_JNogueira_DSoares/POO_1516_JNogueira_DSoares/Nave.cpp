@@ -3,11 +3,13 @@
 
 Nave::Nave()
 {
+	string name;
 	///////////////ADICIONA A TRIPULACAO INICIAL///////////////
-	static int conta_tripulantes;
-	for (int i = 97; i < 3;i++)
+	conta_tripulantes = 0;
+	for (int i = 97; i < 100;i++)
 	{
-		Memb_Trip tripulantes( (char)i ); 
+		name = (char)i;
+		 Memb_Trip tripulantes(name); 
 	}
 
 	//tripulantes.  //(char)i  i=141
@@ -17,8 +19,14 @@ Nave::Nave()
 }
 void Nave::DesenhaNave(int x, int y, int tamanho)
 {
-	int i, sala = 1, k;
+	distancia = 0;
+	pos_x = x;
+	pos_y = y;
+	Tamanho = tamanho;
+	int i, sala = 1, k, perc = 0;
 	Consola c;
+	
+	//Interface ui;
 	
 
 	c.setTextSize(20,20);
@@ -72,17 +80,26 @@ void Nave::DesenhaNave(int x, int y, int tamanho)
 
 	for (k = 0; k < 3; k++)
 	{
-		for (i = 0; i < 4; i++)
+		for (i = 0; i < 4; i++, perc++)
 		{
 			if (k != 1)
 			{
 				Quadrado(x + i * tamanho, y + k * tamanho/2, c, sala, tamanho);
+				c.gotoxy(1 + x + i * tamanho,1 + y + k * tamanho / 2);
+				salas[perc]->toStatus(c, 1 + x + i * tamanho, 1 + y + k * tamanho / 2);
 			}
-			else 
-				Quadrado(x + (i + 1) * tamanho, y + k * tamanho/2, c, sala, tamanho);
+			else
+			{
+				Quadrado(x + (i + 1) * tamanho, y + k * tamanho / 2, c, sala, tamanho);
+				c.gotoxy(1 + x + (i + 1) * tamanho, 1 + y + k * tamanho / 2);
+				salas[perc]->toStatus(c, 1 + x + (i + 1) * tamanho, 1 + y + k * tamanho / 2);
+			}
 			sala++;
 		}
 	}
+
+	imprime_salas(c);
+	//ui.NextDesign();
 }
 Nave::~Nave()
 {
@@ -349,19 +366,71 @@ void Nave::incrementa_propulsores()
 	conta_propulsores++;
 }
 
-void Nave::MoveTripulante(char nome, int room)
+void Nave::MoveTripulante(string nome, int room)
 {
 	int salaDefi, actual, numUni;
 	for (unsigned int i = 0; i < salas.size(); i++)
 			{
-				if (salas[i]->getId == room)
+				if (salas[i]->getId() == room)
 					salaDefi = i;
 				
-				if(salas[i]->procura(nome) != -1);
+				if(salas[i]->procura(nome) != -1)
 				{
 					numUni = salas[i]->procura(nome);
 					actual = i;
 				}
 			}
 	salas[salaDefi]->adiciona(salas[actual]->RetornaLocal(nome)); //deve ter um ponteiro de unidades
+	salas[actual]->remove(nome);
+	
+}
+
+int Nave::getX()
+{
+	return this->pos_x;
+}
+
+int Nave::getY()
+{
+	return this->pos_y;
+}
+
+int Nave::getTamanho()
+{
+	return this->Tamanho;
+}
+
+void Nave::imprime_salas(Consola &c) 
+{
+	for (unsigned int i = 0; i < salas.size(); i++) 
+	{
+		salas[i]->mostra_trip(pos_x, pos_y, c);
+	//	c.gotoxy(pos_x + 1 + Tamanho *(salas[i]->getId()-1), pos_y + 1);
+	//	cout << salas[i]->getId();
+	}
+}
+
+void Nave::incrementa_tripulantes()
+{
+	conta_tripulantes++;
+}
+
+int Nave::GetConta_tripulantes()
+{
+	return conta_tripulantes;
+}
+
+string Nave::getCharTrip()
+{
+
+	ostringstream oss;
+
+	oss << (char)(97 + conta_tripulantes);
+
+	return oss.str();
+}
+
+void Nave::actualiza_distancia()
+{
+
 }

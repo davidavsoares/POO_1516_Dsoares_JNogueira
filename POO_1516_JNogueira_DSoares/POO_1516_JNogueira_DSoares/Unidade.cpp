@@ -2,9 +2,11 @@
 
 
 
-Unidade::Unidade(char nome)
+Unidade::Unidade(string nome)
 {
 	this->nome = nome;
+
+
 }
 
 
@@ -27,14 +29,17 @@ void Unidade::SofrerDano(int Dano)
 	this->saude = saude - Dano;
 }
 
-int Unidade::getNome()
+string Unidade::getNome()
 {
 	return this->nome;
 }
 
-void ImprimeUni()
+void Unidade::printNome(int x, int y, Consola &c)
 {
+	c.gotoxy(x, y);
 
+	cout << nome;
+	
 }
 
 

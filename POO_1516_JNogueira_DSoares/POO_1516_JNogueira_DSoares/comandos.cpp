@@ -1,4 +1,5 @@
 #include "comandos.h"
+
 int verifica = 1;
 
 comandos::comandos()
@@ -9,33 +10,34 @@ comandos::~comandos()
 {
 }
 
-void comandos::cmd()
+void comandos::cmd(Nave & Spaceship)
 {
 	Consola c;
 	int tecla;
 	char buffer[512];
 
-	c.clrscr();
-	c.gotoxy(5, 25);
-	cout << "Primir C para digitar os comandos";
-	do
-	{
-		tecla = c.getch();
-	} while (tecla != 99 );
+	//c.clrscr();
+	c.gotoxy(5, 40);
+	//cout << "Primir C para digitar os comandos";
+	//do
+	//{
+	//	tecla = c.getch();
+	//} while (tecla != 99 );
 
-	c.clrscr();
-	c.gotoxy(5, 25);
+	//c.clrscr();
+	c.gotoxy(5, 40);
 	cout << ">comando: ";
 	cin.getline(buffer, 512);
-	analisa_comandos(buffer);
+	analisa_comandos(buffer, Spaceship);
 }
 
-void comandos::analisa_comandos(string b)
+void comandos::analisa_comandos(string b, Nave & Spaceship)
 {
 	stringstream comandos(b);
 	int j = 0;
 	string buffer;
 	string *palavras;
+
 	
 	while (comandos >> buffer)
 		j++;
@@ -53,10 +55,11 @@ void comandos::analisa_comandos(string b)
 
 	if (palavras[0] == "mover")
 	{
-		int l, c;
+		int/* l,*/ c;
 		
 		c = stoi(palavras[2], nullptr, 10);
-	//	Spaceship.MoveTripulante(palavras[1], c);		COMANDO FEITO FALTA PASSAR NAVE COMO ARGUMENTO
+		Spaceship.MoveTripulante(palavras[1], c);		//COMANDO FEITO FALTA PASSAR NAVE COMO ARGUMENTO
+		Spaceship.DesenhaNave(8, 7, 20);
 		
 	}
 	
@@ -65,6 +68,12 @@ void comandos::analisa_comandos(string b)
 	{
 		Interface ui;
 		ui.sair();
+	}
+
+	if (palavras[0] == "turno")
+	{
+		Spaceship.actualiza_distancia();
+
 	}
 }
 

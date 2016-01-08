@@ -4,6 +4,7 @@
 
 Propulsor::Propulsor(int id, Nave * Spaceship) :Sala(id) 
 {
+	string tipo = "Propulsor";
 	Spaceship->incrementa_propulsores();
 
 }

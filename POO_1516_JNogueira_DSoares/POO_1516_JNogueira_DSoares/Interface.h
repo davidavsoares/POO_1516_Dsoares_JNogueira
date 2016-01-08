@@ -1,7 +1,6 @@
 #pragma once
 #include "bibliotecas.h"
 #include "consola.h"
-#include "comandos.h"
 #include "Nave.h"
 
 class Interface
@@ -27,6 +26,8 @@ public:
 
 	void Salas(Consola *c);
 
+	void NextDesign(Nave & Spaceship, Consola *c);
+
 	//////////////FUNCAO PROVISORIA/////////////////////77
 	void NI(Consola *c)
 	{
@@ -35,4 +36,6 @@ public:
 		cout << "Funcionalidade ainda nao implementada!";
 		Sleep(1000);
 	};
+
+
 };

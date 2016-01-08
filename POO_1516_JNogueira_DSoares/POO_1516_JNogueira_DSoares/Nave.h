@@ -1,7 +1,7 @@
 #pragma once
 #include "bibliotecas.h"
 #include "Sala.h"
-#include "consola.h"
+//#include "consola.h" movido para bibliotecas
 #include "Propulsor.h"
 #include "Beliche.h"
 #include "Sala_Maquinas.h"
@@ -15,7 +15,8 @@ class Nave
 {
 	vector<Sala *> salas;
 
-	int conta_propulsores = 0;
+	int conta_propulsores = 0, pos_x, pos_y, Tamanho, distancia;
+	int conta_tripulantes;
 public:
 	Nave();
 	void DesenhaNave(int x, int y, int tamanho);
@@ -26,7 +27,19 @@ public:
 	void Quadrado(int x, int y, Consola c, int sala, int tamanho);
 
 	void incrementa_propulsores();
-	void MoveTripulante(char nome, int room);
+	void MoveTripulante(string nome, int room);
+
+	int getX();	int getY();	int getTamanho();
+
+	void imprime_salas(Consola &c);		//PERCORRE TODAS AS SALAS E IMPRIME A TRIPULAÇÃO CONTIDA
+
+	void incrementa_tripulantes();
+
+	int GetConta_tripulantes();
+
+	string getCharTrip();
+
+	void actualiza_distancia();
 };
 
 

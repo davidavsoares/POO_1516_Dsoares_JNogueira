@@ -1,7 +1,8 @@
 #include "Interface.h"
+#include "comandos.h"
 
 
-Interface::Interface()
+Interface::Interface()		//Configura a consola
 {
 	Consola c;
 
@@ -23,7 +24,7 @@ Interface::~Interface()
 {
 }
 
-void Interface::desenha_menu()
+void Interface::desenha_menu()		//Configura o menu que é apresentado inicialmente
 {
 	Consola c;
 	int x = 15, y = 5, coord_x = 60, coord_y = 6, i, j;
@@ -49,7 +50,7 @@ void Interface::desenha_menu()
 
 }
 
-void Interface::creditos()
+void Interface::creditos()		//Apresenta os creditos
 {
 	Consola c;
 	
@@ -391,7 +392,7 @@ int Interface::move(int opcao, int n_opcoes)
 
 }
 
-void Interface::inicial(Consola *c)
+void Interface::inicial(Consola *c)		//Apresenta o menu inicial 
 {
 	flag = false;
 
@@ -454,18 +455,20 @@ void Interface::inicial(Consola *c)
 	}
 }
 
-void Interface::Salas(Consola *c)
+void Interface::Salas(Consola *c)		//Desenha e configura o menu  que é apresentado antes do desenho da nave
 {
 	
 
 	int opcao = 1, menu_x = 50, menu_y = 15;
-
+	comandos ABC;
 	Nave Spaceship;	// Cria uma Nave com as caracteristicas (Posicao XX, Posicao YY, Tamanho)
 					//cmd.cmd();
+	Sala *p1;
+
 
 	for (int i = 1; i <= 12; i++)
 	{
-		///////////////Adiciona as salas obrigatórias//////////////////
+		///////////////Adiciona as salas obrigatórias ao vector nave//////////////////
 		if (i == 1)
 		{
 			Spaceship.adiciona(new Propulsor(i, &Spaceship));
@@ -496,7 +499,7 @@ void Interface::Salas(Consola *c)
 			do
 			{
 				opcao = move(opcao, 10);
-
+				/////////////////ADICIONA AS SALAS OPCIONAIS AO VECTOR NAVE/////////////////
 				if (opcao == 1)
 				{
 					c->clrscr();
@@ -770,7 +773,7 @@ void Interface::Salas(Consola *c)
 			} while (!flag);  //Faz um ciclo de 'if' para escolher o valor de opcao
 
 			//Em cada opcao do switch vai criar uma sala especifica na nave
-
+			
 			switch (opcao)
 			{
 			case 1:
@@ -782,8 +785,16 @@ void Interface::Salas(Consola *c)
 				break;
 				opcao = 2;
 			case 3:
-				Spaceship.adiciona(new Beliche(i));
+			{
+				//Spaceship.adiciona(new Beliche(i));
+				p1 = new Beliche(i);
+				Spaceship.adiciona(p1);
+				//p1->adiciona(new Memb_Trip("ola"));
+				
+				p1->adiciona(new Memb_Trip(Spaceship.getCharTrip()));		
+				Spaceship.incrementa_tripulantes();
 				break;
+			}
 			case 4:
 				NI(c);
 				break;
@@ -817,9 +828,19 @@ void Interface::Salas(Consola *c)
 		}
 	}
 
-	Spaceship.DesenhaNave(8, 7, 14);
 
+	Spaceship.DesenhaNave(8, 7, 20);
+	ABC.cmd(Spaceship);
+	/*NextDesign(Spaceship, c);*/
+	
 	
 }
+
+void Interface::NextDesign(Nave & Spaceship, Consola *c)
+{
+	comandos ABC;
+	ABC.cmd(Spaceship);
+}
+
 
 

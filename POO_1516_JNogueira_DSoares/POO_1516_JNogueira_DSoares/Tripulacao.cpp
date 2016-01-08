@@ -2,7 +2,7 @@
 
 
 
-Tripulacao::Tripulacao(char nome): Unidade(nome)
+Tripulacao::Tripulacao(string nome): Unidade(nome)
 {
 }
 

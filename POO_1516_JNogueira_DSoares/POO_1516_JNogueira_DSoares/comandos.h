@@ -11,9 +11,7 @@ class comandos
 public:
 	comandos();
 	~comandos();
-	void cmd();
-	void analisa_comandos(string b);
-	//void analisa_comandos1(string comando,territorio *a);
-	//void desenha_mapa(territorio *a);
-	//void carrega_ficheiro(string nome);
+	void cmd(Nave &Spaceship);
+	void analisa_comandos(string b, Nave &Spaceship);
+
 };

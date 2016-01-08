@@ -5,7 +5,7 @@ class Tripulacao :
 	public Unidade
 {
 public:
-	Tripulacao(char nome);
+	Tripulacao(string nome);
 	~Tripulacao();
 };
 
