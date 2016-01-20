@@ -29,12 +29,13 @@ public:
 	void NextDesign(Nave & Spaceship, Consola *c);
 
 	//////////////FUNCAO PROVISORIA/////////////////////77
-	void NI(Consola *c)
+	int NI(Consola *c, int contador)
 	{
 		c->clrscr();
 		c->gotoxy(45, 8);
 		cout << "Funcionalidade ainda nao implementada!";
 		Sleep(1000);
+		return contador--;
 	};
 
 

@@ -13,7 +13,7 @@ comandos::~comandos()
 void comandos::cmd(Nave & Spaceship)
 {
 	Consola c;
-	int tecla;
+	//int tecla;
 	char buffer[512];
 
 	//c.clrscr();
@@ -74,7 +74,10 @@ void comandos::analisa_comandos(string b, Nave & Spaceship)
 	{
 		Spaceship.actualiza_distancia();
 
+
 	}
+	else
+		cout << "Deve indroduzir um comando válido";
 }
 
 //

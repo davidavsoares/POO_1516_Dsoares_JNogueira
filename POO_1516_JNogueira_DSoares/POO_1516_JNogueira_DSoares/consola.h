@@ -113,4 +113,4 @@ public:
 	void drawCircle(int X, int Y, int R, int Pen, int Fill);
 };
 
-#endif
+#endif/

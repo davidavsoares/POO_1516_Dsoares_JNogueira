@@ -777,11 +777,11 @@ void Interface::Salas(Consola *c)		//Desenha e configura o menu  que é apresenta
 			switch (opcao)
 			{
 			case 1:
-				NI(c);
+				i = NI(c, i);
 				break;
 				opcao = 1;
 			case 2:
-				NI(c);
+				i = NI(c, i);
 				break;
 				opcao = 2;
 			case 3:
@@ -796,27 +796,27 @@ void Interface::Salas(Consola *c)		//Desenha e configura o menu  que é apresenta
 				break;
 			}
 			case 4:
-				NI(c);
+				i = NI(c, i);
 				break;
 				opcao = 4;
 			case 5:
-				NI(c);
+				i = NI(c, i);
 				break;
 				opcao = 5;
 			case 6:
-				NI(c);
+				i = NI(c, i);
 				break;
 				opcao = 6;
 			case 7:
-				NI(c);
+				i = NI(c, i);
 				break;
 				opcao = 7;
 			case 8:
-				NI(c);
+				i = NI(c, i);
 				break;
 				opcao = 8;
 			case 9:
-				NI(c);
+				i = NI(c, i);
 				break;
 				opcao = 9;
 			case 10:
