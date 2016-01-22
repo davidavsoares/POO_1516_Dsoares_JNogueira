@@ -20,13 +20,13 @@ public:
 	void sair();
 	void goodbye();
 
-	int move(int opcao, int n_opcoes);
+	int move(int opcao, int n_opcoes, int nula_1, int nula_2);
 
 	void inicial(Consola *c);
 
 	void Salas(Consola *c);
 
-	void NextDesign(Nave & Spaceship, Consola *c);
+	/*void NextDesign(Nave & Spaceship, Consola *c);*/
 
 	//////////////FUNCAO PROVISORIA/////////////////////77
 	int NI(Consola *c, int contador)

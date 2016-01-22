@@ -2,7 +2,7 @@
 
 
 
-Suporte_Vida::Suporte_Vida(int id) :Sala(id) {}
+Suporte_Vida::Suporte_Vida(int id) :Sala(id, "Suporte Vida") {}
 
 
 Suporte_Vida::~Suporte_Vida()

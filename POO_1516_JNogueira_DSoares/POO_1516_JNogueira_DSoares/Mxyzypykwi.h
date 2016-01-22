@@ -4,7 +4,7 @@ class Mxyzypykwi :
 	public Xenomorfos
 {
 public:
-	Mxyzypykwi();
+	Mxyzypykwi(string nome);
 	~Mxyzypykwi();
 };
 

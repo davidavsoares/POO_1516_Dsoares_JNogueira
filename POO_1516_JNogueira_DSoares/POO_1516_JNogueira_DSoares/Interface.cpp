@@ -362,7 +362,7 @@ void Interface::goodbye()
 
 }
 
-int Interface::move(int opcao, int n_opcoes)
+int Interface::move(int opcao, int n_opcoes, int nula_1, int nula_2)
 {
 	Consola c;
 	int tecla = 0;
@@ -375,15 +375,32 @@ int Interface::move(int opcao, int n_opcoes)
 
 	if (tecla == c.CIMA)
 	{
+
 		opcao--;
-		if (opcao == 0)
+		if (opcao == nula_1 || opcao == nula_2)
+		{
+			opcao--;
+		}
+		if (opcao == 0 || opcao == nula_1)
 			opcao = n_opcoes;
 	}
 	if (tecla == c.BAIXO)
 	{
+
 		opcao++;
+		if (opcao == nula_1 || opcao == nula_2)
+		{
+			opcao++;
+		}
 		if (opcao == n_opcoes + 1)
-			opcao = 1;
+			if (nula_1 != 1 && nula_2 != 1)
+			{
+				opcao = 1;
+			}
+			else
+			{
+				opcao = 2;
+			}
 	}
 	if (tecla == c.ENTER)
 		flag = true;
@@ -400,7 +417,7 @@ void Interface::inicial(Consola *c)		//Apresenta o menu inicial
 
 	do
 	{
-		opcao = move(opcao, n_opcoes);
+		opcao = move(opcao, n_opcoes, 20, 20);
 
 		if (opcao == 1)
 		{
@@ -459,15 +476,16 @@ void Interface::Salas(Consola *c)		//Desenha e configura o menu  que é apresenta
 {
 	
 
-	int opcao = 1, menu_x = 50, menu_y = 15;
+	int opcao = 1, menu_x = 50, menu_y = 15, nula_1=20, nula_2=20;
 	comandos ABC;
 	Nave Spaceship;	// Cria uma Nave com as caracteristicas (Posicao XX, Posicao YY, Tamanho)
 					//cmd.cmd();
 	Sala *p1;
-
+	bool EL_CAPITAN = 1, EL_ROBOT = 1;
 
 	for (int i = 1; i <= 12; i++)
 	{
+
 		///////////////Adiciona as salas obrigatórias ao vector nave//////////////////
 		if (i == 1)
 		{
@@ -485,9 +503,13 @@ void Interface::Salas(Consola *c)		//Desenha e configura o menu  que é apresenta
 		{
 			Spaceship.adiciona(new Controlo_Escudo(i));
 		}
-		else if (i == 8)
+		else if (i == 8)		//Adiciona a ponte com 1 tripulante
 		{
-			Spaceship.adiciona(new Ponte(i));
+			p1 = new Ponte(i);
+			Spaceship.adiciona(p1);
+
+			p1->adiciona(new Memb_Trip(Spaceship.getCharTrip()));
+			Spaceship.incrementa_tripulantes();
 		}
 		else if (i == 9)
 		{
@@ -498,35 +520,40 @@ void Interface::Salas(Consola *c)		//Desenha e configura o menu  que é apresenta
 			flag = false;
 			do
 			{
-				opcao = move(opcao, 10);
+
+				opcao = move(opcao, 10, nula_1, nula_2);
 				/////////////////ADICIONA AS SALAS OPCIONAIS AO VECTOR NAVE/////////////////
-				if (opcao == 1)
-				{
-					c->clrscr();
-					c->gotoxy(45, 8);
-					cout << "Escolha as suas salas:";
-					c->gotoxy(menu_x, menu_y);
-					c->setBackgroundColor(fundo);
-					cout << ">Alojamento do capitao";
-					c->gotoxy(menu_x, menu_y + 3);
-					cout << "Auto-reparador";
-					c->gotoxy(menu_x, menu_y + 6);
-					cout << "Beliches";
-					c->gotoxy(menu_x, menu_y + 9);
-					cout << "Enfermaria";
-					c->gotoxy(menu_x, menu_y + 12);
-					cout << "Oficina de robotica";
-					c->gotoxy(menu_x, menu_y + 15);
-					cout << "Propulsores adicionais";
-					c->gotoxy(menu_x, menu_y + 18);
-					cout << "Raio laser";
-					c->gotoxy(menu_x, menu_y + 21);
-					cout << "Sala de armas";
-					c->gotoxy(menu_x, menu_y + 24);
-					cout << "Sistema de seguranca interno";
-					c->gotoxy(menu_x, menu_y + 27);
-					cout << "Sair";
-				}
+			
+				if (opcao == 1 && EL_CAPITAN == 1)
+					{
+						c->clrscr();
+						c->gotoxy(45, 8);
+						cout << "Escolha as suas salas:";
+						c->gotoxy(menu_x, menu_y);
+						c->setBackgroundColor(fundo);
+						cout << ">Alojamento do capitao";
+						c->gotoxy(menu_x, menu_y + 3);
+						cout << "Auto-reparador";
+						c->gotoxy(menu_x, menu_y + 6);
+						cout << "Beliches";
+						c->gotoxy(menu_x, menu_y + 9);
+						cout << "Enfermaria";	
+						if (EL_ROBOT == 1)
+						{
+							c->gotoxy(menu_x, menu_y + 12);
+							cout << "Oficina de robotica";
+						}
+						c->gotoxy(menu_x, menu_y + 15);
+						cout << "Propulsores adicionais";
+						c->gotoxy(menu_x, menu_y + 18);
+						cout << "Raio laser";
+						c->gotoxy(menu_x, menu_y + 21);
+						cout << "Sala de armas";
+						c->gotoxy(menu_x, menu_y + 24);
+						cout << "Sistema de seguranca interno";
+						c->gotoxy(menu_x, menu_y + 27);
+						cout << "Sair";
+					}
 				if (opcao == 2)
 				{
 					c->clrscr();
@@ -534,15 +561,21 @@ void Interface::Salas(Consola *c)		//Desenha e configura o menu  que é apresenta
 					cout << "Escolha as suas salas:";
 					c->gotoxy(menu_x, menu_y);
 					c->setBackgroundColor(fundo);
-					cout << "Alojamento do capitao";
+					if (EL_CAPITAN == 1)
+					{
+						cout << "Alojamento do capitao";
+					}
 					c->gotoxy(menu_x, menu_y + 3);
 					cout << ">Auto-reparador";
 					c->gotoxy(menu_x, menu_y + 6);
 					cout << "Beliches";
 					c->gotoxy(menu_x, menu_y + 9);
 					cout << "Enfermaria";
-					c->gotoxy(menu_x, menu_y + 12);
-					cout << "Oficina de robotica";
+					if (EL_ROBOT == 1)
+					{
+						c->gotoxy(menu_x, menu_y + 12);
+						cout << "Oficina de robotica";
+					}
 					c->gotoxy(menu_x, menu_y + 15);
 					cout << "Propulsores adicionais";
 					c->gotoxy(menu_x, menu_y + 18);
@@ -561,15 +594,21 @@ void Interface::Salas(Consola *c)		//Desenha e configura o menu  que é apresenta
 					cout << "Escolha as suas salas:";
 					c->gotoxy(menu_x, menu_y);
 					c->setBackgroundColor(fundo);
-					cout << "Alojamento do capitao";
+					if (EL_CAPITAN == 1)
+					{
+						cout << "Alojamento do capitao";
+					}
 					c->gotoxy(menu_x, menu_y + 3);
 					cout << "Auto-reparador";
 					c->gotoxy(menu_x, menu_y + 6);
 					cout << ">Beliches";
 					c->gotoxy(menu_x, menu_y + 9);
 					cout << "Enfermaria";
-					c->gotoxy(menu_x, menu_y + 12);
-					cout << "Oficina de robotica";
+					if (EL_ROBOT == 1)
+					{
+						c->gotoxy(menu_x, menu_y + 12);
+						cout << "Oficina de robotica";
+					}
 					c->gotoxy(menu_x, menu_y + 15);
 					cout << "Propulsores adicionais";
 					c->gotoxy(menu_x, menu_y + 18);
@@ -587,16 +626,21 @@ void Interface::Salas(Consola *c)		//Desenha e configura o menu  que é apresenta
 					c->gotoxy(45, 8);
 					cout << "Escolha as suas salas:";
 					c->gotoxy(menu_x, menu_y);
-					c->setBackgroundColor(fundo);
-					cout << "Alojamento do capitao";
+					if (EL_CAPITAN == 1)
+					{
+						cout << "Alojamento do capitao";
+					}
 					c->gotoxy(menu_x, menu_y + 3);
 					cout << "Auto-reparador";
 					c->gotoxy(menu_x, menu_y + 6);
 					cout << "Beliches";
 					c->gotoxy(menu_x, menu_y + 9);
 					cout << ">Enfermaria";
-					c->gotoxy(menu_x, menu_y + 12);
-					cout << "Oficina de robotica";
+					if (EL_ROBOT == 1)
+					{
+						c->gotoxy(menu_x, menu_y + 12);
+						cout << "Oficina de robotica";
+					}
 					c->gotoxy(menu_x, menu_y + 15);
 					cout << "Propulsores adicionais";
 					c->gotoxy(menu_x, menu_y + 18);
@@ -607,15 +651,18 @@ void Interface::Salas(Consola *c)		//Desenha e configura o menu  que é apresenta
 					cout << "Sistema de seguranca interno";
 					c->gotoxy(menu_x, menu_y + 27);
 					cout << "Sair";
-				}
-				if (opcao == 5)
+				}	
+				if (opcao == 5 && EL_ROBOT == 1)
 				{
 					c->clrscr();
 					c->gotoxy(45, 8);
 					cout << "Escolha as suas salas:";
 					c->gotoxy(menu_x, menu_y);
 					c->setBackgroundColor(fundo);
-					cout << "Alojamento do capitao";
+					if (EL_CAPITAN == 1)
+					{
+						cout << "Alojamento do capitao";
+					}
 					c->gotoxy(menu_x, menu_y + 3);
 					cout << "Auto-reparador";
 					c->gotoxy(menu_x, menu_y + 6);
@@ -642,15 +689,21 @@ void Interface::Salas(Consola *c)		//Desenha e configura o menu  que é apresenta
 					cout << "Escolha as suas salas:";
 					c->gotoxy(menu_x, menu_y);
 					c->setBackgroundColor(fundo);
-					cout << "Alojamento do capitao";
+					if (EL_CAPITAN == 1)
+					{
+						cout << "Alojamento do capitao";
+					}
 					c->gotoxy(menu_x, menu_y + 3);
 					cout << "Auto-reparador";
 					c->gotoxy(menu_x, menu_y + 6);
 					cout << "Beliches";
 					c->gotoxy(menu_x, menu_y + 9);
 					cout << "Enfermaria";
-					c->gotoxy(menu_x, menu_y + 12);
-					cout << "Oficina de robotica";
+					if (EL_ROBOT == 1)
+					{
+						c->gotoxy(menu_x, menu_y + 12);
+						cout << "Oficina de robotica";
+					}
 					c->gotoxy(menu_x, menu_y + 15);
 					cout << ">Propulsores adicionais";
 					c->gotoxy(menu_x, menu_y + 18);
@@ -669,15 +722,21 @@ void Interface::Salas(Consola *c)		//Desenha e configura o menu  que é apresenta
 					cout << "Escolha as suas salas:";
 					c->gotoxy(menu_x, menu_y);
 					c->setBackgroundColor(fundo);
-					cout << "Alojamento do capitao";
+					if (EL_CAPITAN == 1)
+					{
+						cout << "Alojamento do capitao";
+					}
 					c->gotoxy(menu_x, menu_y + 3);
 					cout << "Auto-reparador";
 					c->gotoxy(menu_x, menu_y + 6);
 					cout << "Beliches";
 					c->gotoxy(menu_x, menu_y + 9);
 					cout << "Enfermaria";
-					c->gotoxy(menu_x, menu_y + 12);
-					cout << "Oficina de robotica";
+					if (EL_ROBOT == 1)
+					{
+						c->gotoxy(menu_x, menu_y + 12);
+						cout << "Oficina de robotica";
+					}
 					c->gotoxy(menu_x, menu_y + 15);
 					cout << "Propulsores adicionais";
 					c->gotoxy(menu_x, menu_y + 18);
@@ -696,15 +755,21 @@ void Interface::Salas(Consola *c)		//Desenha e configura o menu  que é apresenta
 					cout << "Escolha as suas salas:";
 					c->gotoxy(menu_x, menu_y);
 					c->setBackgroundColor(fundo);
-					cout << "Alojamento do capitao";
+					if (EL_CAPITAN == 1)
+					{
+						cout << "Alojamento do capitao";
+					}
 					c->gotoxy(menu_x, menu_y + 3);
 					cout << "Auto-reparador";
 					c->gotoxy(menu_x, menu_y + 6);
 					cout << "Beliches";
 					c->gotoxy(menu_x, menu_y + 9);
 					cout << "Enfermaria";
-					c->gotoxy(menu_x, menu_y + 12);
-					cout << "Oficina de robotica";
+					if (EL_ROBOT == 1)
+					{
+						c->gotoxy(menu_x, menu_y + 12);
+						cout << "Oficina de robotica";
+					}
 					c->gotoxy(menu_x, menu_y + 15);
 					cout << "Propulsores adicionais";
 					c->gotoxy(menu_x, menu_y + 18);
@@ -723,15 +788,21 @@ void Interface::Salas(Consola *c)		//Desenha e configura o menu  que é apresenta
 					cout << "Escolha as suas salas:";
 					c->gotoxy(menu_x, menu_y);
 					c->setBackgroundColor(fundo);
-					cout << "Alojamento do capitao";
+					if (EL_CAPITAN == 1)
+					{
+						cout << "Alojamento do capitao";
+					}
 					c->gotoxy(menu_x, menu_y + 3);
 					cout << "Auto-reparador";
 					c->gotoxy(menu_x, menu_y + 6);
 					cout << "Beliches";
 					c->gotoxy(menu_x, menu_y + 9);
 					cout << "Enfermaria";
-					c->gotoxy(menu_x, menu_y + 12);
-					cout << "Oficina de robotica";
+					if (EL_ROBOT == 1)
+					{
+						c->gotoxy(menu_x, menu_y + 12);
+						cout << "Oficina de robotica";
+					}
 					c->gotoxy(menu_x, menu_y + 15);
 					cout << "Propulsores adicionais";
 					c->gotoxy(menu_x, menu_y + 18);
@@ -750,15 +821,21 @@ void Interface::Salas(Consola *c)		//Desenha e configura o menu  que é apresenta
 					cout << "Escolha as suas salas:";
 					c->gotoxy(menu_x, menu_y);
 					c->setBackgroundColor(fundo);
-					cout << "Alojamento do capitao";
+					if (EL_CAPITAN == 1)
+					{
+						cout << "Alojamento do capitao";
+					}
 					c->gotoxy(menu_x, menu_y + 3);
 					cout << "Auto-reparador";
 					c->gotoxy(menu_x, menu_y + 6);
 					cout << "Beliches";
 					c->gotoxy(menu_x, menu_y + 9);
 					cout << "Enfermaria";
-					c->gotoxy(menu_x, menu_y + 12);
-					cout << "Oficina de robotica";
+					if (EL_ROBOT == 1)
+					{
+						c->gotoxy(menu_x, menu_y + 12);
+						cout << "Oficina de robotica";
+					}
 					c->gotoxy(menu_x, menu_y + 15);
 					cout << "Propulsores adicionais";
 					c->gotoxy(menu_x, menu_y + 18);
@@ -770,53 +847,76 @@ void Interface::Salas(Consola *c)		//Desenha e configura o menu  que é apresenta
 					c->gotoxy(menu_x, menu_y + 27);
 					cout << ">Sair";
 				}
+
 			} while (!flag);  //Faz um ciclo de 'if' para escolher o valor de opcao
 
 			//Em cada opcao do switch vai criar uma sala especifica na nave
 			
 			switch (opcao)
 			{
-			case 1:
-				i = NI(c, i);
+			case 1:		//ALOJAMENTO CAPITAO  //FALTA LIMITAR
+				if (EL_CAPITAN == 1)
+				{
+					p1 = new Alojam_Capitao(i);
+					Spaceship.adiciona(p1);
+
+					p1->adiciona(new Capitao("C"));
+					Spaceship.incrementa_tripulantes();
+					EL_CAPITAN = 0;
+					nula_1 = 1;
+				}
+				else { i--; }
 				break;
-				opcao = 1;
-			case 2:
-				i = NI(c, i);
+
+			case 2:	//REPARADOR	
+				p1 = new Auto_Reparador(i);
+				Spaceship.adiciona(p1);
 				break;
 				opcao = 2;
 			case 3:
 			{
-				//Spaceship.adiciona(new Beliche(i));
 				p1 = new Beliche(i);
 				Spaceship.adiciona(p1);
-				//p1->adiciona(new Memb_Trip("ola"));
-				
-				p1->adiciona(new Memb_Trip(Spaceship.getCharTrip()));		
-				Spaceship.incrementa_tripulantes();
+				Spaceship.Adiciona_tripulante(i);
 				break;
 			}
-			case 4:
-				i = NI(c, i);
+			case 4:		//ENFERMARIA
+				p1 = new Enfermaria(i);
+				Spaceship.adiciona(p1);
 				break;
 				opcao = 4;
-			case 5:
-				i = NI(c, i);
+			case 5:		//OFICINA ROBOTICA		//FALTA LIMITAR
+				if (EL_ROBOT == 1)
+				{
+					p1 = new Oficina_Robotica(i);
+					Spaceship.adiciona(p1);
+
+					p1->adiciona(new Robot("R"));
+					Spaceship.incrementa_tripulantes();
+					nula_2 = 5;
+					EL_ROBOT = 0;
+				}
+				else { i--; }
 				break;
 				opcao = 5;
-			case 6:
-				i = NI(c, i);
+			case 6:		// PROPULSOR
+				p1 = new Propulsor(i, &Spaceship);
+				Spaceship.adiciona(p1);
 				break;
 				opcao = 6;
-			case 7:
-				i = NI(c, i);
+			case 7:		//RAIO LASER
+				p1 = new Raio_Laser(i);
+				Spaceship.adiciona(p1);
 				break;
 				opcao = 7;
-			case 8:
-				i = NI(c, i);
+			case 8:		//SALA ARMAS
+				p1 = new Sala_Armas(i);
+				Spaceship.adiciona(p1);
 				break;
 				opcao = 8;
-			case 9:
-				i = NI(c, i);
+			case 9:		//SISTEMA SEGUR INterno
+				p1 = new Sistema_Seguranca(i);
+				Spaceship.adiciona(p1);
 				break;
 				opcao = 9;
 			case 10:
@@ -827,6 +927,15 @@ void Interface::Salas(Consola *c)		//Desenha e configura o menu  que é apresenta
 			}
 		}
 	}
+	if (EL_CAPITAN == 1)
+	{
+		Spaceship.Adiciona_tripulante(8);
+	}
+	if (EL_ROBOT == 1)
+	{
+		Spaceship.Adiciona_tripulante(8);
+	}
+
 
 
 	Spaceship.DesenhaNave(8, 7, 20);
@@ -836,11 +945,11 @@ void Interface::Salas(Consola *c)		//Desenha e configura o menu  que é apresenta
 	
 }
 
-void Interface::NextDesign(Nave & Spaceship, Consola *c)
-{
-	comandos ABC;
-	ABC.cmd(Spaceship);
-}
+//void Interface::NextDesign(Nave & Spaceship, Consola *c)
+//{
+//	comandos ABC;
+//	ABC.cmd(Spaceship);
+//}
 
 
 

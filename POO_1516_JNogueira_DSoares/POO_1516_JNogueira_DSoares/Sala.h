@@ -7,8 +7,9 @@ class Sala
 {
 	vector<Unidade *> unidades;
 	int oxigenio, integridade, saude, id, contador = 0;
+	string nome;
 public:
-	Sala(int id);
+	Sala(int id, string n);
 	~Sala();
 	string toString()const;
 	void toStatus(Consola &c, int x, int y);
@@ -18,9 +19,11 @@ public:
 	int getId();					// Retorna o id
 	void adiciona(Unidade * p);		// Adiciona uma unidade á sala
 	void remove(string nome);			// Remove uma unidade de uma determinada sala indicando o nome da unidade
-	int procura(string nome) const;		// Procura um id 
+	int procura(string nome) const;		// Procura um id
+	//string getNome();					// Retorna Nome da sala
+	//void setNome();						// Adiciona nome à sala
 	Unidade * RetornaLocal(string nome);
 
-	void mostra_trip(int x, int y, Consola &c);				// Imprime as unidades presente na sala
+	//void mostra_trip(int x, int y, Consola &c);				// Imprime as unidades presente na sala
 };
 

@@ -2,10 +2,10 @@
 
 
 
-Sala::Sala(int id)
+Sala::Sala(int id, string n)
 {
 	this->id = id;
-
+	nome = n;
 	integridade = 100;
 	//saude = 100;
 	oxigenio = 100;
@@ -42,13 +42,15 @@ string Sala::toString() const
 	return oss.str();
 }
 
-void Sala::toStatus(Consola &c, int x, int y)
+void Sala::toStatus(Consola &c, int x, int y)			//Nesta função imprime-se as variaveis da sala e as unidades presentes nela
 {
 
 
 	c.gotoxy(x, y);
-	cout << " Integridade: " << integridade;
+	cout << " " <<nome;
 	c.gotoxy(x, y + 1);
+	cout << " Integridade: " << integridade;
+	c.gotoxy(x, y + 2);
 	cout << " Oxigenio: " << oxigenio;
 	
 
@@ -59,7 +61,7 @@ void Sala::toStatus(Consola &c, int x, int y)
 			for (int i = 0; i < unidades.size(); i++)
 			{
 				
-				unidades[i]->printNome(x + i, y + 2, c);
+				unidades[i]->printNome(x + i, y + 3, c);
 
 
 			}
@@ -126,15 +128,3 @@ Unidade * Sala::RetornaLocal(string nome)
 	return unidades[i];
 }
 
-void Sala::mostra_trip(int x,int y, Consola &c)
-{
-
-	for (int i = 0; i <= contador; i++)
-	{
-		c.gotoxy(x + i, y);
-		//unidades[i]->getTipo(c);
-
-	}
-
-
-}

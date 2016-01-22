@@ -2,9 +2,10 @@
 #include "Tripulacao.h"
 class Capitao :
 	public Tripulacao
+
 {
 public:
-	Capitao();
+	Capitao(string nome);
 	~Capitao();
 };
 

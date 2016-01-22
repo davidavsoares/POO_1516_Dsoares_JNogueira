@@ -19,50 +19,81 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Alojam_Capitao.cpp" />
+    <ClCompile Include="Auto_Reparador.cpp" />
     <ClCompile Include="Beliche.cpp" />
+    <ClCompile Include="Blob.cpp" />
+    <ClCompile Include="Capitao.cpp" />
+    <ClCompile Include="Casulo_de_Geigermorfo.cpp" />
     <ClCompile Include="comandos.cpp" />
     <ClCompile Include="consola.cpp" />
     <ClCompile Include="Controlo_Escudo.cpp" />
+    <ClCompile Include="Enfermaria.cpp" />
     <ClCompile Include="exemplo.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="Inimigos.cpp" />
     <ClCompile Include="Interface.cpp" />
     <ClCompile Include="main.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="Memb_Trip.cpp" />
+    <ClCompile Include="Mxyzypykwi.cpp" />
     <ClCompile Include="Nave.cpp" />
+    <ClCompile Include="Oficina_Robotica.cpp" />
+    <ClCompile Include="Pirata.cpp" />
     <ClCompile Include="Ponte.cpp" />
     <ClCompile Include="Propulsor.cpp" />
+    <ClCompile Include="Raio_Laser.cpp" />
+    <ClCompile Include="Robot.cpp" />
     <ClCompile Include="Sala.cpp" />
+    <ClCompile Include="Sala_Armas.cpp" />
     <ClCompile Include="Sala_Maquinas.cpp" />
+    <ClCompile Include="Sistema_Seguranca.cpp" />
     <ClCompile Include="Suporte_Vida.cpp" />
     <ClCompile Include="Tripulacao.cpp" />
     <ClCompile Include="Unidade.cpp" />
+    <ClCompile Include="Xenomorfos.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Alojam_Capitao.h" />
+    <ClInclude Include="Auto_Reparador.h" />
     <ClInclude Include="bass.h" />
     <ClInclude Include="Beliche.h" />
     <ClInclude Include="bibliotecas.h" />
+    <ClInclude Include="Blob.h" />
+    <ClInclude Include="Capitao.h" />
+    <ClInclude Include="Casulo_de_Geigermorfo.h" />
     <ClInclude Include="comandos.h" />
     <ClInclude Include="consola.h" />
     <ClInclude Include="Controlo_Escudo.h" />
+    <ClInclude Include="Enfermaria.h" />
     <ClInclude Include="Funcoes_main.h" />
+    <ClInclude Include="Geigermorfo.h" />
+    <ClInclude Include="Inimigos.h" />
     <ClInclude Include="Interface.h" />
     <ClInclude Include="Memb_Trip.h" />
+    <ClInclude Include="Mxyzypykwi.h" />
     <ClInclude Include="Nave.h" />
+    <ClInclude Include="Oficina_Robotica.h" />
+    <ClInclude Include="Pirata.h" />
     <ClInclude Include="Ponte.h" />
     <ClInclude Include="Propulsor.h" />
+    <ClInclude Include="Raio_Laser.h" />
     <ClInclude Include="resource.h" />
+    <ClInclude Include="Robot.h" />
     <ClInclude Include="Sala.h" />
+    <ClInclude Include="Sala_Armas.h" />
     <ClInclude Include="Sala_Maquinas.h" />
+    <ClInclude Include="Sistema_Seguranca.h" />
     <ClInclude Include="Suporte_Vida.h" />
     <ClInclude Include="Tripulacao.h" />
     <ClInclude Include="Unidade.h" />
+    <ClInclude Include="Xenomorfos.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="bass.dll" />

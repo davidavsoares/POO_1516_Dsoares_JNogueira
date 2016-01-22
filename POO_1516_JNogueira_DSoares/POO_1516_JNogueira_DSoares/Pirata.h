@@ -4,7 +4,7 @@ class Pirata :
 	public Inimigos
 {
 public:
-	Pirata();
+	Pirata(string nome);
 	~Pirata();
 };
 

@@ -4,7 +4,7 @@ class Inimigos :
 	public Unidade
 {
 public:
-	Inimigos();
+	Inimigos(string nome);
 	~Inimigos();
 };
 

@@ -25,58 +25,12 @@ void Nave::DesenhaNave(int x, int y, int tamanho)
 	Tamanho = tamanho;
 	int i, sala = 1, k, perc = 0;
 	Consola c;
-	
-	//Interface ui;
-	
 
 	c.setTextSize(20,20);
 	c.setScreenSize(55, 85);  // linhas colunas. valores grandes pode nao dar
 	c.setBackgroundColor(c.PRETO);  // favor consultar o .h para ver as constantes
 	c.setTextColor(c.BRANCO_CLARO);
 	c.clrscr();
-
-	/*for (k = 0; k < 3; k++)
-	{
-		for (i = 0; i < 4; i++)
-		{
-			if (k < 1)
-			{
-				Quadrado(x + i * tamanho, y + k * tamanho, c, sala);
-			}
-			else if( k == 1)
-				Quadrado(x + (i+1) * tamanho, y + k * tamanho / 2, c, sala);
-			else
-				Quadrado(x + i * tamanho, y + k * tamanho / 2, c, sala);
-			sala++;
-		}
-	}*/
-
-	//Quadrado(x, y, c, 1);
-	//Quadrado(x + tamanho, y, c, 2);
-	//Quadrado(x + 2 * tamanho, y, c, 3);
-	//Quadrado(x + 3 * tamanho, y, c, 4);
-	//Quadrado(x + tamanho, y + tamanho/2, c, 5);
-	//Quadrado(x + 2 * tamanho, y + tamanho / 2, c, 6);
-	//Quadrado(x + 3 * tamanho, y + tamanho / 2, c, 7);
-	//Quadrado(x + 4 * tamanho, y + tamanho / 2, c, 8);
-	//Quadrado(x, y + 2 * tamanho / 2, c, 9);
-	//Quadrado(x +  tamanho, y + 2 * tamanho / 2, c, 10);
-	//Quadrado(x + 2 * tamanho, y + 2 * tamanho / 2, c, 11);
-	//Quadrado(x + 3 * tamanho, y + 2 * tamanho / 2, c, 12);
-
-	//Quadrado(x, y, c, 1);
-	//Quadrado(x + tamanho, y, c, 2);
-	//Quadrado(x + 2 * tamanho, y, c, 3);
-	//Quadrado(x + 3 * tamanho, y, c, 4);
-	//Quadrado(x + tamanho, y + tamanho, c, 5);
-	//Quadrado(x + 2 * tamanho, y + tamanho, c, 6);
-	//Quadrado(x + 3 * tamanho, y + tamanho, c, 7);
-	//Quadrado(x + 4 * tamanho, y + tamanho, c, 8);
-	//Quadrado(x, y + 2 * tamanho, c, 9);
-	//Quadrado(x + tamanho, y + 2 * tamanho / 2, c, 10);
-	//Quadrado(x + 2 * tamanho, y + 2 * tamanho, c, 11);
-	//Quadrado(x + 3 * tamanho, y + 2 * tamanho, c, 12);
-
 
 	for (k = 0; k < 3; k++)
 	{
@@ -97,9 +51,6 @@ void Nave::DesenhaNave(int x, int y, int tamanho)
 			sala++;
 		}
 	}
-
-	imprime_salas(c);
-	//ui.NextDesign();
 }
 Nave::~Nave()
 {
@@ -400,15 +351,7 @@ int Nave::getTamanho()
 	return this->Tamanho;
 }
 
-void Nave::imprime_salas(Consola &c) 
-{
-	for (unsigned int i = 0; i < salas.size(); i++) 
-	{
-		salas[i]->mostra_trip(pos_x, pos_y, c);
-	//	c.gotoxy(pos_x + 1 + Tamanho *(salas[i]->getId()-1), pos_y + 1);
-	//	cout << salas[i]->getId();
-	}
-}
+
 
 void Nave::incrementa_tripulantes()
 {
@@ -433,4 +376,10 @@ string Nave::getCharTrip()
 void Nave::actualiza_distancia()
 {
 
+}
+
+void Nave::Adiciona_tripulante(int id)
+{
+	salas[id-1]->adiciona(new Memb_Trip(getCharTrip()));
+	incrementa_tripulantes();
 }

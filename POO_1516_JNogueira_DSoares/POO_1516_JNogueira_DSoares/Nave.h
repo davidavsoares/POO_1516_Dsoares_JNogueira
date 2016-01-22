@@ -8,8 +8,17 @@
 #include "Suporte_Vida.h"
 #include "Controlo_Escudo.h"
 #include "Ponte.h"
+#include "Alojam_Capitao.h"
+#include "Auto_Reparador.h"
+#include "Enfermaria.h"
+#include "Oficina_Robotica.h"
+#include "Raio_Laser.h"
+#include "Sala_Armas.h"
+#include "Sistema_Seguranca.h"
 
 #include "Memb_Trip.h"
+#include "Capitao.h"
+#include "Robot.h"
 
 class Nave
 {
@@ -31,7 +40,7 @@ public:
 
 	int getX();	int getY();	int getTamanho();
 
-	void imprime_salas(Consola &c);		//PERCORRE TODAS AS SALAS E IMPRIME A TRIPULAÇÃO CONTIDA
+
 
 	void incrementa_tripulantes();
 
@@ -40,6 +49,9 @@ public:
 	string getCharTrip();
 
 	void actualiza_distancia();
+
+	void Adiciona_tripulante(int id);
+	
 };
 
 

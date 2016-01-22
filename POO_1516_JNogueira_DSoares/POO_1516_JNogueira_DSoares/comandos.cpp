@@ -27,8 +27,12 @@ void comandos::cmd(Nave & Spaceship)
 	//c.clrscr();
 	c.gotoxy(5, 40);
 	cout << ">comando: ";
+
 	cin.getline(buffer, 512);
+	
+
 	analisa_comandos(buffer, Spaceship);
+
 }
 
 void comandos::analisa_comandos(string b, Nave & Spaceship)
@@ -52,6 +56,8 @@ void comandos::analisa_comandos(string b, Nave & Spaceship)
 		palavras[j] = buffer;
 		j++;
 	}
+	if (palavras[0] == "\n")
+		cout << "Deve indroduzir um comando válido";
 
 	if (palavras[0] == "mover")
 	{
@@ -60,6 +66,8 @@ void comandos::analisa_comandos(string b, Nave & Spaceship)
 		c = stoi(palavras[2], nullptr, 10);
 		Spaceship.MoveTripulante(palavras[1], c);		//COMANDO FEITO FALTA PASSAR NAVE COMO ARGUMENTO
 		Spaceship.DesenhaNave(8, 7, 20);
+		
+		cmd(Spaceship);
 		
 	}
 	
@@ -76,8 +84,7 @@ void comandos::analisa_comandos(string b, Nave & Spaceship)
 
 
 	}
-	else
-		cout << "Deve indroduzir um comando válido";
+
 }
 
 //

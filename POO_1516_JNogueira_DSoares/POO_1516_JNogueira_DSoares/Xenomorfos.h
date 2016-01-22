@@ -4,7 +4,7 @@ class Xenomorfos :
 	public Unidade
 {
 public:
-	Xenomorfos();
+	Xenomorfos(string nome);
 	~Xenomorfos();
 };
 

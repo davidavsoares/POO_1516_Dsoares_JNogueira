@@ -1,10 +1,9 @@
 #pragma once
 #include "Sala.h"
-class Oficina_Robotica :
-	public Sala
+class Oficina_Robotica: public Sala
 {
 public:
-	Oficina_Robotica();
+	Oficina_Robotica(int id);
 	~Oficina_Robotica();
 };
 

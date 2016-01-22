@@ -4,7 +4,7 @@ class Robot :
 	public Tripulacao
 {
 public:
-	Robot();
+	Robot(string nome);
 	~Robot();
 };
 

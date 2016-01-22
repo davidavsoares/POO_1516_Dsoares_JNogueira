@@ -4,7 +4,7 @@ class Blob :
 	public Xenomorfos
 {
 public:
-	Blob();
+	Blob(string nome);
 	~Blob();
 };
 
