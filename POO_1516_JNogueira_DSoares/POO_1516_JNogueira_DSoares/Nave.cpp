@@ -19,7 +19,7 @@ Nave::Nave()
 }
 void Nave::DesenhaNave(int x, int y, int tamanho)
 {
-	distancia = 0;
+
 	pos_x = x;
 	pos_y = y;
 	Tamanho = tamanho;
@@ -51,6 +51,8 @@ void Nave::DesenhaNave(int x, int y, int tamanho)
 			sala++;
 		}
 	}
+
+	DesenhaLog(c);
 }
 Nave::~Nave()
 {
@@ -351,8 +353,6 @@ int Nave::getTamanho()
 	return this->Tamanho;
 }
 
-
-
 void Nave::incrementa_tripulantes()
 {
 	conta_tripulantes++;
@@ -363,7 +363,7 @@ int Nave::GetConta_tripulantes()
 	return conta_tripulantes;
 }
 
-string Nave::getCharTrip()
+string Nave::getCharTrip()// De forma a todos os tripulantes terem um nome diferente retorna o char seguinta da tabela ASCII
 {
 
 	ostringstream oss;
@@ -371,15 +371,41 @@ string Nave::getCharTrip()
 	oss << (char)(97 + conta_tripulantes);
 
 	return oss.str();
-}
+}  
 
 void Nave::actualiza_distancia()
 {
-
+	
+	if (salas[7]->getNtripulantes() > 0)
+	{
+		if (salas[7]->getIntegridade() == 100 && salas[4]->getIntegridade() == 100)	
+		{
+			for (unsigned int i = 0; i < salas.size(); i++)
+			{
+				if (salas[i]->getNome() == "Propulsor")
+				{
+					
+					distancia+=salas[i]->getIntegridade();
+					cout <<"dist: "<< distancia;
+				}
+			}
+		}
+	}
 }
 
 void Nave::Adiciona_tripulante(int id)
 {
 	salas[id-1]->adiciona(new Memb_Trip(getCharTrip()));
 	incrementa_tripulantes();
+}
+
+int Nave::getDistancia() const
+{
+	return distancia;
+}
+
+void Nave::DesenhaLog(Consola &c)
+{
+	c.gotoxy(115,8);
+	cout << "Distancia percorrida: " << distancia;
 }

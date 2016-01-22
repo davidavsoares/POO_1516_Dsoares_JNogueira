@@ -1,6 +1,6 @@
 #include "Inimigos.h"
 
-Inimigos::Inimigos(string nome) : Unidade(nome)
+Inimigos::Inimigos(string nome) : Unidade(nome, 2)
 {
 }
 

@@ -88,7 +88,7 @@ int Sala::getId()
 	return this->id;
 }
 
-void Sala::adiciona(Unidade * p)		//Adiciona uma unidade ao vector de unidades
+void Sala::adiciona(Unidade * p)		//Adiciona uma unidade ao vector de unidades dando um ponteiro para a unidade
 {
 	
 
@@ -99,7 +99,7 @@ void Sala::adiciona(Unidade * p)		//Adiciona uma unidade ao vector de unidades
 
 }
 
-void Sala::remove(string nome)
+void Sala::remove(string nome)		//Remove uma unidade da sala dando o nome
 {
 	int val = this->procura(nome);
 	if (val != -1)
@@ -110,7 +110,7 @@ void Sala::remove(string nome)
 	contador--;
 }
 
-int Sala::procura(string nome) const
+int Sala::procura(string nome) const		//Procura uma unidade na sala dando o Nome, se esta estiver na sala retorna -1
 {
 	for (unsigned int i = 0; i < unidades.size(); i++) 
 	{
@@ -120,11 +120,34 @@ int Sala::procura(string nome) const
 	return -1;
 }
 
-Unidade * Sala::RetornaLocal(string nome)
+Unidade * Sala::RetornaLocal(string nome)		//Dado o nome do 
 {
 	int i;
 	i=procura(nome);
 
 	return unidades[i];
 }
+
+int Sala::getNtripulantes()		//Retorna o numero de Tripulantes existentes na sala
+{
+	int contador = 0;
+
+	if (unidades.size() > 0)
+	{
+		for (unsigned int i = 0; i < unidades.size(); i++)
+		{
+			if (unidades[i]->getTipo() == 1)
+			{
+				contador++;
+			}
+		}
+	}
+	return contador;
+}
+
+string Sala::getNome() const
+{
+	return nome;
+}
+
 

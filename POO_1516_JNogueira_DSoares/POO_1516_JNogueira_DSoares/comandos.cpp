@@ -81,8 +81,8 @@ void comandos::analisa_comandos(string b, Nave & Spaceship)
 	if (palavras[0] == "turno")
 	{
 		Spaceship.actualiza_distancia();
-
-
+		Spaceship.DesenhaNave(8, 7, 20);
+		cmd(Spaceship);
 	}
 
 }

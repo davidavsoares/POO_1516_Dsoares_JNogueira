@@ -2,9 +2,10 @@
 
 
 
-Unidade::Unidade(string nome)
+Unidade::Unidade(string nome, int Tipo)
 {
 	this->nome = nome;
+	this->Tipo = Tipo;
 
 
 }
@@ -40,6 +41,11 @@ void Unidade::printNome(int x, int y, Consola &c)
 
 	cout << nome;
 	
+}
+
+int Unidade::getTipo()
+{
+	return Tipo;
 }
 
 

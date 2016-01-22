@@ -24,7 +24,7 @@ class Nave
 {
 	vector<Sala *> salas;
 
-	int conta_propulsores = 0, pos_x, pos_y, Tamanho, distancia;
+	int conta_propulsores, pos_x, pos_y, Tamanho, distancia;		//ELIMINAR CONTA PROPULSORES
 	int conta_tripulantes;
 public:
 	Nave();
@@ -51,6 +51,10 @@ public:
 	void actualiza_distancia();
 
 	void Adiciona_tripulante(int id);
+
+	int getDistancia() const;
+
+	void DesenhaLog(Consola &c);
 	
 };
 
