@@ -103,5 +103,6 @@ void comandos::fim_turno(Nave & Spaceship)
 	Spaceship.Repara_salas();
 	Spaceship.Decrementa_oxigenio();
 	Spaceship.actualiza_distancia();
+	Spaceship.Auto_Repara();
 	
 }

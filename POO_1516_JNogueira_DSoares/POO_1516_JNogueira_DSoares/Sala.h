@@ -30,5 +30,6 @@ public:
 	void repara();
 	void Consome_oxigenio();
 	int getOperadores();		//Retorna o numero de unidades com capacidade de OPERADOR existentes na sala
+	void setIntegridade(int integridade);
 };
 

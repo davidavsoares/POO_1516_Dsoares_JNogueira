@@ -429,3 +429,39 @@ void Nave::Decrementa_oxigenio()
 			salas[i]->Consome_oxigenio();
 	}
 }
+
+void Nave::Auto_Repara()
+{
+	for (unsigned int i = 0; i < salas.size(); i++)
+	{
+		if (salas[i]->getNome() == "Auto Reparador" && salas[i]->getIntegridade() == 100)
+		{
+
+				if (i + 1 < salas.size() && salas[i + 1]->getId() != 5 && salas[i + 1]->getNome() != "Propulsor")	//Incrementa em 5 a integridade da sala seguinte
+				{
+
+					Reparador(i + 1, 5);
+				}
+				if (salas[i - 1]->getNome() != "Propulsor" && salas[i - 1]->getId() != 7)
+				{
+
+					Reparador(i - 1, 5);
+				}
+				if ((i == 1 || i == 2 || i == 3) && salas[i + 3]->getNome() != "Propulsor")
+				{
+					Reparador(i + 3, 5);
+				}
+				else if (salas[i - 5]->getNome() != "Propulsor")
+					Reparador(i - 5, 5);			
+		}
+	}
+	
+}
+
+void Nave::Reparador(int i, int soma)		//Função que repara a quantidade de integridade passada por argumento indicando na posicao i da sala no vector, 
+{
+	salas[i]->setIntegridade(salas[i]->getIntegridade() + soma);
+
+	if (salas[i]->getIntegridade() > 100)
+		salas[i]->setIntegridade(100);
+}

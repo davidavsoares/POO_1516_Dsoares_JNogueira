@@ -57,6 +57,8 @@ public:
 	void DesenhaLog(Consola &c);
 	void Repara_salas();
 	void Decrementa_oxigenio();		//Percorre todas as salas e chama a função Consome_oxigenio() em cada uma delas
+	void Auto_Repara();				//Percorre todas as salas e naquelas que forem do tipo "AUTO REPARADOR" repara as adjacentes
+	void Reparador(int i, int soma);			//Funcao complementar a funcao Auto_Repara
 };
 
 

@@ -149,15 +149,10 @@ void Sala::repara()
 		{
 			integridade += unidades[i]->getReparador();
 		}
-	
-		
-		
-		
 		if (integridade > 100)
 			integridade = 100;
 	}
 }
-
 void Sala::Consome_oxigenio()
 {
 		for (unsigned int i = 0; i < unidades.size(); i++)
@@ -187,4 +182,9 @@ int Sala::getOperadores()		//Retorna o numero de Tripulantes existentes na sala
 		}
 	}
 	return contador;
+}
+
+void Sala::setIntegridade(int integridade)
+{
+	this->integridade = integridade;
 }
