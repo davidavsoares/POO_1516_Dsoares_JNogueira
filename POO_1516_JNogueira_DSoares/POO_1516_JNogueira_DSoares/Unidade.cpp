@@ -84,6 +84,11 @@ bool Unidade::getOperador()
 	return Operador;
 }
 
+int Unidade::getInimigoX()
+{
+	return this->InimigoX;
+}
+
 
 
 

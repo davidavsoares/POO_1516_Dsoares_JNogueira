@@ -9,7 +9,7 @@ Sala::Sala(int id, string n)
 	integridade = 100;
 	oxigenio = 100;
 
-
+	bool combate = 0;
 
 }
 
@@ -183,8 +183,44 @@ int Sala::getOperadores()		//Retorna o numero de Tripulantes existentes na sala
 	}
 	return contador;
 }
-
 void Sala::setIntegridade(int integridade)
 {
 	this->integridade = integridade;
+}
+void Sala::Actualiza_Combate()
+{
+	int conta_1 = 0, conta_2 = 0;
+
+	if (unidades.size() > 0)
+	{
+		for (unsigned int i = 0; i < unidades.size(); i++)
+		{
+			if (unidades[i]->getTipo() == 1)
+			{
+				conta_1++;
+			}
+			else if (unidades[i]->getTipo() == 2)
+			{
+				conta_2++;
+			}
+		}
+		if (conta_1 > 0 && conta_2 > 0)
+			combate = 1;
+	}
+
+}
+bool Sala::getCombate()
+{
+	Actualiza_Combate();
+	return this->combate;
+}
+void Sala::Magoa_inimigos(int Dano)
+{
+	for (unsigned int i = 0; i < unidades.size(); i++)
+	{
+		if (unidades[i]->getTipo() == 2)
+		{
+			unidades[i]->SofrerDano(Dano);
+		}
+	}
 }

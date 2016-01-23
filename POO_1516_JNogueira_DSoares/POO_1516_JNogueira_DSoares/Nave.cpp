@@ -465,3 +465,45 @@ void Nave::Reparador(int i, int soma)		//Função que repara a quantidade de integ
 	if (salas[i]->getIntegridade() > 100)
 		salas[i]->setIntegridade(100);
 }
+
+void Nave::Seguranca_Interna()		//NAO ESTA TESTADOo
+{
+	for (unsigned int i = 0; i < salas.size(); i++)
+	{
+		if (salas[i]->getNome() == "Sistena Seguranca" && salas[i]->getIntegridade() == 100)
+		{
+			if (salas[i]->getCombate() == 1)
+			{
+				salas[i]->Magoa_inimigos(1);
+			}
+			if (i + 1 < salas.size() && salas[i + 1]->getId() != 5 && salas[i + 1]->getCombate() == 1)	//Incrementa em 5 a integridade da sala seguinte
+			{
+				salas[i+1]->Magoa_inimigos(1);
+				
+			}
+			if (salas[i - 1]->getId() != 7 && salas[i - 1]->getCombate() == 1)
+			{
+				salas[i-1]->Magoa_inimigos(1);
+			}
+			if ((i == 1 || i == 2 || i == 3) && salas[i + 3]->getCombate() == 1)
+			{
+				salas[i+3]->Magoa_inimigos(1);
+			}
+			else if(salas[i-5]->getCombate() == 1)
+			{
+				salas[i-5]->Magoa_inimigos(1);
+			}
+				
+		}
+	}
+
+}
+
+//void Nave::Analisa_Combates()
+//{
+//	int combate = 0;
+//	for (unsigned int i = 0; i < salas.size(); i++)
+//	{
+//		combate = salas[i]->getCombate();
+//	}
+//}

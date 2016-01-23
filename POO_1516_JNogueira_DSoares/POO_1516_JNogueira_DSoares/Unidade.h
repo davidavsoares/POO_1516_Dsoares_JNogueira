@@ -25,5 +25,6 @@ public:
 	int getReparador();
 	int getRespira();
 	bool getOperador();
+	int getInimigoX();
 };
 

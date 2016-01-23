@@ -7,6 +7,7 @@ class Sala
 {
 	vector<Unidade *> unidades;
 	int oxigenio, integridade, saude, id, contador = 0;
+	bool combate;
 	string nome;
 public:
 	Sala(int id, string n);
@@ -31,5 +32,8 @@ public:
 	void Consome_oxigenio();
 	int getOperadores();		//Retorna o numero de unidades com capacidade de OPERADOR existentes na sala
 	void setIntegridade(int integridade);
+	bool getCombate();					//Funcao que retorna se existe um combate na sala
+	void Actualiza_Combate();
+	void Magoa_inimigos(int Dano);
 };
 
