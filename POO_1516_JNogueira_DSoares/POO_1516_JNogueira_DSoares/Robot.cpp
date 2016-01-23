@@ -10,7 +10,7 @@ Robot::Robot(string nome)
 		/*Misterioso:*/		0,
 		/*Regenerador:*/	0,
 		/*Exoesqueleto:*/	2,
-		/*Robótico:*/		0,
+		/*Robotico:*/		0,
 		/*Reparador:*/		0,
 		/*Combatente:*/		3,
 		/*Xenomorfo:*/		0,

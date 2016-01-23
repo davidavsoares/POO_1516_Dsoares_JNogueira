@@ -414,7 +414,18 @@ void Interface::inicial(Consola *c)		//Apresenta o menu inicial
 	flag = false;
 
 	int opcao = 1, menu_x = 50, menu_y = 15, n_opcoes = 3;
-
+	
+	//MENU INICIAL//
+	c->clrscr();
+	c->gotoxy(45, 8);
+	cout << "Fallout Shelter ft FTL";
+	c->gotoxy(menu_x, menu_y);
+	c->setBackgroundColor(fundo);
+	cout << ">Preparar Viagem";
+	c->gotoxy(menu_x, menu_y + 3);
+	cout << "Creditos";
+	c->gotoxy(menu_x, menu_y + 6);
+	cout << "Sair";
 	do
 	{
 		opcao = move(opcao, n_opcoes, 20, 20);
@@ -482,6 +493,30 @@ void Interface::Salas(Consola *c)		//Desenha e configura o menu  que é apresenta
 					//cmd.cmd();
 	Sala *p1;
 	bool EL_CAPITAN = 1, EL_ROBOT = 1;
+
+	c->gotoxy(45, 8);
+	cout << "Escolha as suas salas:";
+	c->gotoxy(menu_x, menu_y);
+	c->setBackgroundColor(fundo);
+	cout << ">Alojamento do capitao";
+	c->gotoxy(menu_x, menu_y + 3);
+	cout << "Auto-reparador";
+	c->gotoxy(menu_x, menu_y + 6);
+	cout << "Beliches";
+	c->gotoxy(menu_x, menu_y + 9);
+	cout << "Enfermaria";
+	c->gotoxy(menu_x, menu_y + 12);
+	cout << "Oficina de robotica";
+	c->gotoxy(menu_x, menu_y + 15);
+	cout << "Propulsores adicionais";
+	c->gotoxy(menu_x, menu_y + 18);
+	cout << "Raio laser";
+	c->gotoxy(menu_x, menu_y + 21);
+	cout << "Sala de armas";
+	c->gotoxy(menu_x, menu_y + 24);
+	cout << "Sistema de seguranca interno";
+	c->gotoxy(menu_x, menu_y + 27);
+	cout << "Sair";
 
 	for (int i = 1; i <= 12; i++)
 	{

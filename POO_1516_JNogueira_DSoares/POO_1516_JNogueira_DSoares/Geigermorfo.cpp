@@ -10,7 +10,7 @@ Geigermorfo::Geigermorfo(string nome)
 			/*Misterioso:*/		1,
 			/*Regenerador:*/	0,
 			/*Exoesqueleto:*/	3,
-			/*Robótico:*/		0,
+			/*Robotico:*/		0,
 			/*Reparador:*/		0,
 			/*Combatente:*/		0,
 			/*Xenomorfo:*/		3,

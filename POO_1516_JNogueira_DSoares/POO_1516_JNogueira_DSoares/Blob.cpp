@@ -10,7 +10,7 @@ Blob::Blob(string nome)
 		/*Misterioso:*/		0,
 		/*Regenerador:*/	2,
 		/*Exoesqueleto:*/	0,
-		/*Robótico:*/		0,
+		/*Robotico:*/		0,
 		/*Reparador:*/		6,
 		/*Combatente:*/		0,
 		/*Xenomorfo:*/		0,

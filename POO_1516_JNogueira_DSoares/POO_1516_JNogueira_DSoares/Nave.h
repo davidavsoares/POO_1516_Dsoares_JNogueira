@@ -56,6 +56,7 @@ public:
 
 	void DesenhaLog(Consola &c);
 	void Repara_salas();
+	void Decrementa_oxigenio();		//Percorre todas as salas e chama a função Consome_oxigenio() em cada uma delas
 };
 
 

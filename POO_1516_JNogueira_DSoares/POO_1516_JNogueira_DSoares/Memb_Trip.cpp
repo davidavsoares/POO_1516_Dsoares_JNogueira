@@ -10,7 +10,7 @@ Memb_Trip::Memb_Trip(string nome)
 		/*Misterioso:*/		0,
 		/*Regenerador:*/	0,
 		/*Exoesqueleto:*/	0, 
-		/*Robótico:*/		0, 
+		/*Robotico:*/		0, 
 		/*Reparador:*/		1,		
 		/*Combatente:*/		1, 
 		/*Xenomorfo:*/		0,

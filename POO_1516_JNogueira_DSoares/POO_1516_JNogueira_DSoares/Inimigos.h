@@ -4,7 +4,7 @@ class Inimigos :
 	public Unidade
 {
 public:
-	Inimigos(string nome, int PV, int Respira, int Flamejante, int Toxico, int Indeciso, int Misterioso, int Regenerador, int Exoesqueleto, int Robótico, int Reparador, int Combatente, int Xenomorfo, int Casulo, int Mutatis, int Hipnotizador, int Operador, int Move, int Armado);
+	Inimigos(string nome, int PV, int Respira, bool Flamejante, int Toxico, int Indeciso, bool Misterioso, int Regenerador, int Exoesqueleto, bool Robotico, int Reparador, int Combatente, int Xenomorfo, int Casulo, int Mutatis, int Hipnotizador, bool Operador, int Move, int Armado);
 	~Inimigos();
 };
 

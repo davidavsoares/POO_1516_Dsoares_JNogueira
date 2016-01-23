@@ -7,7 +7,6 @@ Sala::Sala(int id, string n)
 	this->id = id;
 	nome = n;
 	integridade = 100;
-	//saude = 100;
 	oxigenio = 100;
 
 
@@ -29,7 +28,7 @@ Sala::Sala(int id, string n)
 
 Sala::~Sala()
 {
-
+	unidades.clear();
 }
 
 string Sala::toString() const
@@ -123,7 +122,7 @@ Unidade * Sala::RetornaLocal(string nome)		//Dado o nome do
 	return unidades[i];
 }
 
-int Sala::getNtripulantes()		//Retorna o numero de Tripulantes existentes na sala
+int Sala::getNUnidades()		//Retorna o numero de Unidades existentes na sala, nao bastava returnas unidades.size()?
 {
 	int contador = 0;
 
@@ -131,10 +130,7 @@ int Sala::getNtripulantes()		//Retorna o numero de Tripulantes existentes na sal
 	{
 		for (unsigned int i = 0; i < unidades.size(); i++)
 		{
-			if (unidades[i]->getTipo() == 1)
-			{
 				contador++;
-			}
 		}
 	}
 	return contador;
@@ -147,12 +143,12 @@ string Sala::getNome() const
 
 void Sala::repara()
 {
-	if (nome != "Propulsor")
+	if (nome != "Propulsor" && integridade < 100)
 	{
-		/*for (unsigned int i = 0; i < unidades.size; i++)
+		for (unsigned int i = 0; i < unidades.size(); i++)
 		{
-			integridade += unidades[i]->getRepara;
-		}*/
+			integridade += unidades[i]->getReparador();
+		}
 	
 		
 		
@@ -160,4 +156,35 @@ void Sala::repara()
 		if (integridade > 100)
 			integridade = 100;
 	}
+}
+
+void Sala::Consome_oxigenio()
+{
+		for (unsigned int i = 0; i < unidades.size(); i++)
+		{
+			if (oxigenio > 0)
+			{
+				oxigenio -= unidades[i]->getRespira();
+			}
+			else if (unidades[i]->getRespira())
+			{
+				unidades[i]->SofrerDano(1);
+			}
+		}
+}
+int Sala::getOperadores()		//Retorna o numero de Tripulantes existentes na sala
+{
+	int contador = 0;
+
+	if (unidades.size() > 0)
+	{
+		for (unsigned int i = 0; i < unidades.size(); i++)
+		{
+			if (unidades[i]->getOperador())
+			{
+				contador++;
+			}
+		}
+	}
+	return contador;
 }

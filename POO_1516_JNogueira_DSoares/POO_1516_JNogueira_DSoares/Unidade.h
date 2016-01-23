@@ -8,11 +8,12 @@ class Unidade
 {
 
 	Sala *ondeEstou = nullptr;
-	int saude = 100;
+
 	string nome;
-	int Tipo, PV, Respira, Flamejante, Toxico, Indeciso, Misterioso, Regenerador, Exoesqueleto, Robótico, Reparador, Combatente, Xenomorfo, Casulo, Mutatis, Hipnotizador, Operador,Tripulação,Inimigo,Move, Armado;
+	int Entidade, PV, Respira, Toxico, Indeciso, Regenerador, Exoesqueleto, Reparador, Combatente, Xenomorfo, Casulo, Mutatis, Hipnotizador, InimigoX, InimigoY, Move, Armado;
+	bool Flamejante, Misterioso, Robotico, Operador, Tripulacao;
 public:
-	Unidade(string nome, int Tipo, int PV, int Respira, int Flamejante, int Toxico, int Indeciso, int Misterioso, int Regenerador, int Exoesqueleto, int Robótico, int Reparador, int Combatente, int Xenomorfo, int Casulo, int Mutatis, int Hipnotizador, int Operador,int Tripulação,int Inimigo,int Move, int Armado);
+	Unidade(string nome, int Entidade, int PV, int Respira, bool Flamejante, int Toxico, int Indeciso, bool Misterioso, int Regenerador, int Exoesqueleto, bool Robotico, int Reparador, int Combatente, int Xenomorfo, int Casulo, int Mutatis, int Hipnotizador, bool Operador,bool Tripulacao,int InimigoX, int InimigoY,int Move, int Armado);
 	~Unidade();
 
 	void setOndeEstou(Sala * p);		// Define a sala em que se encontra
@@ -21,5 +22,8 @@ public:
 	string getNome();					//Retorna o id de uma unidade
 	void printNome(int x, int y, Consola &c);
 	int getTipo();
+	int getReparador();
+	int getRespira();
+	bool getOperador();
 };
 

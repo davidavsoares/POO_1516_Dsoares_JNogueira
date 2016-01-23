@@ -10,7 +10,7 @@ Mxyzypykwi::Mxyzypykwi(string nome)
 		/*Misterioso:*/		0,
 		/*Regenerador:*/	0,
 		/*Exoesqueleto:*/	0,
-		/*Robótico:*/		0,
+		/*Robotico:*/		0,
 		/*Reparador:*/		0,
 		/*Combatente:*/		0,
 		/*Xenomorfo:*/		0,

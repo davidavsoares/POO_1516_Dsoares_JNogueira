@@ -2,10 +2,31 @@
 
 
 
-Unidade::Unidade(string nome, int Tipo, int PV, int Respira, int Flamejante, int Toxico, int Indeciso, int Misterioso, int Regenerador, int Exoesqueleto, int Robótico, int Reparador, int Combatente, int Xenomorfo, int Casulo, int Mutatis, int Hipnotizador, int Operador,int Tripulação,int Inimigo,int Move, int Armado)
+Unidade::Unidade(string nome, int Entidade, int PV, int Respira, bool Flamejante, int Toxico, int Indeciso, bool Misterioso, int Regenerador, int Exoesqueleto, bool Robotico, int Reparador, int Combatente, int Xenomorfo, int Casulo, int Mutatis, int Hipnotizador, bool Operador,bool Tripulacao, int InimigoX, int InimigoY,int Move, int Armado)
 {
-	this->nome = nome;
-	this->Tipo = Tipo;
+	this->	nome			=	nome;
+	this->	Entidade		=	Entidade;
+	this->	PV				=	PV;
+	this->	Respira			=	Respira;
+	this->	Flamejante		=	Flamejante;
+	this->	Toxico			=	Toxico;
+	this->	Indeciso		=	Indeciso;
+	this->	Misterioso		=	Misterioso;
+	this->	Regenerador		=	Regenerador;
+	this->	Exoesqueleto	=	Exoesqueleto;
+	this->	Robotico		=	Robotico;
+	this->	Reparador		=	Reparador;
+	this->	Combatente		=	Combatente;
+	this->	Xenomorfo		=	Xenomorfo;
+	this->	Casulo			=	Casulo;
+	this->	Mutatis			=	Mutatis;
+	this->	Hipnotizador	=	Hipnotizador;
+	this->	Operador		=	Operador;
+	this->	Tripulacao		=	Tripulacao;
+	this->	InimigoX		=	InimigoX;
+	this->	InimigoY		=	InimigoY;
+	this->	Move			=	Move;
+	this->	Armado			=	Armado;
 	
 
 }
@@ -27,7 +48,7 @@ void Unidade::setOndeEstou(Sala * p)
 
 void Unidade::SofrerDano(int Dano)
 {
-	this->saude = saude - Dano;
+	this->PV = PV - Dano;
 }
 
 string Unidade::getNome()
@@ -45,7 +66,24 @@ void Unidade::printNome(int x, int y, Consola &c)
 
 int Unidade::getTipo()
 {
-	return Tipo;
+	return Entidade;
 }
+
+int Unidade::getReparador()
+{
+	return Reparador;
+}
+
+int Unidade::getRespira()
+{
+	return Respira;
+}
+
+bool Unidade::getOperador()
+{
+	return Operador;
+}
+
+
 
 

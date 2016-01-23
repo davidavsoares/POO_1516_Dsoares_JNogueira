@@ -16,6 +16,7 @@ void comandos::cmd(Nave & Spaceship)
 	//int tecla;
 	char buffer[512];
 
+
 	//c.clrscr();
 	c.gotoxy(5, 40);
 	//cout << "Primir C para digitar os comandos";
@@ -27,6 +28,7 @@ void comandos::cmd(Nave & Spaceship)
 	//c.clrscr();
 	c.gotoxy(5, 40);
 	cout << ">comando: ";
+
 
 	cin.getline(buffer, 512);
 	
@@ -99,5 +101,7 @@ void comandos::inicio_turno(Nave & Spaceship)
 void comandos::fim_turno(Nave & Spaceship)
 {
 	Spaceship.Repara_salas();
+	Spaceship.Decrementa_oxigenio();
 	Spaceship.actualiza_distancia();
+	
 }

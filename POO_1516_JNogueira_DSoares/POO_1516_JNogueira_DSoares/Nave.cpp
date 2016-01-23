@@ -57,7 +57,8 @@ void Nave::DesenhaNave(int x, int y, int tamanho)
 Nave::~Nave()
 {
 	for (int i = 0; i < salas.size(); i++)
-		free(salas[i]);
+		salas[i]->~Sala();
+
 	salas.clear();
 }
 void Nave::Quadrado(int x,int y, Consola c, int sala,int tamanho) // CASO SEJA NECESSÀRIO: pode se criar a classe Sala que cria um quadrado, havendo um vector de salas na NAVE!
@@ -376,7 +377,7 @@ string Nave::getCharTrip()// De forma a todos os tripulantes terem um nome difer
 void Nave::actualiza_distancia()
 {
 	
-	if (salas[7]->getNtripulantes() > 0)
+	if (salas[7]->getOperadores() > 0)
 	{
 		if (salas[7]->getIntegridade() == 100 && salas[4]->getIntegridade() == 100)	
 		{
@@ -414,9 +415,17 @@ void Nave::Repara_salas()
 {
 	for (unsigned int i = 0; i < salas.size(); i++)
 	{
-		//if (salas[i]->getIntegridade < 100)
-		//{
-		//	//salas[i]->  //repara
-		//}
+		if (salas[i]->getIntegridade() < 100)
+		{
+			salas[i]->repara();
+		}
+	}
+}
+
+void Nave::Decrementa_oxigenio()
+{
+	for (unsigned int i = 0; i < salas.size(); i++)
+	{
+			salas[i]->Consome_oxigenio();
 	}
 }

@@ -10,7 +10,7 @@ Casulo_de_Geigermorfo::Casulo_de_Geigermorfo(string nome)
 		/*Misterioso:*/		0,
 		/*Regenerador:*/	0,
 		/*Exoesqueleto:*/	1,
-		/*Robótico:*/		0,
+		/*Robotico:*/		0,
 		/*Reparador:*/		0,
 		/*Combatente:*/		0,
 		/*Xenomorfo:*/		0,

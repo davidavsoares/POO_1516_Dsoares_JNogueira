@@ -1,6 +1,6 @@
 #include "Pirata.h"
 
-Pirata::Pirata(string nome)		//INIMIGO 1,2!!!!
+Pirata::Pirata(string nome)		//INIMIGO 1,2!!!! 
 	:Inimigos(nome				 ,
 			/*PV*/				4,
 			/*Respira:*/		1,
@@ -10,7 +10,7 @@ Pirata::Pirata(string nome)		//INIMIGO 1,2!!!!
 			/*Misterioso:*/		0,
 			/*Regenerador:*/	0,
 			/*Exoesqueleto:*/	0,
-			/*Robótico:*/		0,
+			/*Robotico:*/		0,
 			/*Reparador:*/		0,
 			/*Combatente:*/		0,
 			/*Xenomorfo:*/		0,
@@ -24,6 +24,10 @@ Pirata::Pirata(string nome)		//INIMIGO 1,2!!!!
 {
 
 }
+
+//InimigoX, InimigoY(X, Y) : Sempre que termina o turno numa sala na qual se encontram unidades não
+//inimigas(tripulacão ou Xenomorfo), provoca X pontos de dano a uma delas.Caso contrário,
+//provoca Y pontos de dano na sala.
 
 
 

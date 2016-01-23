@@ -26,7 +26,9 @@ public:
 
 	//void mostra_trip(int x, int y, Consola &c);				// Imprime as unidades presente na sala
 
-	int getNtripulantes();
+	int getNUnidades();
 	void repara();
+	void Consome_oxigenio();
+	int getOperadores();		//Retorna o numero de unidades com capacidade de OPERADOR existentes na sala
 };
 
