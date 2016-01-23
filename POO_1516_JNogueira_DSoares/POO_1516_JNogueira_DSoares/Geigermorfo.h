@@ -4,7 +4,7 @@ class Geigermorfo :
 	public Xenomorfos
 {
 public:
-	Geigermorfo();
+	Geigermorfo(string nome);
 	~Geigermorfo();
 };
 

@@ -409,3 +409,14 @@ void Nave::DesenhaLog(Consola &c)
 	c.gotoxy(115,8);
 	cout << "Distancia percorrida: " << distancia;
 }
+
+void Nave::Repara_salas()
+{
+	for (unsigned int i = 0; i < salas.size(); i++)
+	{
+		//if (salas[i]->getIntegridade < 100)
+		//{
+		//	//salas[i]->  //repara
+		//}
+	}
+}

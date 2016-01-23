@@ -2,11 +2,11 @@
 
 
 
-Unidade::Unidade(string nome, int Tipo)
+Unidade::Unidade(string nome, int Tipo, int PV, int Respira, int Flamejante, int Toxico, int Indeciso, int Misterioso, int Regenerador, int Exoesqueleto, int Robótico, int Reparador, int Combatente, int Xenomorfo, int Casulo, int Mutatis, int Hipnotizador, int Operador,int Tripulação,int Inimigo,int Move, int Armado)
 {
 	this->nome = nome;
 	this->Tipo = Tipo;
-
+	
 
 }
 

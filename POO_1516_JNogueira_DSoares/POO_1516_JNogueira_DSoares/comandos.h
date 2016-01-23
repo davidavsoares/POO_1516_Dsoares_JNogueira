@@ -13,5 +13,6 @@ public:
 	~comandos();
 	void cmd(Nave &Spaceship);
 	void analisa_comandos(string b, Nave &Spaceship);
-
+	void inicio_turno(Nave & Spaceship);
+	void fim_turno(Nave & Spaceship);
 };

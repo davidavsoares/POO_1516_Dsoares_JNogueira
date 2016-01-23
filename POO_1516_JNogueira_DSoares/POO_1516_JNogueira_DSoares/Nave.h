@@ -1,7 +1,7 @@
 #pragma once
 #include "bibliotecas.h"
 #include "Sala.h"
-//#include "consola.h" movido para bibliotecas
+
 #include "Propulsor.h"
 #include "Beliche.h"
 #include "Sala_Maquinas.h"
@@ -55,7 +55,7 @@ public:
 	int getDistancia() const;
 
 	void DesenhaLog(Consola &c);
-	
+	void Repara_salas();
 };
 
 

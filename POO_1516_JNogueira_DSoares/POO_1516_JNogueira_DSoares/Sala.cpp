@@ -68,11 +68,6 @@ void Sala::toStatus(Consola &c, int x, int y)			//Nesta função imprime-se as var
 		}
 }
 
-//int Sala::getSaude()
-//{
-//	return this->saude;
-//}
-
 int Sala::getOxigenio()
 {
 	return this->oxigenio;
@@ -150,4 +145,19 @@ string Sala::getNome() const
 	return nome;
 }
 
-
+void Sala::repara()
+{
+	if (nome != "Propulsor")
+	{
+		/*for (unsigned int i = 0; i < unidades.size; i++)
+		{
+			integridade += unidades[i]->getRepara;
+		}*/
+	
+		
+		
+		
+		if (integridade > 100)
+			integridade = 100;
+	}
+}

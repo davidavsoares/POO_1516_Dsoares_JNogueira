@@ -27,5 +27,6 @@ public:
 	//void mostra_trip(int x, int y, Consola &c);				// Imprime as unidades presente na sala
 
 	int getNtripulantes();
+	void repara();
 };
 
