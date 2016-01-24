@@ -421,9 +421,14 @@ void Nave::DesenhaLog(Consola &c)
 	
 	c.gotoxy(x, y - 4);
 	cout << "------LOG DO JOGO------";
-
+	
+	c.gotoxy(x, y - 2);
+	if (turno < 10)
+		cout << "-----TURNO : [0" << turno << "]------";
+	else
+		cout << "------TURNO : " << turno << "-------";
 	c.gotoxy(x,y);
-	cout << "Distancia percorrida: " << distancia;
+	cout << "Distancia: " << distancia;
 	int pos = 1, temp;
 	for (unsigned int i = 0; i < salas.size(); i++)
 	{
@@ -435,7 +440,7 @@ void Nave::DesenhaLog(Consola &c)
 			pos = temp + pos;
 		}
 		
-		Sleep(100);
+		Sleep(75);
 	}
 	Bordas(X_LOG - 1, Y_LOG - 5, X_LOG + 23, Y_LOG + pos, c);
 }
@@ -537,15 +542,7 @@ void Nave::Seguranca_Interna()		//NAO ESTA TESTADOo
 //	}
 //}
 
-int Nave::random(int max, int min)
-{
-	int n;
-	do {
-		n = rand();
-	} while (n <= max && n >= min);
 
-	return n;
-}
 
 void Nave::chama_regeneradores()
 {
@@ -601,3 +598,14 @@ void Nave::Bordas(int X, int Y, int Xmax, int Ymax, Consola &c)
 		cout << (char)196;
 	}
 }
+
+void Nave::setTurno(int turno)
+{
+	this->turno = turno;
+}
+
+int Nave::getTurno()
+{
+	return this->turno;
+}
+

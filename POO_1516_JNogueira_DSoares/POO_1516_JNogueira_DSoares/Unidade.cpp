@@ -67,7 +67,6 @@ string Unidade::getNome()
 void Unidade::printNome(int x, int y, Consola &c)
 {
 	c.gotoxy(x, y);
-
 	cout << nome;
 	
 }

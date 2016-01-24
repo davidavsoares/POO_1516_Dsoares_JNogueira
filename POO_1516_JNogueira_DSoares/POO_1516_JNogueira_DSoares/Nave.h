@@ -24,7 +24,7 @@ class Nave
 {
 	vector<Sala *> salas;
 
-	int conta_propulsores, pos_x, pos_y, Tamanho, distancia;		//ELIMINAR CONTA PROPULSORES
+	int conta_propulsores, pos_x, pos_y, Tamanho, distancia, turno = 0;		//ELIMINAR CONTA PROPULSORES
 	int conta_tripulantes;
 public:
 	Nave();
@@ -61,10 +61,12 @@ public:
 	void Reparador(int i, int soma);			//Funcao complementar a funcao Auto_Repara
 	void Seguranca_Interna();					//Funcao que implementa o sistema de seguranca interno
 //	void Analisa_Combates();				//Funcao que analisa todas as salas para verificar em quais há combates
-	int random(int max, int min);
+
 	void chama_regeneradores();
 	void MAGOATESTE(string nome, int room);
 	void Bordas(int X, int Y, int Xmax, int Ymax, Consola &c);
+	void setTurno(int turno);
+	int getTurno();
 };
 
 

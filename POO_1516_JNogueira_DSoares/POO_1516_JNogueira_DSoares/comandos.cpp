@@ -117,5 +117,6 @@ void comandos::fim_turno(Nave & Spaceship)
 	Spaceship.actualiza_distancia();
 	Spaceship.Auto_Repara();
 	Spaceship.chama_regeneradores();
+	Spaceship.setTurno(Spaceship.getTurno() + 1);
 	
 }
