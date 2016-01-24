@@ -5,5 +5,7 @@ class Enfermaria: public Sala
 public:
 	Enfermaria(int id);
 	~Enfermaria();
+
+	Enfermaria(Sala & outro);
 };
 

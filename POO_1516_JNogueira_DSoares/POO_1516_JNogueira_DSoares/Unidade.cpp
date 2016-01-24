@@ -126,6 +126,10 @@ void Unidade::setSaude(int cura)
 	}
 }
 
+int Unidade::getMutatis()
+{
+	return this->Mutatis;
+}
 
 
 

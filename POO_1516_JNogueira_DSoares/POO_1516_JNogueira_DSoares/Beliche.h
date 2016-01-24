@@ -5,5 +5,7 @@ class Beliche: public Sala
 public:
 	Beliche(int id);
 	~Beliche();
+
+	Beliche(Sala & outro);
 };
 

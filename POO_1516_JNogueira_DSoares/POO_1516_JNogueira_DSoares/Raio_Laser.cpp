@@ -9,3 +9,8 @@ Raio_Laser::Raio_Laser(int id):Sala(id, "Raio Laser")
 Raio_Laser::~Raio_Laser()
 {
 }
+
+Raio_Laser::Raio_Laser(Sala & outro) : Sala(outro, "Raio Laser")
+{
+
+}

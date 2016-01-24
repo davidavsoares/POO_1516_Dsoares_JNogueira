@@ -14,17 +14,23 @@ Sala::Sala(int id, string n)
 }
 
 //Construtor por copia para quando uma sala muda para outra
-//Sala::Sala(const Sala & outro)
-//{
-//	//->unidades = outro.unidades;
-//	Unidade *p;
-//	for (unsigned int i = 0; i < outro.unidades.size(); i++)
-//	{
-//		p = new Unidade(*outro.unidades[i]);
-//		p->setOndeEstou(this);
-//		this->unidades.push_back(p);
-//	}
-//}  
+Sala::Sala(Sala & outro, string nome)
+{
+	//->unidades = outro.unidades;
+	Unidade *p;
+	for (unsigned int i = 0; i < outro.unidades.size(); i++)
+	{
+		p = new Unidade(*outro.unidades[i]);
+		p->setOndeEstou(this);
+		this->unidades.push_back(p);
+	}
+
+	oxigenio = outro.getOxigenio();
+	integridade = outro.getIntegridade();
+	id = outro.getId();
+	this->nome = nome;
+
+}  
 
 Sala::~Sala()
 {
@@ -289,4 +295,24 @@ int Sala::toString(Consola &c, int x, int y) const
 	return i + 2;
 
 	
+}
+
+int Sala::Comunica_MMutandis() const
+{
+	int Soma_mutatis = 0;
+	for (unsigned int i = 0; i < unidades.size(); i++)
+	{
+		Soma_mutatis = Soma_mutatis + unidades[i]->getMutatis();
+	}
+	return Soma_mutatis;		// O que acontece quando uma Bool == -1? Erro?? Significa que o nome indicado nao está na sala
+}
+
+void Sala::setOndeEstou(Nave * p)
+{
+	this->ondeEstou = p;
+}
+
+Nave * Sala::getOndeEstou()
+{
+	return this->ondeEstou;
 }

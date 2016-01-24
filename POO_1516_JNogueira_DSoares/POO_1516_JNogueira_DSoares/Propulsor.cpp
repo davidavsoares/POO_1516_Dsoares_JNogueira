@@ -12,3 +12,8 @@ Propulsor::~Propulsor()
 {
 
 }
+
+Propulsor::Propulsor(Sala & outro) : Sala(outro, "Propulsor")
+{
+
+}

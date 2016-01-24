@@ -111,23 +111,18 @@ void Nave::Quadrado(int x,int y, Consola c, int sala,int tamanho) // CASO SEJA N
 
 	for (i = 1; i < tamy; i++)
 	{
-
 		c.gotoxy(x, y + i);			//Preenche a lateral esquerda
 		cout << (char)186 << '\n';  //de um quadrado
 
 		c.gotoxy(x + tamx, y + i);	//Preenche a lateral direita
 		cout << (char)186 << '\n';		//de um quadrado
 	}
-	for (i = 1; i < tamx; i++)
-	{
-		c.gotoxy(x + i, y);				//Preenche o limite superior
-		cout << (char)205 << '\n';		//de um quadrado
+	
+	c.gotoxy(x + 1, y);							//Preenche o limite superior
+	cout << Return_caracteres(205, tamx - 1);	//de um quadrado
 
-		c.gotoxy(x + i, y + tamy);		//Preenche o limite inferior
-		cout << (char)205 << '\n';		//de um quadrado
-	}
-
-	cout << endl << endl;
+	c.gotoxy(x + 1, y + tamy);					//Preenche o limite inferior
+	cout << Return_caracteres(205, tamx - 1);	//de um quadrado
 }
 //void Nave::Quadrado(int x, int y, Consola c, int sala)
 //{
@@ -304,6 +299,13 @@ void Nave::Quadrado(int x,int y, Consola c, int sala,int tamanho) // CASO SEJA N
 void Nave::adiciona(Sala *p)
 {
 	this->salas.push_back(p);
+	salas.back()->setOndeEstou(this);
+}
+
+void Nave::adiciona(Sala *p, int posicao)
+{
+	this->salas.insert(salas.begin() + posicao, p);
+	salas.back()->setOndeEstou(this);
 }
 
 string Nave::toString() const
@@ -419,16 +421,17 @@ void Nave::DesenhaLog(Consola &c)
 {
 	int x = X_LOG, y = Y_LOG;
 	
+
 	c.gotoxy(x, y - 4);
-	cout << "------LOG DO JOGO------";
+	cout <<"------LOG DO JOGO------";
 	
 	c.gotoxy(x, y - 2);
 	if (turno < 10)
-		cout << "-----TURNO : [0" << turno << "]------";
+		cout << "-----TURNO : [0" << turno << "]-----";
 	else
-		cout << "------TURNO : " << turno << "-------";
+		cout << "-----TURNO : " << turno << "--------";
 	c.gotoxy(x,y);
-	cout << "Distancia: " << distancia;
+	cout << " Distancia : [" << distancia << "]";
 	int pos = 1, temp;
 	for (unsigned int i = 0; i < salas.size(); i++)
 	{
@@ -533,6 +536,8 @@ void Nave::Seguranca_Interna()		//NAO ESTA TESTADOo
 
 }
 
+
+
 //void Nave::Analisa_Combates()
 //{
 //	int combate = 0;
@@ -570,6 +575,7 @@ void Nave::MAGOATESTE(string nome, int room)		//Faltam validaçoes
 
 void Nave::Bordas(int X, int Y, int Xmax, int Ymax, Consola &c)
 {
+
 	c.gotoxy(X, Y);
 	cout << (char)218;
 
@@ -589,14 +595,10 @@ void Nave::Bordas(int X, int Y, int Xmax, int Ymax, Consola &c)
 		c.gotoxy(Xmax, i);
 		cout << (char)179;
 	}
-
-	for (int i = X + 1; i < Xmax; i++)
-	{
-		c.gotoxy(i, Y);
-		cout << (char)196;
-		c.gotoxy(i, Ymax);
-		cout << (char)196;
-	}
+		c.gotoxy(X+1, Y);
+		cout << Return_caracteres(196, Xmax - (X+1) );
+		c.gotoxy(X+1, Ymax);
+		cout << Return_caracteres(196, Xmax - (X + 1));
 }
 
 void Nave::setTurno(int turno)
@@ -607,5 +609,86 @@ void Nave::setTurno(int turno)
 int Nave::getTurno()
 {
 	return this->turno;
+}
+
+string Nave::Return_caracteres(int caracter, int quantidade)
+{
+	ostringstream oss;
+	for (int i = 0; i < quantidade; i++)
+	{
+		oss << (char)caracter;
+	}
+	return oss.str();
+}
+
+void Nave::faz_evento()
+{
+	static int ultimo_evento = 1;
+	int evento = 0;
+
+	turno = getTurno();
+
+	if ((turno - ultimo_evento > 5) && (rand() % 101 < 20))
+	{
+		evento = (rand() % 4) + 1;
+		switch (evento)
+		{
+		case 1: cout << "Faz evento chuva de meteoritos" << endl; break;
+		case 2: cout << "Faz evento ataque de piratas" << endl; break;
+		case 3: cout << "Faz evento ataque de xenomorfo" << endl; break;
+		case 4: cout << "Faz evento campo de po cosmico" << endl; break;
+		default: cout << "ERRO" << endl; break;
+		}
+		ultimo_evento = turno;
+	}
+	else
+	{
+		if ((turno - ultimo_evento) == 10)
+		{
+			evento = (rand() % 4) + 1;
+			switch (evento)
+			{
+			case 1: cout << "Faz evento chuva de meteoritos" << endl; break;
+			case 2: cout << "Faz evento ataque de piratas" << endl; break;
+			case 3: cout << "Faz evento ataque de xenomorfo" << endl; break;
+			case 4: cout << "Faz evento campo de po cosmico" << endl; break;
+			default: cout << "ERRO" << endl; break;
+			}
+			ultimo_evento = turno;
+		}
+	}
+}
+
+void Nave::MutatisMutandis()
+{
+
+	for (unsigned int i = 0; i < salas.size(); i++)
+	{
+		if (rand() % 101 < salas[i]->Comunica_MMutandis() > 0 /*&&  salas[i]->Comunica_MMutandis()*/)
+		{
+			adiciona( new Auto_Reparador(*salas[i]), salas[i]->getId());
+			remove(salas[i]->getId());
+		}
+	}
+}
+
+void Nave::remove(int id)
+{
+	int val = this->procura(id);
+	salas[val]->~Sala();
+	if (val != -1)
+	{
+		this->salas[val]->setOndeEstou(nullptr);
+		salas.erase(salas.begin() + val);
+	}
+}
+
+int Nave::procura(int id) const
+{
+	for (unsigned int i = 0; i < salas.size(); i++) {
+		if (salas[i]->getId() == id)
+			return i;
+	}
+	return -1;
 }
 

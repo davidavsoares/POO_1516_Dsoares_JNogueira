@@ -5,5 +5,7 @@ class Sala_Armas: public Sala
 public:
 	Sala_Armas(int id);
 	~Sala_Armas();
+
+	Sala_Armas(Sala & outro);
 };
 

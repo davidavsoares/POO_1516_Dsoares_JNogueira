@@ -67,6 +67,17 @@ public:
 	void Bordas(int X, int Y, int Xmax, int Ymax, Consola &c);
 	void setTurno(int turno);
 	int getTurno();
+
+	string Return_caracteres(int caracter, int quantidade);
+
+	void faz_evento();
+	void MutatisMutandis();
+	void remove(int id);
+
+	int procura(int id) const;
+
+	void Nave::adiciona(Sala *p, int posicao);
+
 };
 
 

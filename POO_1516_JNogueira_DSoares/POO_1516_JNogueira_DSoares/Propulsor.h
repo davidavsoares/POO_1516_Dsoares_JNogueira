@@ -7,5 +7,7 @@ class Propulsor: public Sala
 public:
 	Propulsor(int id, Nave *Spaceship);
 	~Propulsor();
+
+	Propulsor(Sala & outro);
 };
 

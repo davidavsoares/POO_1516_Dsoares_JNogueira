@@ -8,3 +8,8 @@ Suporte_Vida::Suporte_Vida(int id) :Sala(id, "Suporte Vida") {}
 Suporte_Vida::~Suporte_Vida()
 {
 }
+
+Suporte_Vida::Suporte_Vida(Sala & outro) : Sala(outro, "Suporte Vida")
+{
+
+}

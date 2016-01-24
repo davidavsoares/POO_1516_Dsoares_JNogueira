@@ -32,6 +32,6 @@ public:
 	int getRegenerador();
 	void setSaude(int cura);
 	string toString();
-
+	int getMutatis();
 };
 

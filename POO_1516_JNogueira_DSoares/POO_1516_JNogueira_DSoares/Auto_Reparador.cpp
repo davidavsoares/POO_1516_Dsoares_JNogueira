@@ -8,3 +8,8 @@ Auto_Reparador::Auto_Reparador(int id):Sala(id, "Auto Reparador")
 Auto_Reparador::~Auto_Reparador()
 {
 }
+
+Auto_Reparador::Auto_Reparador( Sala & outro):Sala(outro, "Auto Reparador")
+{
+
+}

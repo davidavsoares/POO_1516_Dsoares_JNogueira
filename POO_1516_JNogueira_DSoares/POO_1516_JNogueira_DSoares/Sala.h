@@ -9,6 +9,7 @@ class Sala
 	int oxigenio, integridade, saude, id, contador = 0;
 	bool combate;
 	string nome;
+	Nave *ondeEstou = nullptr;
 public:
 	Sala(int id, string n);
 	~Sala();
@@ -39,5 +40,11 @@ public:
 	void Chama_regeneradores();
 	void Magoa_para_testes(string nome, int Dana);
 	int toString(Consola &c, int x, int y) const;
+	Sala(Sala & outro, string nome);
+	int Comunica_MMutandis() const;
+
+	void setOndeEstou(Nave * p);
+
+	Nave * getOndeEstou();
 };
 
