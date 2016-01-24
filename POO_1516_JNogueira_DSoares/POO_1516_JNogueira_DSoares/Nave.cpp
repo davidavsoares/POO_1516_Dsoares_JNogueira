@@ -635,10 +635,10 @@ void Nave::faz_evento()
 		evento = (rand() % 4) + 1;
 		switch (evento)
 		{
-		case 1: cout << "Faz evento chuva de meteoritos" << endl; break;
-		case 2: cout << "Faz evento ataque de piratas" << endl; break;
-		case 3: cout << "Faz evento ataque de xenomorfo" << endl; break;
-		case 4: cout << "Faz evento campo de po cosmico" << endl; break;
+		case 1: evento_meteoritos(); break;
+		case 2: evento_piratas(); break;
+		case 3: evento_xenomorfo(); break;
+		case 4: evento_cosmico(); break;
 		default: cout << "ERRO" << endl; break;
 		}
 		ultimo_evento = turno;
@@ -650,10 +650,10 @@ void Nave::faz_evento()
 			evento = (rand() % 4) + 1;
 			switch (evento)
 			{
-			case 1: cout << "Faz evento chuva de meteoritos" << endl; break;
-			case 2: cout << "Faz evento ataque de piratas" << endl; break;
-			case 3: cout << "Faz evento ataque de xenomorfo" << endl; break;
-			case 4: cout << "Faz evento campo de po cosmico" << endl; break;
+			case 1: evento_meteoritos(); break;
+			case 2: evento_piratas(); break;
+			case 3: evento_xenomorfo(); break;
+			case 4: evento_cosmico(); break;
 			default: cout << "ERRO" << endl; break;
 			}
 			ultimo_evento = turno;
@@ -855,12 +855,27 @@ void Nave::evento_meteoritos()		//COnsideramos raios laser 1 ou mais?
 
 //----------Evento Piratas---------------------------------------------------------------------------- -
 
-void Nave::evento_piratas()
+void Nave::evento_piratas() // falta por os piratas a aparecer numa sala aleatoria
 {
-	bool laser = false;
 
-	cout << "Aqui verifica se o escudo está operacional e decrementa de 30 a 60 unidades";
-	cout << "Dano em excesso é dado a uma sala aleatória";
+	int dano;
+	int dano_sala;
+
+	laser = false;
+	dano = rand() % 30 + 30;
+
+	if (estado_escudo == true)
+	{
+		escudo -= dano;
+		if (escudo < 0)
+		{
+			dano_sala = escudo *(-1);
+			escudo = 0;
+			estado_escudo = false;
+
+			salas[rand() % 12]->setIntegridade(salas[rand() % 12]->getIntegridade() - dano_sala);
+		}
+	}
 
 	for (int i = 0; i < salas.size(); i++)
 	{
@@ -875,11 +890,11 @@ void Nave::evento_piratas()
 	{
 		cout << "Aqui 3 a 5 piratas entram na nave por uma sala aletória caso contrário fogem";
 	}
-}
+} 
 
 //----------Evento Xenomorfo------------ -
 
-void Nave::evento_xenomorfo()
+void Nave::evento_xenomorfo() // falta por um xenomorfo a aparecer numa sala aleatoria
 {
 	int sala_invadida;
 
@@ -893,13 +908,13 @@ void Nave::evento_xenomorfo()
 void Nave::evento_cosmico()
 {
 	int n_salas = 0;
-	int sala_invadida;
+	int sala_danificada;
 
 	n_salas = (rand() % 3) + 3;
 
 	for (int i = 0; i < n_salas; i++)
 	{
-		sala_invadida = rand() % 12;
-		salas[sala_invadida]->setIntegridade(salas[sala_invadida]->getIntegridade() - 10);
+		sala_danificada = rand() % 12;
+		salas[sala_danificada]->setIntegridade(salas[sala_danificada]->getIntegridade() - 10);
 	}
 }
