@@ -435,8 +435,9 @@ void Nave::DesenhaLog(Consola &c)
 			pos = temp + pos;
 		}
 		
-		Sleep(500);
+		Sleep(100);
 	}
+	Bordas(X_LOG - 1, Y_LOG - 5, X_LOG + 23, Y_LOG + pos, c);
 }
 
 void Nave::Repara_salas()
@@ -568,4 +569,35 @@ void Nave::MAGOATESTE(string nome, int room)		//Faltam validaçoes
 	}
 	salas[actual]->Magoa_para_testes(nome, room); //deve ter um ponteiro de unidades
 
+}
+
+void Nave::Bordas(int X, int Y, int Xmax, int Ymax, Consola &c)
+{
+	c.gotoxy(X, Y);
+	cout << (char)218;
+
+	c.gotoxy(X, Ymax);
+	cout << (char)192;
+
+	c.gotoxy(Xmax, Y);
+	cout << (char)191;
+
+	c.gotoxy(Xmax, Ymax);
+	cout << (char)217;
+	
+	for (int i = Y+1; i < Ymax; i++)
+	{
+		c.gotoxy(X, i);
+		cout << (char)179;
+		c.gotoxy(Xmax, i);
+		cout << (char)179;
+	}
+
+	for (int i = X + 1; i < Xmax; i++)
+	{
+		c.gotoxy(i, Y);
+		cout << (char)196;
+		c.gotoxy(i, Ymax);
+		cout << (char)196;
+	}
 }

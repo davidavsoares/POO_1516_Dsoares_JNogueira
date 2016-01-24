@@ -21,6 +21,6 @@ using namespace std;
 
 //POSICAO DO LOG
 
-#define X_LOG 112
+#define X_LOG 120
 #define Y_LOG 12
 

@@ -64,6 +64,7 @@ public:
 	int random(int max, int min);
 	void chama_regeneradores();
 	void MAGOATESTE(string nome, int room);
+	void Bordas(int X, int Y, int Xmax, int Ymax, Consola &c);
 };
 
 

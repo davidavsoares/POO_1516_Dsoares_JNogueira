@@ -1,8 +1,47 @@
-﻿Build started 24/01/2016 16:49:35.
+﻿Build started 24/01/2016 17:31:15.
      1>Project "C:\Users\David Soares\Documents\GitHub\POO_1516_Dsoares_JNogueira\POO_1516_JNogueira_DSoares\POO_1516_JNogueira_DSoares\POO_1516_JNogueira_DSoares.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt Nave.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt Alojam_Capitao.cpp Auto_Reparador.cpp Beliche.cpp Blob.cpp Capitao.cpp Casulo_de_Geigermorfo.cpp Controlo_Escudo.cpp Enfermaria.cpp Geigermorfo.cpp Inimigos.cpp Interface.cpp Memb_Trip.cpp Mxyzypykwi.cpp Nave.cpp Oficina_Robotica.cpp Pirata.cpp Ponte.cpp Propulsor.cpp Raio_Laser.cpp Robot.cpp Sala.cpp Sala_Armas.cpp Sala_Maquinas.cpp Sistema_Seguranca.cpp Suporte_Vida.cpp Tripulacao.cpp Unidade.cpp Xenomorfos.cpp comandos.cpp
+         Alojam_Capitao.cpp
+         Generating Code...
+         Compiling...
+         comandos.cpp
+         Xenomorfos.cpp
+         Unidade.cpp
+         Tripulacao.cpp
+         Suporte_Vida.cpp
+         Sistema_Seguranca.cpp
+         Sala_Maquinas.cpp
+         Sala_Armas.cpp
+         Sala.cpp
+     1>c:\users\david soares\documents\github\poo_1516_dsoares_jnogueira\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\sala.cpp(41): warning C4018: '<': signed/unsigned mismatch
+     1>c:\users\david soares\documents\github\poo_1516_dsoares_jnogueira\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\sala.cpp(69): warning C4018: '<': signed/unsigned mismatch
+     1>c:\users\david soares\documents\github\poo_1516_dsoares_jnogueira\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\sala.cpp(281): warning C4018: '<': signed/unsigned mismatch
+         Robot.cpp
+         Raio_Laser.cpp
+         Propulsor.cpp
+         Ponte.cpp
+         Pirata.cpp
+         Oficina_Robotica.cpp
          Nave.cpp
+         Mxyzypykwi.cpp
+         Memb_Trip.cpp
+         Interface.cpp
+         Inimigos.cpp
+         Generating Code...
+         Compiling...
+         Geigermorfo.cpp
+         Enfermaria.cpp
+         Controlo_Escudo.cpp
+         Casulo_de_Geigermorfo.cpp
+         Capitao.cpp
+         Blob.cpp
+         Beliche.cpp
+         Auto_Reparador.cpp
+         Generating Code...
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
+         main.cpp
+     1>c:\users\david soares\documents\github\poo_1516_dsoares_jnogueira\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\main.cpp(10): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\David Soares\Documents\GitHub\POO_1516_Dsoares_JNogueira\POO_1516_JNogueira_DSoares\Debug\POO_1516_JNogueira_DSoares.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"C:\Users\David Soares\Documents\GitHub\POO_1516_Dsoares_JNogueira\POO_1516_JNogueira_DSoares\Debug\POO_1516_JNogueira_DSoares.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\David Soares\Documents\GitHub\POO_1516_Dsoares_JNogueira\POO_1516_JNogueira_DSoares\Debug\POO_1516_JNogueira_DSoares.lib" /MACHINE:X86 Debug\POO_1516_JNogueira_DSoares.res
          Debug\Alojam_Capitao.obj
@@ -42,4 +81,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:01.47
+Time Elapsed 00:00:30.68
