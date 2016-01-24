@@ -26,6 +26,7 @@ class Nave
 
 	int conta_propulsores, pos_x, pos_y, Tamanho, distancia, turno = 0;		//ELIMINAR CONTA PROPULSORES
 	int conta_tripulantes;
+	bool laser = false;
 public:
 	Nave();
 	void DesenhaNave(int x, int y, int tamanho);
@@ -82,6 +83,8 @@ public:
 	void evento_piratas();
 	void evento_xenomorfo();
 	void evento_cosmico();
+
+	int procura(string nome) const;
 
 };
 

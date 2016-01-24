@@ -692,13 +692,23 @@ int Nave::procura(int id) const
 	return -1;
 }
 
-
-//----------Evento Meteoritos------------ -
-
-void Nave::evento_meteoritos()
+int Nave::procura(string nome) const
 {
+	for (unsigned int i = 0; i < salas.size(); i++) {
+		if (salas[i]->getNome() == nome)
+			return i;
+	}
+	return -1;
+}
+
+
+//----------Evento Meteoritos------------ -           FALTA TESTAR TODOS OS EVENTOS
+
+void Nave::evento_meteoritos()		//COnsideramos raios laser 1 ou mais?
+
+{								//FALTA ANALISAR SE O RAIO LASER ESTA A SER OPERADO USAR FUNCAO GET_OPERADORES DA SALA
 	int num_meteoritos = 0;
-	bool laser = false;
+	
 
 	if (salas[7]->getOperadores() > 0)
 	{
@@ -722,7 +732,7 @@ void Nave::evento_meteoritos()
 			{
 				if (laser == true)
 				{
-					if (rand() % 101 < 50)
+					if (rand() % 101 < (50 + 10*procura("Raio Laser")))  //  ---------conta raios laser mas nao ve se estao a ser operados
 					{
 						cout << "laser activo mas falha, desconta 10 unidades ao escudo se estiver activo";
 					}
