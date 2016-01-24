@@ -104,7 +104,7 @@ void Sala::remove(string nome)		//Remove uma unidade da sala dando o nome
 	contador--;
 }
 
-int Sala::procura(string nome) const		//Procura uma unidade na sala dando o Nome, se esta estiver na sala retorna -1
+int Sala::procura(string nome) const		//Procura uma unidade na sala dando o Nome, se esta não estiver na sala retorna -1
 {
 	for (unsigned int i = 0; i < unidades.size(); i++) 
 	{
@@ -112,6 +112,16 @@ int Sala::procura(string nome) const		//Procura uma unidade na sala dando o Nome
 			return i;
 	}
 	return -1;
+}
+
+bool Sala::Comunica_indecisao(string nome) const
+{
+	for (unsigned int i = 0; i < unidades.size(); i++)
+	{
+		if (unidades[i]->getNome() == nome)
+			return unidades[i]->getIndeciso();
+	}
+	return -1;		// O que acontece quando uma Bool == -1? Erro?? Significa que o nome indicado nao está na sala
 }
 
 Unidade * Sala::RetornaLocal(string nome)		//Dado o nome do 

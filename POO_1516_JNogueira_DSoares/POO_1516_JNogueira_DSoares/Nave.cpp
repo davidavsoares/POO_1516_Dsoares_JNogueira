@@ -315,12 +315,12 @@ string Nave::toString() const
 	return oss.str();
 }
 
-void Nave::incrementa_propulsores()
+void Nave::incrementa_propulsores()		// Possivelmente desnecessário
 {
 	conta_propulsores++;
 }
 
-void Nave::MoveTripulante(string nome, int room)
+void Nave::MoveTripulante(string nome, int room)		//Faltam validaçoes 
 {
 	int salaDefi, actual, numUni;
 	for (unsigned int i = 0; i < salas.size(); i++)
@@ -328,14 +328,24 @@ void Nave::MoveTripulante(string nome, int room)
 				if (salas[i]->getId() == room)
 					salaDefi = i;
 				
-				if(salas[i]->procura(nome) != -1)
+				if(numUni = salas[i]->procura(nome) != -1)	// Procura a unidade que tem o nome passado por argumento retorna -1 se a unidade nao estiver na sala
 				{
-					numUni = salas[i]->procura(nome);
-					actual = i;
+					 //salas[i]->procura(nome);
+					actual = i;						// guarda o [i] da sala onde se encontra a unidade pretendida
 				}
 			}
-	salas[salaDefi]->adiciona(salas[actual]->RetornaLocal(nome)); //deve ter um ponteiro de unidades
-	salas[actual]->remove(nome);
+	if (salas[actual]->Comunica_indecisao(nome) != 1)	// Analisa se a unidade esta indecisa
+	{
+		salas[salaDefi]->adiciona(salas[actual]->RetornaLocal(nome)); //deve ter um ponteiro de unidades
+		salas[actual]->remove(nome);
+	}
+	else if(rand() % 101 > 50)		// faz um numero aleatorio entre 0 e 100, se este for maior que 50 permite que a unidade seja movida
+	{
+		salas[salaDefi]->adiciona(salas[actual]->RetornaLocal(nome)); //deve ter um ponteiro de unidades
+		salas[actual]->remove(nome);
+	}
+
+	//salas[salaDefi]->adiciona // Adiciona a unidade á sala para onde move
 	
 }
 
@@ -387,7 +397,7 @@ void Nave::actualiza_distancia()
 				{
 					
 					distancia+=salas[i]->getIntegridade();
-					cout <<"dist: "<< distancia;
+					/*cout <<"dist: "<< distancia;*/
 				}
 			}
 		}
@@ -409,6 +419,14 @@ void Nave::DesenhaLog(Consola &c)
 {
 	c.gotoxy(115,8);
 	cout << "Distancia percorrida: " << distancia;
+	
+	for (unsigned int i = 0; i < salas.size(); i++)
+	{
+		
+			c.gotoxy(115, 10);
+			cout << "OPCIONAL: ";
+		
+	}
 }
 
 void Nave::Repara_salas()
@@ -507,3 +525,13 @@ void Nave::Seguranca_Interna()		//NAO ESTA TESTADOo
 //		combate = salas[i]->getCombate();
 //	}
 //}
+
+int Nave::random(int max, int min)
+{
+	int n;
+	do {
+		n = rand();
+	} while (n <= max && n >= min);
+
+	return n;
+}

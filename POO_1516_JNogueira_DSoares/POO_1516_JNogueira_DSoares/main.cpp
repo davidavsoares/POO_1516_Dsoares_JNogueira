@@ -7,6 +7,7 @@
 
 void main()
 {
+	srand(time(NULL));
 	//Consola c;	//Enviar consola para a Nave!!!
 	//som_fundo();
 

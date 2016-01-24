@@ -61,6 +61,7 @@ public:
 	void Reparador(int i, int soma);			//Funcao complementar a funcao Auto_Repara
 	void Seguranca_Interna();					//Funcao que implementa o sistema de seguranca interno
 //	void Analisa_Combates();				//Funcao que analisa todas as salas para verificar em quais há combates
+	int random(int max, int min);
 };
 
 

@@ -2,7 +2,7 @@
 
 
 
-Unidade::Unidade(string nome, int Entidade, int PV, int Respira, bool Flamejante, int Toxico, int Indeciso, bool Misterioso, int Regenerador, int Exoesqueleto, bool Robotico, int Reparador, int Combatente, int Xenomorfo, int Casulo, int Mutatis, int Hipnotizador, bool Operador,bool Tripulacao, int InimigoX, int InimigoY,int Move, int Armado)
+Unidade::Unidade(string nome, int Entidade, int PV, int Respira, bool Flamejante, int Toxico, bool Indeciso, bool Misterioso, int Regenerador, int Exoesqueleto, bool Robotico, int Reparador, int Combatente, int Xenomorfo, int Casulo, int Mutatis, int Hipnotizador, bool Operador,bool Tripulacao, int InimigoX, int InimigoY,int Move, int Armado)
 {
 	this->	nome			=	nome;
 	this->	Entidade		=	Entidade;
@@ -89,6 +89,10 @@ int Unidade::getInimigoX()
 	return this->InimigoX;
 }
 
+bool Unidade::getIndeciso()
+{
+	return this->Indeciso;
+}
 
 
 

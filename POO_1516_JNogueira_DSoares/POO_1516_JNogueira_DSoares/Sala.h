@@ -35,5 +35,6 @@ public:
 	bool getCombate();					//Funcao que retorna se existe um combate na sala
 	void Actualiza_Combate();
 	void Magoa_inimigos(int Dano);
+	bool Comunica_indecisao(string nome) const;		// Indicando o nome de uma unidade retorna se esta está indecisa
 };
 
