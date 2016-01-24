@@ -26,7 +26,9 @@ class Nave
 
 	int conta_propulsores, pos_x, pos_y, Tamanho, distancia, turno = 0;		//ELIMINAR CONTA PROPULSORES
 	int conta_tripulantes;
+	int escudo;
 	bool laser = false;
+	bool estado_escudo;
 public:
 	Nave();
 	void DesenhaNave(int x, int y, int tamanho);

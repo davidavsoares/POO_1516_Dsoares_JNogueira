@@ -12,6 +12,8 @@ Nave::Nave()
 		 Memb_Trip tripulantes(name); 
 	}
 
+	escudo = 100;
+	estado_escudo = true;
 	//tripulantes.  //(char)i  i=141
 
 	//cout << tripulante.getOndeEstou()
@@ -708,7 +710,10 @@ void Nave::evento_meteoritos()		//COnsideramos raios laser 1 ou mais?
 
 {								//FALTA ANALISAR SE O RAIO LASER ESTA A SER OPERADO USAR FUNCAO GET_OPERADORES DA SALA
 	int num_meteoritos = 0;
-	
+	int percentagem = 40;
+	int dano_sala;
+
+	laser = false;
 
 	if (salas[7]->getOperadores() > 0)
 	{
@@ -717,8 +722,12 @@ void Nave::evento_meteoritos()		//COnsideramos raios laser 1 ou mais?
 		{
 			if (salas[i]->getNome() == "Raio Laser")
 			{
-				laser = true;
-				break;
+				if(salas[i]->getOperadores() > 0)
+				{ 
+					laser = true;
+					percentagem += 10;
+				}
+				
 			}
 		}
 
@@ -726,15 +735,49 @@ void Nave::evento_meteoritos()		//COnsideramos raios laser 1 ou mais?
 		{
 			if (laser == false)
 			{
-				cout << "se o escudo estiver activo desconta 10 unidades";
+				if (estado_escudo == true)
+				{
+					escudo -= 10;
+					if (escudo < 0)
+					{
+						dano_sala = escudo * (-1);
+						escudo = 0;
+						estado_escudo = false;
+
+						salas[rand() % 12]->setIntegridade(salas[rand() % 12]->getIntegridade() - dano_sala);
+					}
+				}
+				else
+				{
+					dano_sala = 10;
+
+					salas[rand() % 12]->setIntegridade(salas[rand() % 12]->getIntegridade() - dano_sala);
+				}
 			}
 			else
 			{
 				if (laser == true)
 				{
-					if (rand() % 101 < (50 + 10*procura("Raio Laser")))  //  ---------conta raios laser mas nao ve se estao a ser operados
+					if (rand() % 101 > percentagem) 
 					{
-						cout << "laser activo mas falha, desconta 10 unidades ao escudo se estiver activo";
+						if (estado_escudo == true)
+						{
+							escudo -= 10;
+							if (escudo < 0)
+							{
+								dano_sala = escudo * (-1);
+								escudo = 0;
+								estado_escudo = false;
+
+								salas[rand() % 12]->setIntegridade(salas[rand() % 12]->getIntegridade() - dano_sala);
+							}
+						}
+						else
+						{
+							dano_sala = 10;
+
+							salas[rand() % 12]->setIntegridade(salas[rand() % 12]->getIntegridade() - dano_sala);
+						}
 					}
 				}
 			}
@@ -747,8 +790,12 @@ void Nave::evento_meteoritos()		//COnsideramos raios laser 1 ou mais?
 		{
 			if (salas[i]->getNome() == "Raio Laser")
 			{
-				laser = true;
-				break;
+				if (salas[i]->getOperadores() > 0)
+				{
+					laser = true;
+					percentagem += 10;
+				}
+
 			}
 		}
 
@@ -756,15 +803,49 @@ void Nave::evento_meteoritos()		//COnsideramos raios laser 1 ou mais?
 		{
 			if (laser == false)
 			{
-				cout << "se o escudo estiver activo desconta 10 unidades";
+				if (estado_escudo == true)
+				{
+					escudo -= 10;
+					if (escudo < 0)
+					{
+						dano_sala = escudo * (-1);
+						escudo = 0;
+						estado_escudo = false;
+
+						salas[rand() % 12]->setIntegridade(salas[rand() % 12]->getIntegridade() - dano_sala);
+					}
+				}
+				else
+				{
+					dano_sala = 10;
+
+					salas[rand() % 12]->setIntegridade(salas[rand() % 12]->getIntegridade() - dano_sala);
+				}
 			}
 			else
 			{
 				if (laser == true)
 				{
-					if (rand() % 101 < 50)
+					if (rand() % 101 > percentagem)
 					{
-						cout << "laser activo mas falha, desconta 10 unidades ao escudo se estiver activo";
+						if (estado_escudo == true)
+						{
+							escudo -= 10;
+							if (escudo < 0)
+							{
+								dano_sala = escudo * (-1);
+								escudo = 0;
+								estado_escudo = false;
+
+								salas[rand() % 12]->setIntegridade(salas[rand() % 12]->getIntegridade() - dano_sala);
+							}
+						}
+						else
+						{
+							dano_sala = 10;
+
+							salas[rand() % 12]->setIntegridade(salas[rand() % 12]->getIntegridade() - dano_sala);
+						}
 					}
 				}
 			}
