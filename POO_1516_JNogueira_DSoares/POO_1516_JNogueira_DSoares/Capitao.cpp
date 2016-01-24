@@ -6,9 +6,9 @@ Capitao::Capitao(string nome)
 		/*Respira:*/		1,
 		/*Flamejante:*/		0,
 		/*Toxico:*/			0,
-		/*Indeciso:*/		1,
+		/*Indeciso:*/		0,
 		/*Misterioso:*/		0,
-		/*Regenerador:*/	0,
+		/*Regenerador:*/	2,		//Alterado para testes!!!
 		/*Exoesqueleto:*/	0,
 		/*Robotico:*/		0,
 		/*Reparador:*/		1,		

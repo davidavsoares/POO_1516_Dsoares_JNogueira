@@ -10,7 +10,7 @@ class Unidade
 	Sala *ondeEstou = nullptr;
 
 	string nome;
-	int Entidade, PV, Respira, Toxico, Regenerador, Exoesqueleto, Reparador, Combatente, Xenomorfo, Casulo, Mutatis, Hipnotizador, InimigoX, InimigoY, Move, Armado;
+	int Entidade, PV, Respira, Toxico, Regenerador, Exoesqueleto, Reparador, Combatente, Xenomorfo, Casulo, Mutatis, Hipnotizador, InimigoX, InimigoY, Move, Armado, Saude_inicial;
 	bool Flamejante, Indeciso, Misterioso, Robotico, Operador, Tripulacao;
 public:
 	Unidade(string nome, int Entidade, int PV, int Respira, bool Flamejante, int Toxico, bool Indeciso, bool Misterioso, int Regenerador, int Exoesqueleto, bool Robotico, int Reparador, int Combatente, int Xenomorfo, int Casulo, int Mutatis, int Hipnotizador, bool Operador,bool Tripulacao,int InimigoX, int InimigoY,int Move, int Armado);
@@ -27,5 +27,11 @@ public:
 	bool getOperador();
 	int getInimigoX();
 	bool getIndeciso();
+	int getSaude();
+	int getSaude_inicial();
+	int getRegenerador();
+	void setSaude(int cura);
+	string toString();
+
 };
 

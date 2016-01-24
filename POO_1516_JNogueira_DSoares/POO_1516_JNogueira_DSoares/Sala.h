@@ -36,5 +36,8 @@ public:
 	void Actualiza_Combate();
 	void Magoa_inimigos(int Dano);
 	bool Comunica_indecisao(string nome) const;		// Indicando o nome de uma unidade retorna se esta está indecisa
+	void Chama_regeneradores();
+	void Magoa_para_testes(string nome, int Dana);
+	int toString(Consola &c, int x, int y) const;
 };
 

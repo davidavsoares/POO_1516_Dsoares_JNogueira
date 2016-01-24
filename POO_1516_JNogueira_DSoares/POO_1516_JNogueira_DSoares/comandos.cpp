@@ -89,6 +89,18 @@ void comandos::analisa_comandos(string b, Nave & Spaceship)
 		cmd(Spaceship);
 	}
 
+	if (palavras[0] == "magoa")
+	{
+		int/* l,*/ c;
+
+		c = stoi(palavras[2], nullptr, 10);
+		Spaceship.MAGOATESTE(palavras[1], c);		//COMANDO FEITO FALTA PASSAR NAVE COMO ARGUMENTO
+		Spaceship.DesenhaNave(8, 7, 20);
+
+		cmd(Spaceship);
+
+	}
+
 }
 
 void comandos::inicio_turno(Nave & Spaceship)
@@ -104,5 +116,6 @@ void comandos::fim_turno(Nave & Spaceship)
 	Spaceship.Decrementa_oxigenio();
 	Spaceship.actualiza_distancia();
 	Spaceship.Auto_Repara();
+	Spaceship.chama_regeneradores();
 	
 }

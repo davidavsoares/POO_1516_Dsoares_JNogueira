@@ -62,6 +62,8 @@ public:
 	void Seguranca_Interna();					//Funcao que implementa o sistema de seguranca interno
 //	void Analisa_Combates();				//Funcao que analisa todas as salas para verificar em quais há combates
 	int random(int max, int min);
+	void chama_regeneradores();
+	void MAGOATESTE(string nome, int room);
 };
 
 

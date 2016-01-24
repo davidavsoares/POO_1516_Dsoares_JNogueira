@@ -33,10 +33,19 @@ Sala::~Sala()
 
 string Sala::toString() const
 {
-	
 	ostringstream oss;
-	
-	oss << " Integridade: " << integridade << endl << " Saude: " << saude << endl << " Oxigenio: " << oxigenio << endl;
+	if (!unidades.empty())
+	{
+		oss << "Sala: " << id << endl;
+
+		for (int i = 0; i < unidades.size(); i++)
+		{
+
+			oss << unidades[i]->toString() << endl;
+
+
+		}
+	}
 
 	return oss.str();
 }
@@ -121,7 +130,7 @@ bool Sala::Comunica_indecisao(string nome) const
 		if (unidades[i]->getNome() == nome)
 			return unidades[i]->getIndeciso();
 	}
-	return -1;		// O que acontece quando uma Bool == -1? Erro?? Significa que o nome indicado nao está na sala
+	return 0;		// O que acontece quando uma Bool == -1? Erro?? Significa que o nome indicado nao está na sala
 }
 
 Unidade * Sala::RetornaLocal(string nome)		//Dado o nome do 
@@ -233,4 +242,51 @@ void Sala::Magoa_inimigos(int Dano)
 			unidades[i]->SofrerDano(Dano);
 		}
 	}
+}
+void Sala::Chama_regeneradores()
+{
+	for (unsigned int i = 0; i < unidades.size(); i++)
+	{
+		if (unidades[i]->getRegenerador() > 0 && unidades[i]->getSaude() < unidades[i]->getSaude_inicial())
+		{
+			unidades[i]->setSaude(unidades[i]->getRegenerador());
+		}
+	}
+}
+
+void Sala::Magoa_para_testes(string nome, int Dana)
+{
+	for (unsigned int i = 0; i < unidades.size(); i++)
+	{
+		if (unidades[i]->getNome() == nome)
+		{
+			unidades[i]->SofrerDano(Dana);
+		}
+	}
+}
+
+int Sala::toString(Consola &c, int x, int y) const
+{
+	int i;
+	
+	if (!unidades.empty())
+	{
+		c.gotoxy(x, y);
+		if(id<10)
+			cout << "------Sala : [0" << id << "]------";
+		else
+			cout << "------Sala : [" << id << "]------";
+
+
+		for (i = 0; i < unidades.size(); i++)
+		{
+			c.gotoxy(x, y + i + 1);
+			cout << unidades[i]->toString();
+
+
+		}
+	}
+	return i + 2;
+
+	
 }

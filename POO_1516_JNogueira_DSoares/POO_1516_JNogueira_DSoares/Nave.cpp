@@ -56,7 +56,7 @@ void Nave::DesenhaNave(int x, int y, int tamanho)
 }
 Nave::~Nave()
 {
-	for (int i = 0; i < salas.size(); i++)
+	for (unsigned int i = 0; i < salas.size(); i++)
 		salas[i]->~Sala();
 
 	salas.clear();
@@ -417,15 +417,25 @@ int Nave::getDistancia() const
 
 void Nave::DesenhaLog(Consola &c)
 {
-	c.gotoxy(115,8);
-	cout << "Distancia percorrida: " << distancia;
+	int x = X_LOG, y = Y_LOG;
 	
+	c.gotoxy(x, y - 4);
+	cout << "------LOG DO JOGO------";
+
+	c.gotoxy(x,y);
+	cout << "Distancia percorrida: " << distancia;
+	int pos = 1, temp;
 	for (unsigned int i = 0; i < salas.size(); i++)
 	{
+		temp = pos;
+		if (salas[i]->getNUnidades() != 0)
+		{
+			c.gotoxy(x, y + 1 + i);
+			pos =salas[i]->toString(c, x, y + 1 + pos);
+			pos = temp + pos;
+		}
 		
-			c.gotoxy(115, 10);
-			cout << "OPCIONAL: ";
-		
+		Sleep(500);
 	}
 }
 
@@ -534,4 +544,28 @@ int Nave::random(int max, int min)
 	} while (n <= max && n >= min);
 
 	return n;
+}
+
+void Nave::chama_regeneradores()
+{
+	for (unsigned int i = 0; i < salas.size(); i++)
+	{
+		salas[i]->Chama_regeneradores();
+	}
+}
+
+void Nave::MAGOATESTE(string nome, int room)		//Faltam validaçoes 
+{
+	int  actual, numUni;
+	for (unsigned int i = 0; i < salas.size(); i++)
+	{
+
+		if (numUni = salas[i]->procura(nome) != -1)	// Procura a unidade que tem o nome passado por argumento retorna -1 se a unidade nao estiver na sala
+		{
+			//salas[i]->procura(nome);
+			actual = i;						// guarda o [i] da sala onde se encontra a unidade pretendida
+		}
+	}
+	salas[actual]->Magoa_para_testes(nome, room); //deve ter um ponteiro de unidades
+
 }

@@ -6,7 +6,6 @@ Unidade::Unidade(string nome, int Entidade, int PV, int Respira, bool Flamejante
 {
 	this->	nome			=	nome;
 	this->	Entidade		=	Entidade;
-	this->	PV				=	PV;
 	this->	Respira			=	Respira;
 	this->	Flamejante		=	Flamejante;
 	this->	Toxico			=	Toxico;
@@ -27,6 +26,8 @@ Unidade::Unidade(string nome, int Entidade, int PV, int Respira, bool Flamejante
 	this->	InimigoY		=	InimigoY;
 	this->	Move			=	Move;
 	this->	Armado			=	Armado;
+
+	Saude_inicial = this->PV = PV;
 	
 
 }
@@ -39,6 +40,13 @@ Unidade::~Unidade()
 Sala * Unidade::getOndeEstou()
 {
 	return this->ondeEstou;
+}
+
+string Unidade::toString()
+{
+	ostringstream oss;
+		oss << "-Nome: [" << nome << "]  Saude: [" << PV << "]-";
+	return oss.str();
 }
 
 void Unidade::setOndeEstou(Sala * p)
@@ -93,6 +101,33 @@ bool Unidade::getIndeciso()
 {
 	return this->Indeciso;
 }
+
+int Unidade::getSaude()
+{
+	return this->PV;
+}
+
+int Unidade::getSaude_inicial()
+{
+	return this->Saude_inicial;
+}
+
+int Unidade::getRegenerador()
+{
+	return this->Regenerador;
+}
+
+void Unidade::setSaude(int cura)
+{
+	PV += cura;
+
+	if (PV > Saude_inicial)
+	{
+		PV = Saude_inicial;
+	}
+}
+
+
 
 
 
