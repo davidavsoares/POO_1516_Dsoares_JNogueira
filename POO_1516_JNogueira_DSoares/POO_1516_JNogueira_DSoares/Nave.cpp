@@ -692,3 +692,123 @@ int Nave::procura(int id) const
 	return -1;
 }
 
+
+//----------Evento Meteoritos------------ -
+
+void Nave::evento_meteoritos()
+{
+	int num_meteoritos = 0;
+	bool laser = false;
+
+	if (salas[7]->getOperadores() > 0)
+	{
+		num_meteoritos = ((rand() % 4) + 1) + 4;
+		for (int i = 0; i < salas.size(); i++)
+		{
+			if (salas[i]->getNome() == "Raio Laser")
+			{
+				laser = true;
+				break;
+			}
+		}
+
+		for (int i = 0; i < num_meteoritos; i++)
+		{
+			if (laser == false)
+			{
+				cout << "se o escudo estiver activo desconta 10 unidades";
+			}
+			else
+			{
+				if (laser == true)
+				{
+					if (rand() % 101 < 50)
+					{
+						cout << "laser activo mas falha, desconta 10 unidades ao escudo se estiver activo";
+					}
+				}
+			}
+		}
+	}
+	else
+	{
+		num_meteoritos = ((rand() % 6) + 1) + 6;
+		for (int i = 0; i < salas.size(); i++)
+		{
+			if (salas[i]->getNome() == "Raio Laser")
+			{
+				laser = true;
+				break;
+			}
+		}
+
+		for (int i = 0; i < num_meteoritos; i++)
+		{
+			if (laser == false)
+			{
+				cout << "se o escudo estiver activo desconta 10 unidades";
+			}
+			else
+			{
+				if (laser == true)
+				{
+					if (rand() % 101 < 50)
+					{
+						cout << "laser activo mas falha, desconta 10 unidades ao escudo se estiver activo";
+					}
+				}
+			}
+		}
+	}
+}
+
+//----------Evento Piratas---------------------------------------------------------------------------- -
+
+void Nave::evento_piratas()
+{
+	bool laser = false;
+
+	cout << "Aqui verifica se o escudo está operacional e decrementa de 30 a 60 unidades";
+	cout << "Dano em excesso é dado a uma sala aleatória";
+
+	for (int i = 0; i < salas.size(); i++)
+	{
+		if (salas[i]->getNome() == "Raio Laser")
+		{
+			laser = true;
+			break;
+		}
+	}
+
+	if (laser == false)
+	{
+		cout << "Aqui 3 a 5 piratas entram na nave por uma sala aletória caso contrário fogem";
+	}
+}
+
+//----------Evento Xenomorfo------------ -
+
+void Nave::evento_xenomorfo()
+{
+	int sala_invadida;
+
+	sala_invadida = rand() % 12;
+
+	cout << "cria se um novo xenomorfo na sala escolhida";
+}
+
+//----------Evento Cosmico------------ -
+
+void Nave::evento_cosmico()
+{
+	int n_salas = 0;
+	int sala_invadida;
+
+	n_salas = (rand() % 3) + 3;
+
+	for (int i = 0; i < n_salas; i++)
+	{
+		sala_invadida = rand() % 12;
+		salas[sala_invadida]->setIntegridade(salas[sala_invadida]->getIntegridade() - 10);
+	}
+}

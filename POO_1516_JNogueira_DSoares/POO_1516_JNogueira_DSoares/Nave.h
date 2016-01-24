@@ -76,7 +76,12 @@ public:
 
 	int procura(int id) const;
 
-	void Nave::adiciona(Sala *p, int posicao);
+	void adiciona(Sala *p, int posicao);
+
+	void evento_meteoritos();
+	void evento_piratas();
+	void evento_xenomorfo();
+	void evento_cosmico();
 
 };
 
