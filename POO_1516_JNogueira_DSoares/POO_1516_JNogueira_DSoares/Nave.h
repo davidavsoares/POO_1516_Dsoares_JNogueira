@@ -119,7 +119,7 @@ public:
 	void setFim(bool x);
 	bool getFim()const;
 	string getRelatorio()const;
-
+	void Da_Armas();
 };
 
 

@@ -112,24 +112,29 @@ void comandos::inicio_turno(Nave & Spaceship)
 
 void comandos::fim_turno(Nave & Spaceship)
 {
+	Spaceship.setTurno(Spaceship.getTurno() + 1);
+	Spaceship.actualiza_distancia();
+
 	Spaceship.Decrementa_oxigenio();
 	Spaceship.faz_evento();
-	Spaceship.Percorre_Salas();
-	Spaceship.Repara_salas();
+	Spaceship.Percorre_Salas();		
+	
 
-	Spaceship.actualiza_distancia();
+	
 	Spaceship.Auto_Repara();
+	Spaceship.Da_Armas();
 	Spaceship.chama_regeneradores();
-	Spaceship.setTurno(Spaceship.getTurno() + 1);
+	
 	Spaceship.MutatisMutandis();
-	Spaceship.Percorre_Unidades();
-
+	
+	Spaceship.Repara_salas();
 
 	Spaceship.Move_Sala_adjacente();
 
 	Spaceship.IncrementaTurnoCasulo();
 	Spaceship.Combate();
 
+	Spaceship.Percorre_Unidades();
 	Spaceship.verifica_integridade();
 	
 	if (Spaceship.getDistanciaTotal() <= Spaceship.getDistancia())
@@ -141,4 +146,5 @@ void comandos::fim_turno(Nave & Spaceship)
 		Interface ui;
 		ui.sair(Spaceship.getRelatorio());
 	}
+	
 }

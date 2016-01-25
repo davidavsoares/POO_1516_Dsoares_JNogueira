@@ -76,5 +76,6 @@ public:
 	Unidade *getMembroTripulacao();
 	int getNTripulantes()	const;
 	int get1Tripulante() const;
+	void setArmados();
 };
 

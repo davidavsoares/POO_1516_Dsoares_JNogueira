@@ -51,5 +51,6 @@ public:
 	Unidade(Unidade & outro, string nome, int Entidade, int PV, int Respira, bool Flamejante, int Toxico, bool Indeciso, bool Misterioso, int Regenerador, int Exoesqueleto, bool Robotico, int Reparador, int Combatente, int Xenomorfo, int Casulo, int Mutatis, int Hipnotizador, bool Operador, bool Tripulacao, int InimigoX, int InimigoY, int Move, int Armado);
 	int getXenomorfo();
 	void ReporExoesqueleto();
+	void setArmado(int i);
 };
 

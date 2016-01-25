@@ -1386,3 +1386,18 @@ string Nave::getRelatorio()const
 
 	return oss.str();
 }
+
+void Nave::Da_Armas()
+{
+	for (unsigned int i = 0; i < salas.size(); i++)
+	{
+		if (salas[i]->getNome() == "Sala Armas")
+		{
+			for (unsigned int b = 0; b < salas.size(); b++)
+			{
+				salas[b]->setArmados();
+			}
+		}
+
+	}
+}

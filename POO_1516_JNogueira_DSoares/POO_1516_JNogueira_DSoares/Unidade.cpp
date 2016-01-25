@@ -241,3 +241,7 @@ void Unidade::ReporExoesqueleto()
 {
 	Exoesqueleto = Exoesqueleto_inicial;
 }
+void Unidade::setArmado(int i)
+{
+	Armado = i;
+}

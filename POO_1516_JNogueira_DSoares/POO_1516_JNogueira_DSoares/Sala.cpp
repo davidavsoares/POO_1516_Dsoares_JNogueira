@@ -602,3 +602,14 @@ int Sala::get1Tripulante() const
 	
 	
 }
+
+void Sala::setArmados()
+{
+	for (unsigned int i = 0; i < unidades.size(); i++)
+	{
+		if (unidades[i]->getTipo() == 1)
+		{
+			unidades[i]->setArmado(1);
+		}
+	}
+}
