@@ -1,6 +1,8 @@
 #pragma once
 #include "bibliotecas.h"
 #include "Unidade.h"
+#include "Casulo_de_Geigermorfo.h"
+#include "Geigermorfo.h"
 
 class Nave;
 class Sala
@@ -63,5 +65,16 @@ public:
 
 	void AnalisaCurtoCircuito();
 	void AnalisaFogo();
+	void Suporta_vida();
+	void PercorreSala();
+	string getNome_Unidade(int i);
+	int getMove_Unidade(int i);
+	void CombateSala();
+	void IncrementaCasulo();
+	string Return_caracteres(int caracter, int quantidade);
+	void Enfermagem();
+	Unidade *getMembroTripulacao();
+	int getNTripulantes()	const;
+	int get1Tripulante() const;
 };
 

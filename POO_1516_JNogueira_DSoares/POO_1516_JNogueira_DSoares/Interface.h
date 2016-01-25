@@ -17,7 +17,7 @@ public:
 
 	void desenha_menu();
 	void creditos();
-	void sair();
+	void sair(string x);
 	void goodbye();
 
 	int move(int opcao, int n_opcoes, int nula_1, int nula_2);

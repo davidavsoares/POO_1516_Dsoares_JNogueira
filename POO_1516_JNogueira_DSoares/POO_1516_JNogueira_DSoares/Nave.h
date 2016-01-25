@@ -38,6 +38,7 @@ class Nave
 	int distancia_total;
 	bool laser = false;
 	bool estado_escudo;
+	bool fim;
 public:
 	Nave();
 	void DesenhaNave(int x, int y, int tamanho);
@@ -108,7 +109,16 @@ public:
 
 	void Pega_Fogo();
 	void Percorre_Salas();
+	void Suporta_vida(int i);
+	void Percorre_Unidades();
+	void Move_Sala_adjacente();
 
+	void Combate();
+	void IncrementaTurnoCasulo();
+
+	void setFim(bool x);
+	bool getFim()const;
+	string getRelatorio()const;
 
 };
 

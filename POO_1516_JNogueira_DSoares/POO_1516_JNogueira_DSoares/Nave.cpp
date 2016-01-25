@@ -538,19 +538,6 @@ void Nave::Seguranca_Interna()		//NAO ESTA TESTADOo
 
 }
 
-
-
-//void Nave::Analisa_Combates()
-//{
-//	int combate = 0;
-//	for (unsigned int i = 0; i < salas.size(); i++)
-//	{
-//		combate = salas[i]->getCombate();
-//	}
-//}
-
-
-
 void Nave::chama_regeneradores()
 {
 	for (unsigned int i = 0; i < salas.size(); i++)
@@ -663,13 +650,77 @@ void Nave::faz_evento()
 
 void Nave::MutatisMutandis()
 {
+	int Salinha = 0;
 
 	for (unsigned int i = 0; i < salas.size(); i++)
 	{
-		if (rand() % 101 < salas[i]->Comunica_MMutandis() > 0 /*&&  salas[i]->Comunica_MMutandis()*/)
+		if (rand() % 101 < salas[i]->Comunica_MMutandis() > 0  && i!= 0 && i != 4 && i != 5 && i != 6 && i != 7 && i != 8)
 		{
-			adiciona( new Auto_Reparador(*salas[i]), salas[i]->getId());
-			remove(salas[i]->getId());
+			if(procura("Oficina Robotica") > 0 && procura("Alojamento Capitao") > 0)
+				Salinha = rand() % 7 + 1;
+			else if (procura("Oficina Robotica") > 0)
+				Salinha = rand() % 7;
+			else if (procura("Alojamento Capitao") > 0)
+				Salinha = rand() % 8;
+		
+			switch (Salinha)
+			{
+			case 0:
+				adiciona(new Oficina_Robotica(*salas[i]), salas[i]->getId());
+				remove(salas[i]->getId());
+				for (unsigned int b = 0; b < salas.size(); b++)
+				{
+					
+					if (salas[b]->getNTripulantes() > 0)
+					{
+						salas[i]->adiciona(new Robot(*salas[b]->getMembroTripulacao()));
+						salas[b]->remove(salas[b]->getNome_Unidade(salas[b]->get1Tripulante()));
+						break;
+					}
+					
+				}
+				break;
+			case 1:
+				adiciona(new Auto_Reparador(*salas[i]), salas[i]->getId());
+				remove(salas[i]->getId());
+				break;
+			case 2:
+				adiciona(new Sala_Armas(*salas[i]), salas[i]->getId());
+				remove(salas[i]->getId());
+				break;
+			case 3:
+				adiciona(new Sistema_Seguranca(*salas[i]), salas[i]->getId());
+				remove(salas[i]->getId());
+				break;
+			case 4:
+				adiciona(new Propulsor(*salas[i]), salas[i]->getId());
+				remove(salas[i]->getId());
+				break;
+			case 5:
+				adiciona(new Beliche(*salas[i]), salas[i]->getId());
+				remove(salas[i]->getId());
+				break;
+			case 6:
+				adiciona(new Raio_Laser(*salas[i]), salas[i]->getId());
+				remove(salas[i]->getId());
+				break;
+			case 7:
+				adiciona(new Alojam_Capitao(*salas[i]), salas[i]->getId());
+				remove(salas[i]->getId());
+				for (unsigned int b = 0; b < salas.size(); b++)
+				{
+
+					if (salas[b]->getNTripulantes() > 0)
+					{
+						salas[i]->adiciona(new Capitao(*salas[b]->getMembroTripulacao()));
+						salas[b]->remove(salas[b]->getNome_Unidade(salas[b]->get1Tripulante()));
+						break;
+					}
+
+				}
+				break;
+			
+			}
 		}
 	}
 }
@@ -704,11 +755,11 @@ int Nave::procura(string nome) const
 }
 
 
-//----------Evento Meteoritos------------ -           FALTA TESTAR TODOS OS EVENTOS
+//----------Evento Meteoritos------------ -          
 
 void Nave::evento_meteoritos()		//COnsideramos raios laser 1 ou mais?
 
-{								//FALTA ANALISAR SE O RAIO LASER ESTA A SER OPERADO USAR FUNCAO GET_OPERADORES DA SALA
+{								
 	int num_meteoritos = 0;
 	int percentagem = 40;
 	int dano_sala;
@@ -872,7 +923,7 @@ void Nave::evento_meteoritos()		//COnsideramos raios laser 1 ou mais?
 
 //----------Evento Piratas---------------------------------------------------------------------------- -
 
-void Nave::evento_piratas() // falta por os piratas a aparecer numa sala aleatoria
+void Nave::evento_piratas() 
 {
 
 	int dano;
@@ -932,7 +983,7 @@ void Nave::evento_piratas() // falta por os piratas a aparecer numa sala aleator
 
 //----------Evento Xenomorfo------------ -
 
-void Nave::evento_xenomorfo() // falta por um xenomorfo a aparecer numa sala aleatoria
+void Nave::evento_xenomorfo() 
 {
 	int sala_invadida;
 	int opcao;
@@ -943,9 +994,9 @@ void Nave::evento_xenomorfo() // falta por um xenomorfo a aparecer numa sala ale
 
 	switch (opcao)
 	{
-	case 1: oss << (char)(43); salas[sala_invadida]->adiciona(new Geigermorfo(oss.str())); break;
-	case 2: oss << (char)(46); salas[sala_invadida]->adiciona(new Blob(oss.str())); break;
-	case 3: oss << (char)(45); salas[sala_invadida]->adiciona(new Mxyzypykwi(oss.str())); break;
+	case 1: salas[sala_invadida]->adiciona(new Geigermorfo("G")); break;
+	case 2: salas[sala_invadida]->adiciona(new Blob("B")); break;
+	case 3: salas[sala_invadida]->adiciona(new Mxyzypykwi("M")); break;
 	default: break;
 	}
 	
@@ -974,7 +1025,7 @@ void Nave::verifica_integridade()
 	{
 		if (salas[i]->getIntegridade() <= 0)
 		{
-			cout << "termina o jogo" << endl;
+			setFim(true);
 		}
 	}
 }
@@ -1005,7 +1056,7 @@ void Nave::Pega_Fogo()
 	{
 		if (salas[i]->getFogo())
 		{
-			if (0 <= i <= 3)		// caso o fogo se encontre numa sala da linha de cima
+			if (i<= 3 && i >= 0)			// caso o fogo se encontre numa sala da linha de cima
 			{
 				//Pega abaixo
 				if (1 <= i <= 3 && rand() % 101 < 5)
@@ -1030,7 +1081,7 @@ void Nave::Pega_Fogo()
 
 				}
 			}
-			if (4 <= i <= 7)		// caso o fogo se encontre numa sala da linha do meio
+			if (i <= 7 && 4 <= i)		// caso o fogo se encontre numa sala da linha do meio
 			{
 				//Pega acima
 				if (4 <= i < 7 && rand() % 101 < 5)
@@ -1062,7 +1113,7 @@ void Nave::Pega_Fogo()
 
 				}
 			}
-			if (8 <= i <= 11)		// caso o fogo se encontre numa sala da linha de baixo
+			if (i <= 11 && 8 <= i)		// caso o fogo se encontre numa sala da linha de baixo
 			{
 				//Pega acima
 				if (8 < i <= 11 && rand() % 101 < 5)
@@ -1098,12 +1149,240 @@ void Nave::Pega_Fogo()
 
 void Nave::Percorre_Salas()
 {
+
 	for (unsigned int i = 0; i < salas.size(); i++)
 	{
 		salas[i]->AnalisaCurtoCircuito();
 		salas[i]->AnalisaFogo();
+		Suporta_vida(i);
+		if(salas[i]->getNome() == "Enfermaria")
+			salas[i]->Enfermagem();
 	}
-	
 }
 
+void Nave::Suporta_vida(int i)
+{
+	if (salas[i]->getNome() == "Suporte Vida" && salas[i]->getIntegridade() == 100)
+	{
+		for (unsigned int b = 0; b < salas.size(); b++)
+		{
+			salas[b]->setOxigenio(salas[b]->getOxigenio() + 2);
+		}
+	}
 
+}
+
+void Nave::Percorre_Unidades()
+{
+	for (unsigned int i = 0; i < salas.size(); i++)
+	{
+		if (salas[i]->getNUnidades() > 0)
+		{
+			salas[i]->PercorreSala();
+		}
+	}
+}
+
+void Nave::Move_Sala_adjacente()
+{
+	int muda_Sala;
+
+	for (unsigned int i = 0; i < salas.size(); i++)
+	{
+		for (unsigned int j = 0; j < salas[i]->getNUnidades(); j++)
+		{
+			if (salas[i]->getMove_Unidade(j) > 0 && rand() % 101 < salas[i]->getMove_Unidade(j))
+			{
+				if (i<= 3 && i >= 0)		
+				{
+					muda_Sala = (rand() % 3) + 1;
+					switch (muda_Sala)
+					{
+					case 1:
+
+						//Pega abaixo
+						if (1 <= i <= 3 && i + 3 + 1 >= 1 && i + 3 + 1 <= 12)
+						{
+							
+							MoveTripulante(salas[i]->getNome_Unidade(j), i + 3 + 1);
+
+						}
+						break;
+
+					case 2:
+
+						//Pega Direita
+
+						if (0 <= i < 3 && i + 1 + 1 >= 1 && i + 1 + 1 <= 12)
+						{
+							MoveTripulante(salas[i]->getNome_Unidade(j), i + 1 + 1);
+
+						}
+						break;
+					case 3:
+
+						//Pega Esquerda
+
+						if (1 <= i <= 3 && i - 3 >= 0 && i - 1 + 1 >= 1 && i - 1 + 1 <= 12)
+						{
+							MoveTripulante(salas[i]->getNome_Unidade(j), i - 1 + 1);
+
+						}
+						break;
+					}
+				}
+					else if ( i <= 7 && 4 <= i)		// caso o fogo se encontre numa sala da linha do meio
+					{
+						muda_Sala = rand() % 4 + 1;
+						switch (muda_Sala)
+						{
+						case 1:
+
+							//Pega acima
+							if (4 <= i < 7 && i - 3 + 1 >= 1 && i - 3 + 1 <= 12)
+							{
+								MoveTripulante(salas[i]->getNome_Unidade(j), i - 3 + 1);
+
+							}
+							break;
+						case 2:
+
+							//Pega abaixo
+							if (4 <= i < 7 && i + 5 + 1 >= 1 && i - 3 + 1 <= 12)
+							{
+								MoveTripulante(salas[i]->getNome_Unidade(j), i + 5 + 1);
+
+							}
+							break;
+						case 3:
+
+							//Pega Direita
+
+							if (4 <= i < 7 && i + 1 + 1 >= 1 && i + 1 + 1 <= 12)
+							{
+								MoveTripulante(salas[i]->getNome_Unidade(j), i + 1 + 1);
+
+							}
+							break;
+						case 4:
+
+							//Pega Esquerda
+
+							if (4 < i <= 7 && i - 1 + 1 >= 1 && i - 1 + 1 <= 12)
+							{
+								MoveTripulante(salas[i]->getNome_Unidade(j), i - 1 + 1);
+
+							}
+							break;
+						}
+					}
+					else if (i <= 11 && 8 <= i)		// caso o fogo se encontre numa sala da linha de baixo
+					{
+						muda_Sala = (rand() % 3) + 1;
+						switch (muda_Sala)
+						{
+						case 1:
+
+							//Pega acima
+							if (8 < i <= 11 && i - 5 + 1 >= 1 && i - 5 + 1 <= 12)
+							{
+								MoveTripulante(salas[i]->getNome_Unidade(j), i - 5 + 1);
+
+							}
+							break;
+
+							//Pega Direita
+						case 2:
+
+							if (8 <= i < 11 && i + 1 + 1 >= 1 && i + 1 + 1 <= 12)
+							{
+								MoveTripulante(salas[i]->getNome_Unidade(j), i + 1 + 1);
+
+							}
+							break;
+						case 3:
+
+							//Pega Esquerda
+
+							if (8 < i <= 11 && i - 1 + 1 >= 1 && i - 1 + 1 <= 12)
+							{
+								MoveTripulante(salas[i]->getNome_Unidade(j), i - 1 + 1);
+
+							}
+							break;
+						}
+						
+
+					}
+					break;
+				}
+				
+			}
+		}
+	
+
+}
+
+void Nave::Combate()
+{
+
+	for (unsigned int i = 0; i < salas.size(); i++)
+	{
+		if (salas[i]->getNUnidades() > 0)
+		{
+			salas[i]->CombateSala();
+		}
+	}
+
+}
+
+void Nave::IncrementaTurnoCasulo()
+{
+	int posCasulo;
+
+	for (unsigned int i = 0; i < salas.size(); i++)
+	{
+		salas[i]->IncrementaCasulo();
+	}
+}
+
+void Nave::setFim(bool x)
+{
+	fim = x;
+}
+
+bool Nave::getFim()const
+{
+	return fim;
+}
+
+string Nave::getRelatorio()const
+{
+	ostringstream oss;
+	int unidades = 0;
+	string dif;
+
+	for (unsigned int i = 0; i < salas.size(); i++)
+	{
+		unidades += salas[i]->getNUnidades();
+	}
+	if (getDificuldade() == 1)
+	{
+		dif = "Facil";
+	}
+	else
+	{
+		if (getDificuldade() == 2)
+		{
+			dif = "Medio";
+		}
+		else
+		{
+			dif = "Dificil";
+		}
+	}
+
+	oss << "-----Relatorio Final-----\n" << "\t\t\t\t\t\t\t\tNumero de unidades: " << unidades << "\n\t\t\t\t\t\t\t\tDistancia Percorrida: " << getDistancia() << "\n\t\t\t\t\t\t\t\tDificuldade: " << dif << "\n\n\t\t\t\t\t\t\t\tBom Jogo!!! Parabens!!!\n";
+
+	return oss.str();
+}

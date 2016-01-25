@@ -29,12 +29,6 @@
     <ClCompile Include="consola.cpp" />
     <ClCompile Include="Controlo_Escudo.cpp" />
     <ClCompile Include="Enfermaria.cpp" />
-    <ClCompile Include="exemplo.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
-    </ClCompile>
     <ClCompile Include="Geigermorfo.cpp" />
     <ClCompile Include="Inimigos.cpp" />
     <ClCompile Include="Interface.cpp" />
@@ -63,7 +57,6 @@
   <ItemGroup>
     <ClInclude Include="Alojam_Capitao.h" />
     <ClInclude Include="Auto_Reparador.h" />
-    <ClInclude Include="bass.h" />
     <ClInclude Include="Beliche.h" />
     <ClInclude Include="bibliotecas.h" />
     <ClInclude Include="Blob.h" />
@@ -95,12 +88,6 @@
     <ClInclude Include="Tripulacao.h" />
     <ClInclude Include="Unidade.h" />
     <ClInclude Include="Xenomorfos.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bass.dll" />
-  </ItemGroup>
-  <ItemGroup>
-    <Library Include="bass.lib" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="POO_1516_JNogueira_DSoares.rc" />

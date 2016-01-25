@@ -2,6 +2,7 @@
 
 Alojam_Capitao::Alojam_Capitao(int id):Sala(id, "Alojamento Capitao")
 {
+
 }
 
 

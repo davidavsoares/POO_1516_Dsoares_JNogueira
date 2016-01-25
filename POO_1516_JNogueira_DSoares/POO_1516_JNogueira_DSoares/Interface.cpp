@@ -65,7 +65,7 @@ void Interface::creditos()		//Apresenta os creditos
 	inicial(&c);
 }
 
-void Interface::sair()
+void Interface::sair(string x)
 {
 	Consola c;
 	
@@ -79,6 +79,9 @@ void Interface::sair()
 	c.gotoxy(60, 35);
 	cout << "Copyright 2015, David Soares && Jorge Nogueira" << endl << endl;
 
+	c.gotoxy(60, 25);
+	cout << x;
+	
 	Sleep(3000);
 	exit(0);
 }
@@ -471,7 +474,7 @@ void Interface::inicial(Consola *c)		//Apresenta o menu inicial
 		break;
 	case 2:creditos();
 		break;
-	case 3:sair();
+	case 3:sair("");
 		break;
 	default:
 		break;
@@ -482,7 +485,7 @@ void Interface::Salas(Consola *c, int dif)		//Desenha e configura o menu  que é 
 {
 	
 
-	int opcao = 1, menu_x = 50, menu_y = 15, nula_1=20, nula_2=20;
+	int opcao = 1, menu_x = 50, menu_y = 15, nula_1 = 20, nula_2 = 20, evento;
 	comandos ABC;
 	Nave Spaceship;	// Cria uma Nave com as caracteristicas (Posicao XX, Posicao YY, Tamanho)
 					//cmd.cmd();
@@ -893,7 +896,7 @@ void Interface::Salas(Consola *c, int dif)		//Desenha e configura o menu  que é 
 					p1 = new Alojam_Capitao(i);
 					Spaceship.adiciona(p1);
 
-					p1->adiciona(new Capitao("C"));
+					p1->adiciona(new Capitao());
 					Spaceship.incrementa_tripulantes();
 					EL_CAPITAN = 0;
 					nula_1 = 1;
@@ -924,7 +927,7 @@ void Interface::Salas(Consola *c, int dif)		//Desenha e configura o menu  que é 
 					p1 = new Oficina_Robotica(i);
 					Spaceship.adiciona(p1);
 
-					p1->adiciona(new Robot("R"));
+					p1->adiciona(new Robot());
 					Spaceship.incrementa_tripulantes();
 					nula_2 = 5;
 					EL_ROBOT = 0;
@@ -953,7 +956,7 @@ void Interface::Salas(Consola *c, int dif)		//Desenha e configura o menu  que é 
 				break;
 				opcao = 9;
 			case 10:
-				sair();
+				sair("");
 				break;
 			default:
 				break;
@@ -970,7 +973,15 @@ void Interface::Salas(Consola *c, int dif)		//Desenha e configura o menu  que é 
 	}
 
 
-
+	evento = (rand() % 4) + 1;
+	switch (evento)
+	{
+	case 1: Spaceship.evento_meteoritos(); break;
+	case 2: Spaceship.evento_piratas(); break;
+	case 3: Spaceship.evento_xenomorfo(); break;
+	case 4: Spaceship.evento_cosmico(); break;
+	default: cout << "ERRO" << endl; break;
+	}
 	Spaceship.DesenhaNave(8, 7, 20);
 	ABC.cmd(Spaceship);
 	/*NextDesign(Spaceship, c);*/

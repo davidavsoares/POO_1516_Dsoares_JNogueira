@@ -4,7 +4,8 @@ class Robot :
 	public Tripulacao
 {
 public:
-	Robot(string nome);
+	Robot();
 	~Robot();
+	Robot(Unidade & outro);
 };
 

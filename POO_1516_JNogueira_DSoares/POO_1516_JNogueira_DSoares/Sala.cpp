@@ -47,7 +47,7 @@ string Sala::toString() const
 	{
 		oss << "Sala: " << id << endl;
 
-		for (int i = 0; i < unidades.size(); i++)
+		for (unsigned int i = 0; i < unidades.size(); i++)
 		{
 
 			oss << unidades[i]->toString() << endl;
@@ -75,13 +75,35 @@ void Sala::toStatus(Consola &c, int x, int y)			//Nesta função imprime-se as var
 		{
 
 
-			for (int i = 0; i < unidades.size(); i++)
+			for (unsigned int i = 0; i < unidades.size(); i++)
 			{
 				
 				unidades[i]->printNome(x + i, y + 3, c);
-
+				unidades[i]->ReporExoesqueleto();
 
 			}
+		}
+
+		if (fogo == true)
+		{	
+		c.gotoxy(x + 9, y + 6);
+		cout << Return_caracteres(177, 1);
+		c.gotoxy(x + 8, y + 7);
+		cout << Return_caracteres(177, 3);
+		c.gotoxy(x + 6, y + 8);
+		cout << Return_caracteres(177, 7);
+		//c.gotoxy(x + 4, y + 8);
+		//cout << Return_caracteres(177, 11);
+		}
+		if (curto_circuito == true)
+		{
+			c.gotoxy(x, y + 5);
+			cout << Return_caracteres(218, 3)<<"CURTO" << Return_caracteres(218, 1) <<"CIRCUITO"<< Return_caracteres(218, 2);
+		}
+		if (brecha == true)
+		{
+			c.gotoxy(x, y + 4);
+			cout << Return_caracteres(224, 6) << "BRECHA" << Return_caracteres(224, 7);
 		}
 }
 
@@ -116,6 +138,7 @@ void Sala::remove(string nome)		//Remove uma unidade da sala dando o nome
 	int val = this->procura(nome);
 	if (val != -1)
 	{
+	
 		this->unidades[val]->setOndeEstou(nullptr);
 		unidades.erase(unidades.begin() + val);
 	}
@@ -175,6 +198,14 @@ void Sala::repara()
 	{
 		for (unsigned int i = 0; i < unidades.size(); i++)
 		{
+			if (brecha == true)
+			{
+				setBrecha(false);
+			}
+	/*		if (fogo == true)
+			{
+				setFogo(false);
+			}*/
 			integridade += unidades[i]->getReparador();
 		}
 		if (integridade > 100)
@@ -272,7 +303,6 @@ void Sala::Chama_regeneradores()
 		}
 	}
 }
-
 void Sala::Magoa_para_testes(string nome, int Dana)
 {
 	for (unsigned int i = 0; i < unidades.size(); i++)
@@ -283,10 +313,9 @@ void Sala::Magoa_para_testes(string nome, int Dana)
 		}
 	}
 }
-
 int Sala::toString(Consola &c, int x, int y) const
 {
-	int i;
+	unsigned int i;
 	
 	if (!unidades.empty())
 	{
@@ -359,12 +388,6 @@ bool Sala::getCurtoCircuito()const
 {
 	return curto_circuito;
 }
-
-
-
-
-
-
 void Sala::setOxigenio(int x)
 {
 	oxigenio = x;
@@ -372,9 +395,12 @@ void Sala::setOxigenio(int x)
 	{
 		oxigenio = 0;
 	}
+
+	if (oxigenio > 100)
+	{
+		oxigenio = 100;
+	}
 }
-
-
 void Sala::Analisa_oxigenio()
 {
 	if (oxigenio <= 0)
@@ -383,7 +409,6 @@ void Sala::Analisa_oxigenio()
 	}
 
 }
-
 void Sala::AnalisaFogo()
 {
 	if (fogo == true)
@@ -394,7 +419,7 @@ void Sala::AnalisaFogo()
 		}
 		if (unidades.size() > 0)
 		{
-			for (int i = 0; i < unidades.size(); i++)
+			for (unsigned int i = 0; i < unidades.size(); i++)
 			{
 				unidades[i]->SofrerDano(2);
 			}
@@ -402,8 +427,6 @@ void Sala::AnalisaFogo()
 
 	}
 }
-
-
 void Sala::AnalisaCurtoCircuito()
 {
 	if (curto_circuito == true)
@@ -412,11 +435,170 @@ void Sala::AnalisaCurtoCircuito()
 		{
 			if (rand() % 101 < 25)
 			{
-				for (int i = 0; i < unidades.size(); i++)
+				for (unsigned int i = 0; i < unidades.size(); i++)
 				{
 					unidades[i]->SofrerDano(unidades.size());
 				}
 			}
 		}
 	}
+}
+void Sala::Suporta_vida()
+{
+	if (nome == "Suporte Vida" && integridade == 100)
+	{
+
+	}
+}
+void Sala::PercorreSala()
+{
+	for (unsigned int i = 0; i < unidades.size(); i++)
+	{
+		if (unidades[i]->AnalisaUnidade() == false)
+		{
+			
+			remove(unidades[i]->getNome());
+		}
+	}
+}
+
+string Sala::getNome_Unidade(int i)
+{
+	return unidades[i]->getNome();
+}
+int Sala::getMove_Unidade(int i)
+{
+	return unidades[i]->getMove();
+}
+
+void Sala::CombateSala()
+{
+	int dano = 0;
+	for (unsigned int i = 0; i < unidades.size(); i++)
+	{
+		dano = 0;
+		if (unidades[i]->getTipo() == 1)			//TRIPULANTES ATACAREM OS OUTROS
+		{
+			for (unsigned j = 0; j < unidades.size(); j++)
+			{
+				if (unidades[j]->getTipo() == 2 || unidades[j]->getTipo() == 3)
+				{
+					dano = unidades[i]->getCombatente() + unidades[i]->getArmado();
+					unidades[j]->SofrerDano(dano);
+					break;
+				}
+			}
+		}
+		if (unidades[i]->getTipo() == 2)			//INIMIGOS ATACAR OS OUTROS
+		{
+			for (unsigned j = 0; j < unidades.size(); j++)
+			{
+				if (unidades[j]->getTipo() == 1 || unidades[j]->getTipo() == 3)
+				{
+					dano = unidades[i]->getCombatente() + unidades[i]->getArmado() + unidades[i]->getInimigoX();
+					unidades[j]->SofrerDano(dano);
+					break;
+				}
+			}
+			if (dano == 0)
+			{
+				dano = unidades[i]->getInimigoY();
+				integridade -= dano;
+			}
+
+		}
+		if (unidades[i]->getTipo() == 3 && unidades[i]->getNome() == "G")
+		{
+			for (unsigned j = 0; j < unidades.size(); j++)
+			{
+				if (unidades[j]->getTipo() == 1 || unidades[j]->getTipo() == 2)
+				{
+					if (rand() % 101 < unidades[i]->getCasulo())
+					{
+						unidades[j] = new Casulo_de_Geigermorfo("Q");
+						unidades[j]->setTurnoCasulo(unidades[j]->getTurnoCasulo() + 1);
+						break;
+					}
+					else 
+					{
+						dano = unidades[i]->getArmado() + unidades[i]->getXenomorfo();
+						unidades[j]->SofrerDano(dano);
+						break;
+					}
+
+				}
+			}
+		}
+	}
+}
+
+void Sala::IncrementaCasulo()
+{
+	for (unsigned int i = 0; i < unidades.size(); i++)
+	{
+		if (unidades[i]->getTipo() == 3 && unidades[i]->getNome() == "Q")
+		{
+			unidades[i]->setTurnoCasulo(unidades[i]->getTurnoCasulo() + 1);
+			if (unidades[i]->getTurnoCasulo() == 3)
+			{
+				unidades[i] = new Geigermorfo("G");
+				unidades[i]->setTurnoCasulo(0);
+			}
+		}
+	}
+}
+
+string Sala::Return_caracteres(int caracter, int quantidade)
+{
+	ostringstream oss;
+	for (int i = 0; i < quantidade; i++)
+	{
+		oss << (char)caracter;
+	}
+	return oss.str();
+}
+
+void Sala::Enfermagem()
+{
+	for (unsigned int i = 0; i < unidades.size(); i++)
+	{
+		if(unidades[i]->getTipo() == 1)
+			unidades[i]->SofrerDano(-1);
+	}
+}
+
+Unidade * Sala::getMembroTripulacao()
+{
+	for (unsigned int i = 0; i < unidades.size(); i++)
+	{
+		if (unidades[i]->getTipo() == 1)
+			return unidades[i];
+	}
+}
+
+int Sala::getNTripulantes()	const	//Retorna o numero deTripulantes existentes na sala, nao bastava returnas unidades.size()?
+{
+	int contador = 0;
+
+	if (unidades.size() > 0)
+	{
+		for (unsigned int i = 0; i < unidades.size(); i++)
+		{
+			if(unidades[i]->getTipo()==1)
+				contador++;
+		}
+	}
+	return contador;
+}
+
+int Sala::get1Tripulante() const
+{
+
+		for (unsigned int i = 0; i < unidades.size(); i++)
+		{
+			if (unidades[i]->getTipo() == 1 && unidades[i]->getNome() != "C" && unidades[i]->getNome() != "R")
+				return i;
+		}
+	
+	
 }

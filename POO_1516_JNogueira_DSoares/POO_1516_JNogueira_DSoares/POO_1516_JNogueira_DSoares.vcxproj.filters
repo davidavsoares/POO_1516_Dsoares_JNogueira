@@ -24,9 +24,6 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="exemplo.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Interface.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -114,9 +111,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="consola.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="bass.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Nave.h">
@@ -215,16 +209,6 @@
     <ClInclude Include="Xenomorfos.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <Library Include="bass.lib">
-      <Filter>Source Files</Filter>
-    </Library>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bass.dll">
-      <Filter>Source Files</Filter>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="POO_1516_JNogueira_DSoares.rc">

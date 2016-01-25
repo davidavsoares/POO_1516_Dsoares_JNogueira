@@ -5,7 +5,8 @@ class Capitao :
 
 {
 public:
-	Capitao(string nome);
+	Capitao();
 	~Capitao();
+	Capitao(Unidade & outro);
 };
 

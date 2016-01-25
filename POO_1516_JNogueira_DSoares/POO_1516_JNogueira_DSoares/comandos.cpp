@@ -77,7 +77,7 @@ void comandos::analisa_comandos(string b, Nave & Spaceship)
 	if (palavras[0] == "sair")
 	{
 		Interface ui;
-		ui.sair();
+		ui.sair("");
 	}
 
 	if (palavras[0] == "turno")
@@ -112,17 +112,33 @@ void comandos::inicio_turno(Nave & Spaceship)
 
 void comandos::fim_turno(Nave & Spaceship)
 {
+	Spaceship.Decrementa_oxigenio();
 	Spaceship.faz_evento();
 	Spaceship.Percorre_Salas();
 	Spaceship.Repara_salas();
-	Spaceship.Decrementa_oxigenio();
+
 	Spaceship.actualiza_distancia();
 	Spaceship.Auto_Repara();
 	Spaceship.chama_regeneradores();
 	Spaceship.setTurno(Spaceship.getTurno() + 1);
 	Spaceship.MutatisMutandis();
+	Spaceship.Percorre_Unidades();
+
+
+	Spaceship.Move_Sala_adjacente();
+
+	Spaceship.IncrementaTurnoCasulo();
+	Spaceship.Combate();
 
 	Spaceship.verifica_integridade();
-
 	
+	if (Spaceship.getDistanciaTotal() <= Spaceship.getDistancia())
+	{
+		Spaceship.setFim(true);
+	}
+	if (Spaceship.getFim() == true)
+	{
+		Interface ui;
+		ui.sair(Spaceship.getRelatorio());
+	}
 }
