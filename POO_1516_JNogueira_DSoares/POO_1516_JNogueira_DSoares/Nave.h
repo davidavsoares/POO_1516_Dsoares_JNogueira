@@ -19,6 +19,13 @@
 #include "Memb_Trip.h"
 #include "Capitao.h"
 #include "Robot.h"
+#include "Pirata.h"
+#include "Xenomorfos.h"
+#include "Inimigos.h"
+#include "Geigermorfo.h"
+#include "Casulo_de_Geigermorfo.h"
+#include "Mxyzypykwi.h"
+#include "Blob.h"
 
 class Nave
 {

@@ -879,6 +879,8 @@ void Nave::evento_piratas() // falta por os piratas a aparecer numa sala aleator
 	int dano_sala;
 	int sala_afectada;
 	int evento_aleatorio;
+	int sala_invadida;
+	int num_piratas;
 
 	laser = false;
 	dano = rand() % 30 + 30;
@@ -918,7 +920,13 @@ void Nave::evento_piratas() // falta por os piratas a aparecer numa sala aleator
 
 	if (laser == false)
 	{
-		cout << "Aqui 3 a 5 piratas entram na nave por uma sala aletória caso contrário fogem";
+		sala_invadida = rand() % 12;
+		num_piratas = (rand() % 3) + 3;
+		
+		for (int i = 0; i < num_piratas; i++)
+		{
+			salas[sala_invadida]->adiciona(new Pirata("P"));
+		}
 	}
 } 
 
@@ -927,10 +935,20 @@ void Nave::evento_piratas() // falta por os piratas a aparecer numa sala aleator
 void Nave::evento_xenomorfo() // falta por um xenomorfo a aparecer numa sala aleatoria
 {
 	int sala_invadida;
-
+	int opcao;
+	ostringstream oss;
+	
 	sala_invadida = rand() % 12;
+	opcao = (rand() % 3) + 1;
 
-	cout << "cria se um novo xenomorfo na sala escolhida";
+	switch (opcao)
+	{
+	case 1: oss << (char)(176); salas[sala_invadida]->adiciona(new Geigermorfo(oss.str())); break;
+	case 2: oss << (char)(223); salas[sala_invadida]->adiciona(new Blob(oss.str())); break;
+	case 3: oss << (char)(157); salas[sala_invadida]->adiciona(new Mxyzypykwi(oss.str())); break;
+	default: break;
+	}
+	
 }
 
 //----------Evento Cosmico------------ -
