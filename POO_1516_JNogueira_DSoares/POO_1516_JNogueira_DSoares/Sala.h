@@ -8,6 +8,9 @@ class Sala
 	vector<Unidade *> unidades;
 	int oxigenio, integridade, saude, id, contador = 0;
 	bool combate;
+	bool fogo;
+	bool brecha;
+	bool curto_circuito;
 	string nome;
 	Nave *ondeEstou = nullptr;
 public:
@@ -42,6 +45,13 @@ public:
 	int toString(Consola &c, int x, int y) const;
 	Sala(Sala & outro, string nome);
 	int Comunica_MMutandis() const;
+
+	void setFogo(bool estado);
+	void setBrecha(bool estado);
+	void setCurtoCircuito(bool estado);
+	bool getFogo()const;
+	bool getBrecha()const;
+	bool getCurtoCircuito()const;
 
 	void setOndeEstou(Nave * p);
 

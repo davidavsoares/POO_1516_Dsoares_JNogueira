@@ -86,6 +86,8 @@ public:
 	void evento_xenomorfo();
 	void evento_cosmico();
 
+	void verifica_integridade();
+
 	int procura(string nome) const;
 
 };

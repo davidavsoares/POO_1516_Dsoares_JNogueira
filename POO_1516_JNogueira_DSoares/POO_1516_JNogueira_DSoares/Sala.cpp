@@ -9,7 +9,10 @@ Sala::Sala(int id, string n)
 	integridade = 100;
 	oxigenio = 100;
 
-	bool combate = 0;
+	combate = false;
+	fogo = false;
+	brecha = false;
+	curto_circuito = false;
 
 }
 
@@ -315,4 +318,29 @@ void Sala::setOndeEstou(Nave * p)
 Nave * Sala::getOndeEstou()
 {
 	return this->ondeEstou;
+}
+
+void Sala::setFogo(bool estado)
+{
+	fogo = estado;
+}
+void Sala::setBrecha(bool estado)
+{
+	brecha = estado;
+}
+void Sala::setCurtoCircuito(bool estado)
+{
+	curto_circuito = estado;
+}
+bool Sala::getFogo()const
+{
+	return fogo;
+}
+bool Sala::getBrecha()const
+{
+	return brecha;
+}
+bool Sala::getCurtoCircuito()const
+{
+	return curto_circuito;
 }

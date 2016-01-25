@@ -712,6 +712,7 @@ void Nave::evento_meteoritos()		//COnsideramos raios laser 1 ou mais?
 	int num_meteoritos = 0;
 	int percentagem = 40;
 	int dano_sala;
+	int sala_afectada;
 
 	laser = false;
 
@@ -743,15 +744,19 @@ void Nave::evento_meteoritos()		//COnsideramos raios laser 1 ou mais?
 						dano_sala = escudo * (-1);
 						escudo = 0;
 						estado_escudo = false;
-
-						salas[rand() % 12]->setIntegridade(salas[rand() % 12]->getIntegridade() - dano_sala);
+						
+						sala_afectada = rand() % 12;
+						salas[sala_afectada]->setIntegridade(salas[sala_afectada]->getIntegridade() - dano_sala);
+						salas[sala_afectada]->setBrecha(true);
 					}
 				}
 				else
 				{
 					dano_sala = 10;
 
-					salas[rand() % 12]->setIntegridade(salas[rand() % 12]->getIntegridade() - dano_sala);
+					sala_afectada = rand() % 12;
+					salas[sala_afectada]->setIntegridade(salas[sala_afectada]->getIntegridade() - dano_sala);
+					salas[sala_afectada]->setBrecha(true);
 				}
 			}
 			else
@@ -769,14 +774,18 @@ void Nave::evento_meteoritos()		//COnsideramos raios laser 1 ou mais?
 								escudo = 0;
 								estado_escudo = false;
 
-								salas[rand() % 12]->setIntegridade(salas[rand() % 12]->getIntegridade() - dano_sala);
+								sala_afectada = rand() % 12;
+								salas[sala_afectada]->setIntegridade(salas[sala_afectada]->getIntegridade() - dano_sala);
+								salas[sala_afectada]->setBrecha(true);
 							}
 						}
 						else
 						{
 							dano_sala = 10;
 
-							salas[rand() % 12]->setIntegridade(salas[rand() % 12]->getIntegridade() - dano_sala);
+							sala_afectada = rand() % 12;
+							salas[sala_afectada]->setIntegridade(salas[sala_afectada]->getIntegridade() - dano_sala);
+							salas[sala_afectada]->setBrecha(true);
 						}
 					}
 				}
@@ -812,14 +821,18 @@ void Nave::evento_meteoritos()		//COnsideramos raios laser 1 ou mais?
 						escudo = 0;
 						estado_escudo = false;
 
-						salas[rand() % 12]->setIntegridade(salas[rand() % 12]->getIntegridade() - dano_sala);
+						sala_afectada = rand() % 12;
+						salas[sala_afectada]->setIntegridade(salas[sala_afectada]->getIntegridade() - dano_sala);
+						salas[sala_afectada]->setBrecha(true);
 					}
 				}
 				else
 				{
 					dano_sala = 10;
 
-					salas[rand() % 12]->setIntegridade(salas[rand() % 12]->getIntegridade() - dano_sala);
+					sala_afectada = rand() % 12;
+					salas[sala_afectada]->setIntegridade(salas[sala_afectada]->getIntegridade() - dano_sala);
+					salas[sala_afectada]->setBrecha(true);
 				}
 			}
 			else
@@ -837,14 +850,18 @@ void Nave::evento_meteoritos()		//COnsideramos raios laser 1 ou mais?
 								escudo = 0;
 								estado_escudo = false;
 
-								salas[rand() % 12]->setIntegridade(salas[rand() % 12]->getIntegridade() - dano_sala);
+								sala_afectada = rand() % 12;
+								salas[sala_afectada]->setIntegridade(salas[sala_afectada]->getIntegridade() - dano_sala);
+								salas[sala_afectada]->setBrecha(true);
 							}
 						}
 						else
 						{
 							dano_sala = 10;
 
-							salas[rand() % 12]->setIntegridade(salas[rand() % 12]->getIntegridade() - dano_sala);
+							sala_afectada = rand() % 12;
+							salas[sala_afectada]->setIntegridade(salas[sala_afectada]->getIntegridade() - dano_sala);
+							salas[sala_afectada]->setBrecha(true);
 						}
 					}
 				}
@@ -860,6 +877,8 @@ void Nave::evento_piratas() // falta por os piratas a aparecer numa sala aleator
 
 	int dano;
 	int dano_sala;
+	int sala_afectada;
+	int evento_aleatorio;
 
 	laser = false;
 	dano = rand() % 30 + 30;
@@ -873,7 +892,18 @@ void Nave::evento_piratas() // falta por os piratas a aparecer numa sala aleator
 			escudo = 0;
 			estado_escudo = false;
 
-			salas[rand() % 12]->setIntegridade(salas[rand() % 12]->getIntegridade() - dano_sala);
+			sala_afectada = rand() % 12;
+			salas[sala_afectada]->setIntegridade(salas[sala_afectada]->getIntegridade() - dano_sala);
+
+			evento_aleatorio = (rand() % 3) + 1;
+			switch (evento_aleatorio)
+			{
+			case 1: salas[sala_afectada]->setBrecha(true); break;
+			case 2: salas[sala_afectada]->setCurtoCircuito(true); break;
+			case 3: salas[sala_afectada]->setFogo(true); break;
+			default:
+				break;
+			}
 		}
 	}
 
@@ -916,5 +946,17 @@ void Nave::evento_cosmico()
 	{
 		sala_danificada = rand() % 12;
 		salas[sala_danificada]->setIntegridade(salas[sala_danificada]->getIntegridade() - 10);
+	}
+}
+
+//-------------Verifica integridade---------
+void Nave::verifica_integridade()
+{
+	for (int i = 0; i < salas.size(); i++)
+	{
+		if (salas[i]->getIntegridade() <= 0)
+		{
+			cout << "termina o jogo" << endl;
+		}
 	}
 }
