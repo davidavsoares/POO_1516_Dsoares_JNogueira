@@ -943,9 +943,9 @@ void Nave::evento_xenomorfo() // falta por um xenomorfo a aparecer numa sala ale
 
 	switch (opcao)
 	{
-	case 1: oss << (char)(176); salas[sala_invadida]->adiciona(new Geigermorfo(oss.str())); break;
-	case 2: oss << (char)(233); salas[sala_invadida]->adiciona(new Blob(oss.str())); break;
-	case 3: oss << (char)(157); salas[sala_invadida]->adiciona(new Mxyzypykwi(oss.str())); break;
+	case 1: oss << (char)(43); salas[sala_invadida]->adiciona(new Geigermorfo(oss.str())); break;
+	case 2: oss << (char)(46); salas[sala_invadida]->adiciona(new Blob(oss.str())); break;
+	case 3: oss << (char)(45); salas[sala_invadida]->adiciona(new Mxyzypykwi(oss.str())); break;
 	default: break;
 	}
 	

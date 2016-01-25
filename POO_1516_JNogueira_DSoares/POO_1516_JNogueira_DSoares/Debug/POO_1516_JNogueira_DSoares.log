@@ -1,2 +1,7 @@
-﻿  Interface.cpp
+﻿  Nave.cpp
+c:\users\kalin\documents\github\poo\poo_1516_dsoares_jnogueira\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\nave.cpp(669): warning C4804: '>': unsafe use of type 'bool' in operation
+c:\users\kalin\documents\github\poo\poo_1516_dsoares_jnogueira\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\nave.cpp(722): warning C4018: '<': signed/unsigned mismatch
+c:\users\kalin\documents\github\poo\poo_1516_dsoares_jnogueira\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\nave.cpp(798): warning C4018: '<': signed/unsigned mismatch
+c:\users\kalin\documents\github\poo\poo_1516_dsoares_jnogueira\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\nave.cpp(912): warning C4018: '<': signed/unsigned mismatch
+c:\users\kalin\documents\github\poo\poo_1516_dsoares_jnogueira\poo_1516_jnogueira_dsoares\poo_1516_jnogueira_dsoares\nave.cpp(973): warning C4018: '<': signed/unsigned mismatch
   POO_1516_JNogueira_DSoares.vcxproj -> C:\Users\kalin\Documents\GitHub\Poo\POO_1516_Dsoares_JNogueira\POO_1516_JNogueira_DSoares\Debug\POO_1516_JNogueira_DSoares.exe
