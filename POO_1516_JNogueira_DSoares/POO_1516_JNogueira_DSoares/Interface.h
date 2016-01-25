@@ -24,7 +24,8 @@ public:
 
 	void inicial(Consola *c);
 
-	void Salas(Consola *c);
+	void Salas(Consola *c, int dif);
+	void Selec_Dificuldade(Consola *c);
 
 	/*void NextDesign(Nave & Spaceship, Consola *c);*/
 

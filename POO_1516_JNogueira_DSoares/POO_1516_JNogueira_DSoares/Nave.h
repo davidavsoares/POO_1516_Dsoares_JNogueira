@@ -34,6 +34,8 @@ class Nave
 	int conta_propulsores, pos_x, pos_y, Tamanho, distancia, turno = 0;		//ELIMINAR CONTA PROPULSORES
 	int conta_tripulantes;
 	int escudo;
+	int dificuldade;
+	int distancia_total;
 	bool laser = false;
 	bool estado_escudo;
 public:
@@ -94,6 +96,11 @@ public:
 	void evento_cosmico();
 
 	void verifica_integridade();
+
+	void setDificuldade(int x);
+	void serDistanciaTotal();
+	int getDificuldade()const;
+	int getDistanciaTotal()const;
 
 	int procura(string nome) const;
 

@@ -944,7 +944,7 @@ void Nave::evento_xenomorfo() // falta por um xenomorfo a aparecer numa sala ale
 	switch (opcao)
 	{
 	case 1: oss << (char)(176); salas[sala_invadida]->adiciona(new Geigermorfo(oss.str())); break;
-	case 2: oss << (char)(223); salas[sala_invadida]->adiciona(new Blob(oss.str())); break;
+	case 2: oss << (char)(233); salas[sala_invadida]->adiciona(new Blob(oss.str())); break;
 	case 3: oss << (char)(157); salas[sala_invadida]->adiciona(new Mxyzypykwi(oss.str())); break;
 	default: break;
 	}
@@ -977,4 +977,24 @@ void Nave::verifica_integridade()
 			cout << "termina o jogo" << endl;
 		}
 	}
+}
+
+void Nave::setDificuldade(int x)
+{
+	dificuldade = x;
+}
+
+void Nave::serDistanciaTotal()
+{
+	distancia_total = (4000 + 1000 * (dificuldade));
+}
+
+int Nave::getDificuldade()const
+{
+	return dificuldade;
+}
+
+int Nave::getDistanciaTotal()const
+{
+	return distancia_total;
 }

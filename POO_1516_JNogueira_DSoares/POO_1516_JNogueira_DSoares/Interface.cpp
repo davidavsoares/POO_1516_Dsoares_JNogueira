@@ -42,12 +42,8 @@ void Interface::desenha_menu()		//Configura o menu que é apresentado inicialment
 		cout << endl;
 	}
 	
-	if(contador == 1)
-		inicial(&c);
-	if (contador == 2)
-		Salas(&c);
 
-
+	Selec_Dificuldade(&c);
 }
 
 void Interface::creditos()		//Apresenta os creditos
@@ -471,8 +467,7 @@ void Interface::inicial(Consola *c)		//Apresenta o menu inicial
 
 	switch (opcao)
 	{
-	case 1: //Nave(8, 7, 14);
-		Salas(c);
+	case 1:Selec_Dificuldade(c);	
 		break;
 	case 2:creditos();
 		break;
@@ -483,7 +478,7 @@ void Interface::inicial(Consola *c)		//Apresenta o menu inicial
 	}
 }
 
-void Interface::Salas(Consola *c)		//Desenha e configura o menu  que é apresentado antes do desenho da nave
+void Interface::Salas(Consola *c, int dif)		//Desenha e configura o menu  que é apresentado antes do desenho da nave
 {
 	
 
@@ -493,6 +488,9 @@ void Interface::Salas(Consola *c)		//Desenha e configura o menu  que é apresenta
 					//cmd.cmd();
 	Sala *p1;
 	bool EL_CAPITAN = 1, EL_ROBOT = 1;
+
+	Spaceship.setDificuldade(dif);
+	Spaceship.serDistanciaTotal();
 
 	c->gotoxy(45, 8);
 	cout << "Escolha as suas salas:";
@@ -988,3 +986,81 @@ void Interface::Salas(Consola *c)		//Desenha e configura o menu  que é apresenta
 
 
 
+void Interface::Selec_Dificuldade(Consola *c)
+{
+	flag = false;
+
+	int opcao = 1, menu_x = 50, menu_y = 15, n_opcoes = 3;
+	int dificuldade;
+
+	//MENU INICIAL//
+	c->clrscr();
+	c->gotoxy(45, 8);
+	cout << "Seleccione a dificuldade:";
+	c->gotoxy(menu_x, menu_y);
+	c->setBackgroundColor(fundo);
+	cout << ">Facil";
+	c->gotoxy(menu_x, menu_y + 3);
+	cout << "Medio";
+	c->gotoxy(menu_x, menu_y + 6);
+	cout << "Dificil";
+	do
+	{
+		opcao = move(opcao, n_opcoes, 20, 20);
+
+		if (opcao == 1)
+		{
+			c->clrscr();
+			c->gotoxy(45, 8);
+			cout << "Seleccione a dificuldade:";
+			c->gotoxy(menu_x, menu_y);
+			c->setBackgroundColor(fundo);
+			cout << ">Facil";
+			c->gotoxy(menu_x, menu_y + 3);
+			cout << "Medio";
+			c->gotoxy(menu_x, menu_y + 6);
+			cout << "Dificil";
+		}
+		if (opcao == 2)
+		{
+			c->clrscr();
+			c->gotoxy(45, 8);
+			cout << "Seleccione a dificuldade:";
+			c->gotoxy(menu_x, menu_y);
+			c->setBackgroundColor(fundo);
+			cout << "Facil";
+			c->gotoxy(menu_x, menu_y + 3);
+			cout << ">Medio";
+			c->gotoxy(menu_x, menu_y + 6);
+			cout << "Dificil";
+		}
+		if (opcao == 3)
+		{
+			c->clrscr();
+			c->gotoxy(45, 8);
+			cout << "Seleccione a dificuldade:";
+			c->gotoxy(menu_x, menu_y);
+			c->setBackgroundColor(fundo);
+			cout << "Facil";
+			c->gotoxy(menu_x, menu_y + 3);
+			cout << "Medio";
+			c->gotoxy(menu_x, menu_y + 6);
+			cout << ">Dificil";
+		}
+	} while (!flag);  //Faz um ciclo de 'if' para escolher o valor de opcao
+
+
+	switch (opcao)
+	{
+	case 1:dificuldade = 1; 
+		break;
+	case 2:dificuldade = 2; 
+		break;
+	case 3:dificuldade = 3;
+		break;
+	default:
+		break;
+	}
+
+	Salas(c, dificuldade);
+}
