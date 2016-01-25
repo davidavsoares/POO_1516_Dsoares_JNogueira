@@ -102,6 +102,8 @@ public:
 	int getDificuldade()const;
 	int getDistanciaTotal()const;
 
+	
+
 	int procura(string nome) const;
 
 };

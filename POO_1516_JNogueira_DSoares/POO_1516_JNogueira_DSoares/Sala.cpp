@@ -189,7 +189,7 @@ void Sala::Consome_oxigenio()
 			{
 				oxigenio -= unidades[i]->getRespira();
 			}
-			else if (unidades[i]->getRespira())
+			else if (unidades[i]->getRespira() > 0)
 			{
 				unidades[i]->SofrerDano(1);
 			}
@@ -327,6 +327,11 @@ void Sala::setFogo(bool estado)
 void Sala::setBrecha(bool estado)
 {
 	brecha = estado;
+	if (brecha == true)
+	{
+		oxigenio = 0;
+		fogo = false;
+	}
 }
 void Sala::setCurtoCircuito(bool estado)
 {
@@ -344,3 +349,17 @@ bool Sala::getCurtoCircuito()const
 {
 	return curto_circuito;
 }
+
+
+
+
+
+
+//void Sala::setOxigenio(int x)
+//{
+//	oxigenio = x;
+//	if (oxigenio < 0)
+//	{
+//		oxigenio = 0;
+//	}
+//}

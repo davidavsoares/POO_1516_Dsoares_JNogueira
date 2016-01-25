@@ -55,6 +55,8 @@ public:
 
 	void setOndeEstou(Nave * p);
 
+	/*void setOxigenio(int x);*/
+
 	Nave * getOndeEstou();
 };
 

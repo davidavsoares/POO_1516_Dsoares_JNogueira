@@ -998,3 +998,5 @@ int Nave::getDistanciaTotal()const
 {
 	return distancia_total;
 }
+
+
