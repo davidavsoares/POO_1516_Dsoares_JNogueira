@@ -131,6 +131,12 @@ int Unidade::getMutatis()
 	return this->Mutatis;
 }
 
+bool Unidade::getFlamejante()
+{
+	return this->Flamejante;
+}
+
+
 
 
 

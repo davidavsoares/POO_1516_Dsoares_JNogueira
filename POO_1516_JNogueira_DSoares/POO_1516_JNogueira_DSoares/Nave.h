@@ -106,6 +106,10 @@ public:
 
 	int procura(string nome) const;
 
+	void Pega_Fogo();
+	void Percorre_Salas();
+
+
 };
 
 

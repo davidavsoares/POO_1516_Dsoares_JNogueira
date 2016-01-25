@@ -55,8 +55,13 @@ public:
 
 	void setOndeEstou(Nave * p);
 
-	/*void setOxigenio(int x);*/
+	void setOxigenio(int x);
 
 	Nave * getOndeEstou();
+
+	void Sala::Analisa_oxigenio();
+
+	void AnalisaCurtoCircuito();
+	void AnalisaFogo();
 };
 

@@ -188,6 +188,10 @@ void Sala::Consome_oxigenio()
 			if (oxigenio > 0)
 			{
 				oxigenio -= unidades[i]->getRespira();
+				
+				if (unidades[i]->getFlamejante())
+					setOxigenio(oxigenio - 5);
+
 			}
 			else if (unidades[i]->getRespira() > 0)
 			{
@@ -214,6 +218,12 @@ int Sala::getOperadores()		//Retorna o numero de Tripulantes existentes na sala
 void Sala::setIntegridade(int integridade)
 {
 	this->integridade = integridade;
+	
+
+	if (integridade <= 0)
+	{
+		//termina jogo
+	}
 }
 void Sala::Actualiza_Combate()
 {
@@ -355,11 +365,58 @@ bool Sala::getCurtoCircuito()const
 
 
 
-//void Sala::setOxigenio(int x)
-//{
-//	oxigenio = x;
-//	if (oxigenio < 0)
-//	{
-//		oxigenio = 0;
-//	}
-//}
+void Sala::setOxigenio(int x)
+{
+	oxigenio = x;
+	if (oxigenio < 0)
+	{
+		oxigenio = 0;
+	}
+}
+
+
+void Sala::Analisa_oxigenio()
+{
+	if (oxigenio <= 0)
+	{
+		fogo = false;
+	}
+
+}
+
+void Sala::AnalisaFogo()
+{
+	if (fogo == true)
+	{
+		if (rand() % 101 > 50)
+		{
+			setIntegridade(integridade - 10);
+		}
+		if (unidades.size() > 0)
+		{
+			for (int i = 0; i < unidades.size(); i++)
+			{
+				unidades[i]->SofrerDano(2);
+			}
+		}
+
+	}
+}
+
+
+void Sala::AnalisaCurtoCircuito()
+{
+	if (curto_circuito == true)
+	{
+		if (unidades.size() > 0)
+		{
+			if (rand() % 101 < 25)
+			{
+				for (int i = 0; i < unidades.size(); i++)
+				{
+					unidades[i]->SofrerDano(unidades.size());
+				}
+			}
+		}
+	}
+}

@@ -43,7 +43,7 @@ void Interface::desenha_menu()		//Configura o menu que é apresentado inicialment
 	}
 	
 
-	Selec_Dificuldade(&c);
+	inicial(&c);
 }
 
 void Interface::creditos()		//Apresenta os creditos

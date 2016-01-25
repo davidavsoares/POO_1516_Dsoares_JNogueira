@@ -113,6 +113,7 @@ void comandos::inicio_turno(Nave & Spaceship)
 void comandos::fim_turno(Nave & Spaceship)
 {
 	Spaceship.faz_evento();
+	Spaceship.Percorre_Salas();
 	Spaceship.Repara_salas();
 	Spaceship.Decrementa_oxigenio();
 	Spaceship.actualiza_distancia();
@@ -122,5 +123,6 @@ void comandos::fim_turno(Nave & Spaceship)
 	Spaceship.MutatisMutandis();
 
 	Spaceship.verifica_integridade();
+
 	
 }

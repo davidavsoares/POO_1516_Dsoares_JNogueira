@@ -999,4 +999,111 @@ int Nave::getDistanciaTotal()const
 	return distancia_total;
 }
 
+void Nave::Pega_Fogo()
+{
+	for (unsigned int i = 0; i < salas.size(); i++)
+	{
+		if (salas[i]->getFogo())
+		{
+			if (0 <= i <= 3)		// caso o fogo se encontre numa sala da linha de cima
+			{
+				//Pega abaixo
+				if (1 <= i <= 3 && rand() % 101 < 5)
+				{
+					salas[i + 3]->setFogo(true);
+
+				}
+
+				//Pega Direita
+
+				if (0 <= i < 3 && rand() % 101 < 5)
+				{
+					salas[i + 1]->setFogo(true);
+
+				}
+
+				//Pega Esquerda
+
+				if (1 <= i <= 3 && rand() % 101 < 5)
+				{
+					salas[i - 1]->setFogo(true);
+
+				}
+			}
+			if (4 <= i <= 7)		// caso o fogo se encontre numa sala da linha do meio
+			{
+				//Pega acima
+				if (4 <= i < 7 && rand() % 101 < 5)
+				{
+					salas[i - 3]->setFogo(true);
+
+				}
+
+				//Pega abaixo
+				if (4 <= i < 7 && rand() % 101 < 5)
+				{
+					salas[i + 5]->setFogo(true);
+
+				}
+
+				//Pega Direita
+
+				if (4 <= i < 7 && rand() % 101 < 5)
+				{
+					salas[i + 1]->setFogo(true);
+
+				}
+
+				//Pega Esquerda
+
+				if (4 < i <= 7 && rand() % 101 < 5)
+				{
+					salas[i - 1]->setFogo(true);
+
+				}
+			}
+			if (8 <= i <= 11)		// caso o fogo se encontre numa sala da linha de baixo
+			{
+				//Pega acima
+				if (8 < i <= 11 && rand() % 101 < 5)
+				{
+					salas[i - 5]->setFogo(true);
+
+				}
+
+				//Pega Direita
+
+				if (8 <= i < 11 && rand() % 101 < 5)
+				{
+					salas[i + 1]->setFogo(true);
+
+				}
+
+				//Pega Esquerda
+
+				if (8 < i <= 11 && rand() % 101 < 5)
+				{
+					salas[i - 1]->setFogo(true);
+
+				}
+
+			}
+
+		}
+
+
+	}
+
+}
+
+void Nave::Percorre_Salas()
+{
+	for (unsigned int i = 0; i < salas.size(); i++)
+	{
+		salas[i]->AnalisaCurtoCircuito();
+		salas[i]->AnalisaFogo();
+	}
+	
+}
+
 

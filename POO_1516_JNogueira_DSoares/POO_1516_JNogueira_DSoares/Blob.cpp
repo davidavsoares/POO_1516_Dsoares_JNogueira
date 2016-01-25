@@ -4,7 +4,7 @@ Blob::Blob(string nome)
 	: Xenomorfos(nome,
 		/*PV*/				8,
 		/*Respira:*/		0,
-		/*Flamejante:*/		1,
+		/*Flamejante:*/		5,
 		/*Toxico:*/			1,
 		/*Indeciso:*/		0,
 		/*Misterioso:*/		0,

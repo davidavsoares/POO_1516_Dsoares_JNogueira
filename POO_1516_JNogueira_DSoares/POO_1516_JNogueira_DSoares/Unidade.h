@@ -33,5 +33,6 @@ public:
 	void setSaude(int cura);
 	string toString();
 	int getMutatis();
+	bool getFlamejante();
 };
 
